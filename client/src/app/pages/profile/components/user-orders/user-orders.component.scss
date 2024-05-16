@@ -1,0 +1,10 @@
+th,
+td {
+  padding: 0.8rem 0.2rem;
+}
+
+.minimal-table {
+  background-color: var(--secondary);
+  color: var(--white);
+  user-select: none;
+}

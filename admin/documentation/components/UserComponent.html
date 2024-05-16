@@ -1,0 +1,1085 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>admin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">admin documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user/user.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatDialogModule</code>
+                            <code>MatCardModule</code>
+                                <code><a href="../components/RatingComponent.html" target="_self" >RatingComponent</a></code>
+                            <code>CurrencyPipe</code>
+                                <code><a href="../components/ColorComponent.html" target="_self" >ColorComponent</a></code>
+                                <code><a href="../components/UserFormsComponent.html" target="_self" >UserFormsComponent</a></code>
+                            <code>MatButtonModule</code>
+                            <code>MatTabsModule</code>
+                            <code>DatePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./user.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteDialog" >openDeleteDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openEditDialog" >openEditDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialog: MatDialog, activatedRoute: ActivatedRoute, store: Store)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/user/user.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUser()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/pages/user/user.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/pages/user/user.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/pages/user/user.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeleteDialog"></a>
+                    <span class="name">
+                        <span ><b>openDeleteDialog</b></span>
+                        <a href="#openDeleteDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDeleteDialog(user: <a href="../interfaces/IUser.html" target="_self">IUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/pages/user/user.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEditDialog"></a>
+                    <span class="name">
+                        <span ><b>openEditDialog</b></span>
+                        <a href="#openEditDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEditDialog(user: <a href="../interfaces/IUser.html" target="_self">IUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/pages/user/user.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/user/user.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/user/user.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CurrencyPipe, DatePipe } from &#x27;@angular/common&#x27;;
+import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { userActions, selectDbUser } from &#x27;@app/store/user&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { Subject, switchMap, takeUntil } from &#x27;rxjs&#x27;;
+import { MatDialog, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
+
+import { UserFormsComponent } from &#x27;../users/components/user-forms/user-forms.component&#x27;;
+import { IUser } from &#x27;@app/models&#x27;;
+import { ColorComponent, RatingComponent } from &#x27;@app/shared&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatTabsModule } from &#x27;@angular/material/tabs&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+
+@Component({
+  selector: &#x27;app-user&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./user.component.html&#x27;,
+  styleUrl: &#x27;./user.component.scss&#x27;,
+  imports: [
+    MatDialogModule,
+    MatCardModule,
+    RatingComponent,
+    CurrencyPipe,
+    ColorComponent,
+    UserFormsComponent,
+    MatButtonModule,
+    MatTabsModule,
+    DatePipe,
+  ],
+})
+export class UserComponent implements OnInit, OnDestroy {
+  constructor(
+    private dialog: MatDialog,
+    private activatedRoute: ActivatedRoute,
+    private store: Store
+  ) {}
+
+  destroy$ &#x3D; new Subject();
+
+  user!: IUser;
+
+  ngOnInit() {
+    this.getUser();
+  }
+
+  getUser() {
+    this.activatedRoute.paramMap
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap((data) &#x3D;&gt; {
+          this.store.dispatch(
+            userActions.getSingleUser({
+              userId: String(data.get(&#x27;id&#x27;)),
+            })
+          );
+          return this.store.select(selectDbUser);
+        })
+      )
+      .subscribe((data) &#x3D;&gt; {
+        if (data) {
+          this.user &#x3D; data;
+          console.log(data);
+        }
+      });
+  }
+
+  openEditDialog(user: IUser) {
+    this.dialog.open(UserFormsComponent, {
+      width: &#x27;40%&#x27;,
+      height: &#x27;40%&#x27;,
+      enterAnimationDuration: 500,
+      data: {
+        formType: &#x27;Edit&#x27;,
+        editUser: user,
+      },
+    });
+  }
+
+  openDeleteDialog(user: IUser) {
+    this.dialog.open(UserFormsComponent, {
+      width: &#x27;40%&#x27;,
+      height: &#x27;40%&#x27;,
+      enterAnimationDuration: 500,
+      data: {
+        formType: &#x27;Delete&#x27;,
+        deleteUser: user,
+      },
+    });
+  }
+  ngOnDestroy() {
+    this.destroy$.next(&#x27;&#x27;);
+    this.destroy$.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (user) {
+
+&lt;mat-tab-group&gt;
+  &lt;mat-tab label&#x3D;&quot;User&quot;&gt;
+    &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+      &lt;div class&#x3D;&quot;resource&quot;&gt;
+        &lt;div class&#x3D;&quot;resource__images&quot;&gt;
+          &lt;div class&#x3D;&quot;resource__images-main&quot;&gt;
+            &lt;img
+              src&#x3D;&quot;{{ user.image || &#x27;assets/images/avatar-1.png&#x27; }}&quot;
+              alt&#x3D;&quot;main-img&quot;
+              class&#x3D;&quot;main-img&quot;
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;resource__desc&quot;&gt;
+          &lt;h2 class&#x3D;&quot;resource-title&quot;&gt;
+            {{ user.firstname }} {{ user.lastname }}
+          &lt;/h2&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Email&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.email }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Created At&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.createdAt | date }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Role&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.role }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Blocked&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.blocked }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Mobile&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.mobile }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Updated At&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.updatedAt | date }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          @if (user.Address) {
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Address 1&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.address1 }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Address 2&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.address2 }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;State&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.state }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;City&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.city }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Zip Code&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.zipCode }}&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;resource-item&quot;&gt;
+            &lt;span class&#x3D;&quot;resource-item-key&quot;&gt;Other&lt;/span&gt;
+            &lt;span class&#x3D;&quot;resource-item-value&quot;&gt;{{ user.Address.other }}&lt;/span&gt;
+          &lt;/div&gt;
+          }
+
+          &lt;div class&#x3D;&quot;resource-actions&quot;&gt;
+            &lt;button
+              class&#x3D;&quot;delete-btn&quot;
+              (click)&#x3D;&quot;openDeleteDialog(user)&quot;
+              mat-button
+            &gt;
+              Delete
+            &lt;/button&gt;
+            &lt;button
+              class&#x3D;&quot;update-btn&quot;
+              (click)&#x3D;&quot;openEditDialog(user)&quot;
+              mat-button
+            &gt;
+              {{ user.blocked ? &quot;UnBlock&quot; : &quot;Block&quot; }}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/mat-tab&gt;
+
+  @if (user.Cart.length) {
+  &lt;mat-tab label&#x3D;&quot;Cart&quot;&gt;
+    &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+      &lt;table class&#x3D;&quot;cst-responsive-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Product Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Color&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Quantity&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Price&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+          @for (item of user.Cart; track $index) {
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt;{{ item.productId }}&lt;/th&gt;
+            &lt;td data-title&#x3D;&quot;Color&quot;&gt;{{ item.color }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Quantity&quot;&gt;{{ item.quantity }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Price&quot; data-type&#x3D;&quot;currency&quot;&gt;
+              {{ item.price | currency }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          }
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/mat-tab&gt;
+  } @if (user.Orders.length) {
+  &lt;mat-tab label&#x3D;&quot;Orders&quot;&gt;
+    &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+      &lt;table class&#x3D;&quot;cst-responsive-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Total Price&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Paid At&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+          @for (item of user.Orders; track $index) {
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt;{{ item.id }}&lt;/th&gt;
+            &lt;td data-title&#x3D;&quot;Total Price&quot;&gt;
+              {{ item.totalPrice | currency }}
+            &lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Paid At&quot;&gt;
+              {{ item.paidAt | date }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          }
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/mat-tab&gt;
+  } @if (user.Compare.length) {
+  &lt;mat-tab label&#x3D;&quot;Compares&quot;&gt;
+    &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+      &lt;table class&#x3D;&quot;cst-responsive-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Product Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Price&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+          @for (item of user.Compare; track $index) {
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt;{{ item.id }}&lt;/th&gt;
+            &lt;td data-title&#x3D;&quot;Product Id&quot;&gt;{{ item.productId }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Title&quot;&gt;{{ item.Product.title }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Price&quot; data-type&#x3D;&quot;currency&quot;&gt;
+              {{ item.Product.price | currency }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          }
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/mat-tab&gt;
+  } @if (user.Wishlist.length) {
+  &lt;mat-tab label&#x3D;&quot;Wishlist&quot;&gt;
+    &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+      &lt;table class&#x3D;&quot;cst-responsive-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Product Id&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Price&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+          @for (item of user.Wishlist; track $index) {
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;row&quot;&gt;{{ item.id }}&lt;/th&gt;
+            &lt;td data-title&#x3D;&quot;Product Id&quot;&gt;{{ item.productId }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Title&quot;&gt;{{ item.Product.title }}&lt;/td&gt;
+            &lt;td data-title&#x3D;&quot;Price&quot; data-type&#x3D;&quot;currency&quot;&gt;
+              {{ item.Product.price | currency }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          }
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/mat-tab&gt;
+  }
+&lt;/mat-tab-group&gt;
+
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (user) {<mat-tab-group>  <mat-tab label="User">    <div class="tab-content">      <div class="resource">        <div class="resource__images">          <div class="resource__images-main">            <img              src="{{ user.image || \'assets/images/avatar-1.png\' }}"              alt="main-img"              class="main-img"            />          </div>        </div>        <div class="resource__desc">          <h2 class="resource-title">            {{ user.firstname }} {{ user.lastname }}          </h2>          <div class="resource-item">            <span class="resource-item-key">Email</span>            <span class="resource-item-value">{{ user.email }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Created At</span>            <span class="resource-item-value">{{ user.createdAt | date }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Role</span>            <span class="resource-item-value">{{ user.role }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Blocked</span>            <span class="resource-item-value">{{ user.blocked }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Mobile</span>            <span class="resource-item-value">{{ user.mobile }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Updated At</span>            <span class="resource-item-value">{{ user.updatedAt | date }}</span>          </div>          @if (user.Address) {          <div class="resource-item">            <span class="resource-item-key">Address 1</span>            <span class="resource-item-value">{{ user.Address.address1 }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Address 2</span>            <span class="resource-item-value">{{ user.Address.address2 }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">State</span>            <span class="resource-item-value">{{ user.Address.state }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">City</span>            <span class="resource-item-value">{{ user.Address.city }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Zip Code</span>            <span class="resource-item-value">{{ user.Address.zipCode }}</span>          </div>          <div class="resource-item">            <span class="resource-item-key">Other</span>            <span class="resource-item-value">{{ user.Address.other }}</span>          </div>          }          <div class="resource-actions">            <button              class="delete-btn"              (click)="openDeleteDialog(user)"              mat-button            >              Delete            </button>            <button              class="update-btn"              (click)="openEditDialog(user)"              mat-button            >              {{ user.blocked ? "UnBlock" : "Block" }}            </button>          </div>        </div>      </div>    </div>  </mat-tab>  @if (user.Cart.length) {  <mat-tab label="Cart">    <div class="tab-content">      <table class="cst-responsive-table">        <thead>          <tr>            <th scope="col">Product Id</th>            <th scope="col">Color</th>            <th scope="col">Quantity</th>            <th scope="col">Price</th>          </tr>        </thead>        <tbody>          @for (item of user.Cart; track $index) {          <tr>            <th scope="row">{{ item.productId }}</th>            <td data-title="Color">{{ item.color }}</td>            <td data-title="Quantity">{{ item.quantity }}</td>            <td data-title="Price" data-type="currency">              {{ item.price | currency }}            </td>          </tr>          }        </tbody>      </table>    </div>  </mat-tab>  } @if (user.Orders.length) {  <mat-tab label="Orders">    <div class="tab-content">      <table class="cst-responsive-table">        <thead>          <tr>            <th scope="col">Id</th>            <th scope="col">Total Price</th>            <th scope="col">Paid At</th>          </tr>        </thead>        <tbody>          @for (item of user.Orders; track $index) {          <tr>            <th scope="row">{{ item.id }}</th>            <td data-title="Total Price">              {{ item.totalPrice | currency }}            </td>            <td data-title="Paid At">              {{ item.paidAt | date }}            </td>          </tr>          }        </tbody>      </table>    </div>  </mat-tab>  } @if (user.Compare.length) {  <mat-tab label="Compares">    <div class="tab-content">      <table class="cst-responsive-table">        <thead>          <tr>            <th scope="col">Id</th>            <th scope="col">Product Id</th>            <th scope="col">Title</th>            <th scope="col">Price</th>          </tr>        </thead>        <tbody>          @for (item of user.Compare; track $index) {          <tr>            <th scope="row">{{ item.id }}</th>            <td data-title="Product Id">{{ item.productId }}</td>            <td data-title="Title">{{ item.Product.title }}</td>            <td data-title="Price" data-type="currency">              {{ item.Product.price | currency }}            </td>          </tr>          }        </tbody>      </table>    </div>  </mat-tab>  } @if (user.Wishlist.length) {  <mat-tab label="Wishlist">    <div class="tab-content">      <table class="cst-responsive-table">        <thead>          <tr>            <th scope="col">Id</th>            <th scope="col">Product Id</th>            <th scope="col">Title</th>            <th scope="col">Price</th>          </tr>        </thead>        <tbody>          @for (item of user.Wishlist; track $index) {          <tr>            <th scope="row">{{ item.id }}</th>            <td data-title="Product Id">{{ item.productId }}</td>            <td data-title="Title">{{ item.Product.title }}</td>            <td data-title="Price" data-type="currency">              {{ item.Product.price | currency }}            </td>          </tr>          }        </tbody>      </table>    </div>  </mat-tab>  }</mat-tab-group>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BlogCategoriesComponent', 'selector': 'app-blog-categories'},{'name': 'BlogCategoryFormsComponent', 'selector': 'app-blog-category-forms'},{'name': 'BlogsComponent', 'selector': 'app-blogs'},{'name': 'BlogsFormComponent', 'selector': 'app-blogs-form'},{'name': 'BrandFormsComponent', 'selector': 'app-brand-forms'},{'name': 'BrandsComponent', 'selector': 'app-brands'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesFormsComponent', 'selector': 'app-categories-forms'},{'name': 'ColorComponent', 'selector': 'app-color'},{'name': 'ColorsComponent', 'selector': 'app-colors'},{'name': 'ColorsFormsComponent', 'selector': 'app-colors-forms'},{'name': 'CouponFormsComponent', 'selector': 'app-coupon-forms'},{'name': 'CouponsComponent', 'selector': 'app-coupons'},{'name': 'DateComponent', 'selector': 'app-date'},{'name': 'EnquiriesComponent', 'selector': 'app-enquiries'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormGroupComponent', 'selector': 'app-form-group'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PasswordComponent', 'selector': 'app-password'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductFormsComponent', 'selector': 'app-product-forms'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SubnavComponent', 'selector': 'app-subnav'},{'name': 'TagFormsComponent', 'selector': 'app-tag-forms'},{'name': 'TagsComponent', 'selector': 'app-tags'},{'name': 'TextAreaComponent', 'selector': 'app-textarea'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFormsComponent', 'selector': 'app-user-forms'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [{'name': 'ControlValueAccessorDirective', 'selector': '[appControlValueAccessor]'}];
+    var ACTUAL_COMPONENT = {'name': 'UserComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

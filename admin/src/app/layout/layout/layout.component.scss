@@ -1,0 +1,108 @@
+@import "../../../styles/mixins.scss";
+
+.mat-drawer-container {
+  height: 100vh;
+  width: 100vw;
+  a {
+    color: var(--white);
+  }
+}
+
+.mat-drawer {
+  width: 200px;
+  background-color: var(--secondary);
+  color: var(--white);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    border-radius: 0.1rem;
+  }
+
+  @include sm {
+    width: 100px;
+  }
+  @include xs {
+    width: 50px;
+  }
+
+  .drawer-logo {
+    height: 4.5rem;
+    border-bottom: 0.1px solid var(--gray);
+    margin-bottom: 0.8rem;
+  }
+
+  a {
+    display: flex;
+    align-content: center;
+    gap: 12px;
+    padding: 1rem;
+    transition: var(--transition);
+
+    &:hover {
+      text-decoration: underline;
+      background-color: var(--gray);
+    }
+
+    @include sm {
+      // background-color: red;
+      justify-content: center;
+    }
+  }
+
+  .link-text {
+    transition: var(--transition);
+    @include sm {
+      display: none;
+    }
+    @include xs {
+      display: none;
+    }
+  }
+}
+
+// .mat-drawer-content {
+// }
+
+.mat-toolbar {
+  justify-content: space-between;
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10000000 !important;
+}
+
+.mat-mdc-menu-panel {
+  background-color: var(--white) !important;
+  // color: var(--gray);
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+
+  span {
+    font-size: 14px;
+    color: var(--black);
+  }
+}
+
+main {
+  padding: 1rem;
+}
+
+.user-menu {
+  width: max-content;
+  padding: 0 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-direction: column;
+
+  button {
+    margin: 0.7rem 0;
+    text-align: start;
+  }
+}

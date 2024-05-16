@@ -1,0 +1,164 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Checkout</span>
+</nav>
+
+<form
+  [formGroup]="form"
+  class="container seperator shadow bg-white rounded py-4 my-4 px-4 px-sm-2"
+  (ngSubmit)="checkout()"
+>
+  <div class="row">
+    @if (cartData) {
+    <div class="col-md-4 order-2">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your Cart</span>
+        <span class="badge rounded-pill bg-secondary">{{
+          cartData.quantity
+        }}</span>
+      </h4>
+
+      @for (cart of cartData.cart; track $index) {
+      <div class="card p-1">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">{{ cart.Product.title }}</h6>
+            <small class="text-muted">{{ cart.color }}</small>
+          </div>
+          <span class="text-muted">{{ cart.price | currency }}</span>
+        </li>
+      </div>
+      } @empty {
+      <div
+        class="d-flex align-items-center justify-content-center bg-white shadow py-4 rounded"
+      >
+        <div class="back-to">
+          <p class="back-to-header">Your cart is empty</p>
+          <a routerLink="/store" class="back-to-link">
+            <span class="back-to-entity">&LeftArrow;</span>
+            <span class="back-to-text">Back to shop</span>
+          </a>
+        </div>
+      </div>
+      }
+
+      <div
+        class="card-footer my-3 d-flex align-items-center justify-content-between"
+      >
+        <span class="text-gloom text-sm">Total (USD)</span>
+        <strong>{{ cartData.totalPrice | currency }}</strong>
+      </div>
+    </div>
+    }
+
+    <div class="col-md-8 order-1">
+      <h4 class="mb-3">Billing Address</h4>
+      <div class="row mb-3">
+        <div class="col-sm-6 mb-2">
+          <label for="ckFirst name"> First Name </label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First name"
+            aria-label="First name"
+            formControlName="firstname"
+            id="ckFirst name"
+            name="ckFirst name"
+          />
+        </div>
+        <div class="col-sm-6 mb-2">
+          <label for="ckLast name"> Last Name </label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last name"
+            aria-label="Last name"
+            formControlName="lastname"
+            id="ckLast name"
+            name="ckLast name"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6 mb-2">
+          <div>
+            <label for="ckAddress">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="1234 Main St"
+              aria-label="Address"
+              formControlName="address1"
+              id="ckAddress"
+              name="ckAddress"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-6 mb-2">
+          <div>
+            <label for="ckAddress2">Address 2 (optional)</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Appartment or suite"
+              aria-label="Address2"
+              formControlName="address2"
+              id="ckAddress2"
+              name="ckAddress2"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-4 mb-2">
+          <label for="ckstate">State</label>
+          <select
+            class="form-select"
+            formControlName="state"
+            id="ckstate"
+            name="ckstate"
+          >
+            <option value="Chile">Chile</option>
+          </select>
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <label for="ckcity">City</label>
+          <input
+            formControlName="city"
+            id="ckcity"
+            name="ckcity"
+            type="text"
+            value="alkazam"
+            class="form-control"
+          />
+        </div>
+        <div class="col-sm-4 mb-2">
+          <label for="ckzipCode">Zip Code</label>
+          <input
+            formControlName="zipCode"
+            type="text"
+            class="form-control"
+            aria-label="zip"
+            id="ckzipCode"
+            name="ckzipCode"
+          />
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center my-4">
+        <a class="btn button-primary" routerLink="/customer/cart">
+          back to cart
+        </a>
+        <button class="btn button-primary" type="submit">
+          Continue to Payment
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

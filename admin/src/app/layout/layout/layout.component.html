@@ -1,0 +1,46 @@
+@if (user$|async; as user) {
+<mat-drawer-container>
+  <mat-drawer #drawer mode="side" opened>
+    <div class="drawer-logo">logo</div>
+
+    <div class="drawer-links">
+      @for (data of navData; track $index) {
+      <a [routerLink]="data.routerLink" class="link">
+        <span class="link-icon"> <fa-icon [icon]="data.icon"></fa-icon></span>
+        <span class="link-text">{{ data.label }}</span>
+      </a>
+      }
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <button (click)="drawer.toggle()">
+        <fa-icon [icon]="icons.bars" size="lg"></fa-icon>
+      </button>
+      <div class="user">
+        <div class="user-details" [mat-menu-trigger-for]="userMenu">
+          <img
+            [src]="user.image || 'assets/images/avatar-1.png'"
+            alt="user-img"
+            class="icon-img"
+          />
+          <span>{{ user.firstname }} {{ user.lastname }} </span>
+        </div>
+        <mat-menu #userMenu>
+          <div class="user-menu">
+            <a href="" class="router-link">Profile</a>
+            <button (click)="refreshAccessToken()" class="router-link">
+              Refresh Token
+            </button>
+            <button (click)="logout()" class="router-link">Logout</button>
+          </div></mat-menu
+        >
+      </div>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+}

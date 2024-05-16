@@ -1,0 +1,65 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Login</span>
+</nav>
+
+@if (data$ | async; as data) {
+<div class="container d-flex align-items-center justify-content-center">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    autocomplete="off"
+    novalidate
+    class="form-card seperator"
+  >
+    <div class="card shadow p-4">
+      <legend class="text-center">Login</legend>
+
+      <app-form-group
+        [control]="form.controls.email"
+        [patternError]="regexErrors.email"
+      >
+        <app-input
+          label="Email"
+          id="loginEmail"
+          formControlName="email"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="form.controls.password"
+        [patternError]="regexErrors.password"
+      >
+        <app-password
+          label="Password"
+          id="loginPassword"
+          formControlName="password"
+        ></app-password>
+      </app-form-group>
+
+      <a
+        routerLink="/auth/forgot-password"
+        class="router-link my-2 text-gloom fw-semibold"
+        >Forgot Password?</a
+      >
+
+      <div
+        class="form-card__actions d-flex align-items-center justify-content-center gap-2 my-3"
+      >
+        <button [disabled]="data.isLoading" class="button-primary">
+          Login
+        </button>
+        <a
+          routerLink="/auth/register"
+          [attr.disabled]="data.isLoading"
+          class="button-warn"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+  </form>
+</div>
+
+}

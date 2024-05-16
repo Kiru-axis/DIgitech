@@ -1,0 +1,36 @@
+@if (reviews()) { @for (review of reviews(); track $index) {
+<div class="review pb-2 border-bottom">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="review-user d-flex align-items-center gap-2 mb-2">
+      <div class="reviewer-img">
+        <img
+          src="{{ review.User.image || 'assets/images/avatar-1.png' }}"
+          alt="reviewer-img"
+          class="img-fluid"
+        />
+      </div>
+
+      <div>
+        <span class="d-block fw-bold">{{
+          review.User.firstname + " " + review.User.lastname
+        }}</span>
+        <span class="d-block text-gloom fw-semibold text-sm">{{
+          review.updatedAt
+        }}</span>
+      </div>
+    </div>
+    @if (user() && user().id === review.User.id) {
+    <button (click)="onDeleteReview(review.id)" class="btn btn-danger">
+      Delete
+    </button>
+    }
+  </div>
+  <div>
+    <app-rating [size]="'sm'" [stars]="review.star"></app-rating>
+
+    <p class="review-desc my-2 text-gloom">
+      {{ review.comment }}
+    </p>
+  </div>
+</div>
+} }

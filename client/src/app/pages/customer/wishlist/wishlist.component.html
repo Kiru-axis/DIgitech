@@ -1,0 +1,58 @@
+@if (showBreadcrumbs()) {
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Wishlist</span>
+</nav>
+
+} @if (wishlist$|async;as wishlist) {
+<div class="container seperator">
+  <div class="row g-2">
+    @for (wish of wishlist; track $index) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card shadow p-2 position-relative">
+        <div class="card-img-box">
+          <img
+            [src]="wish.Product.images[0] || 'assets/images/404.png'"
+            alt="compare-img"
+            class="wish-comp-img"
+          />
+        </div>
+
+        <div class="card-body">
+          <h4 class="product-card-title mb-3">{{ wish.Product.title }}</h4>
+          <p class="product-card-price">
+            {{ wish.Product.price | currency }}
+          </p>
+        </div>
+        <button
+          (click)="removeFromWishlist({ productId: wish.Product.id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Remove"
+          class="rem-btn position-absolute top-0 end-0 m-2"
+        >
+          &times;
+        </button>
+      </div>
+    </div>
+    } @empty {
+
+    <div
+      class="d-flex align-items-center justify-content-center bg-white shadow py-4 rounded"
+    >
+      <div class="back-to">
+        <p class="back-to-header">Your wishlist is empty</p>
+        <a routerLink="/store" class="back-to-link">
+          <span class="back-to-entity">&LeftArrow;</span>
+          <span class="back-to-text">Back to shop</span>
+        </a>
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
+
+}

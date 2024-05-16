@@ -1,0 +1,8 @@
+.cat-btn {
+  transition: var(--transition);
+  &:hover,
+  :focus {
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #f1f1f1;
+  }
+}

@@ -1,0 +1,408 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Store</span>
+</nav>
+
+<section class="store py-4 my-4">
+  <div class="container">
+    <div class="row g-2">
+      <!-- filters -->
+      <div class="col-3 d-none d-md-block">
+        <ng-container>
+          @if (data$|async;as data) {
+          <div class="card category-filter p-2 mb-3">
+            <h5 class="mb-3">Filter By Category</h5>
+
+            @for (cat of data.categories; track $index) {
+            <button
+              (click)="onSelectCategory(cat.name)"
+              class="text-start text-gloom fw-semibold mb-3"
+            >
+              {{ cat.name }}
+            </button>
+            }
+          </div>
+
+          <div class="card general-filters p-2">
+            <h5 class="mb-3">Filter By</h5>
+
+            <div class="p-2 general-filter-1">
+              <h6 class="mb-2">Availability</h6>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="available"
+                  id="available"
+                  (change)="onSelectAvailable('true')"
+                />
+                <label
+                  class="form-check-label text-gloom text-sm fw-semibold"
+                  for="available"
+                >
+                  Available (23)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="unavailable"
+                  id="unavailable"
+                  (change)="onSelectAvailable('false')"
+                />
+                <label
+                  class="form-check-label text-gloom text-sm fw-semibold"
+                  for="unavailable"
+                >
+                  Not Available (2)
+                </label>
+              </div>
+            </div>
+
+            <div class="p-2 general-filter-2">
+              <h6 class="mb-2">Price</h6>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input
+                      (change)="onSelectMinPrice($event)"
+                      type="number"
+                      class="form-control"
+                      name="min"
+                      id="min"
+                    />
+                    <label class="text-gloom fw-semibold" for="min">Min</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input
+                      (change)="onSelectMaxPrice($event)"
+                      type="number"
+                      class="form-control"
+                      name="max"
+                      id="max"
+                    />
+                    <label class="text-gloom fw-semibold" for="max">Max</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-2 general-filter-3">
+              <h6 class="mb-2">Color</h6>
+
+              <div class="d-flex align-items-center gap-1 flex-wrap">
+                <app-color
+                  (onSelectColorChange)="onSelectColor($event)"
+                  [colors]="data.colors"
+                  [size]="8"
+                ></app-color>
+              </div>
+            </div>
+          </div>
+
+          <div class="card tag-filter px-2 py-3 my-3">
+            <h5 class="mb-3">Product Tag</h5>
+
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              @for (tag of data.tags; track $index) {
+              <button
+                (click)="onSelectTag(tag.name)"
+                class="btn btn-product-badge text-sm fw-semibold text-capitalize"
+              >
+                {{ tag.name }}</button
+              >}
+            </div>
+          </div>
+
+          <div class="card category-filter px-2 py-3 mb-3">
+            <h5 class="mb-3">Random Products</h5>
+
+            <div class="row random-products">
+              @for (item of [1,2]; track $index) {
+              <div
+                class="col-4 d-flex align-items-center justify-content-center overflow-hidden"
+              >
+                <img
+                  src="assets/images/catbanner-01.jpg"
+                  class="random-img"
+                  alt="random-prod-img"
+                />
+              </div>
+              <div class="col-8">
+                <div class="product-card__details">
+                  <h5 class="product-card-category mb-1">Havels</h5>
+                  <h4 class="product-card-title mb-1">
+                    Lorem ipsum dolor sit amet.
+                  </h4>
+                  <p class="product-card-price mb-1">{{ "500" | currency }}</p>
+                  <app-rating [stars]="5"></app-rating>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+
+          }
+        </ng-container>
+
+        <div class="card shadow">
+          <button
+            type="submit"
+            class="btn btn-product-badge fw-semibold py-2"
+            (click)="onRemoveFilters()"
+          >
+            Remove Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- main display interface -->
+      <div class="col-md-9">
+        <div
+          class="shadow p-3 bg-white rounded mb-3 d-flex align-items-center justify-content-between"
+        >
+          <div class="selects d-flex align-items-center gap-2">
+            <p class="mb-0 text-dark fw-semibold">Sort By</p>
+
+            <select
+              class="form-select"
+              name="sorter"
+              id="sorter"
+              (change)="onSelectBestLatest($event)"
+            >
+              <option value="bestSelling">Best Selling</option>
+              <option value="latest">Latest</option>
+            </select>
+          </div>
+          <div class="icons d-none d-md-flex align-items-center gap-1">
+            <p class="text-gloom fw-semibold mb-0 text-sm">10 Products</p>
+            <button class="controller-button" (click)="onChangeCols(3)">
+              <img src="assets/images/gr4.svg" alt="gr4.svg" class="svg-img" />
+            </button>
+            <button class="controller-button" (click)="onChangeCols(4)">
+              <img src="assets/images/gr3.svg" alt="gr3.svg" class="svg-img" />
+            </button>
+            <button class="controller-button" (click)="onChangeCols(6)">
+              <img src="assets/images/gr2.svg" alt="gr2.svg" class="svg-img" />
+            </button>
+            <button class="controller-button" (click)="onChangeCols(12)">
+              <img src="assets/images/gr.svg" alt="gr.svg" class="svg-img" />
+            </button>
+          </div>
+
+          <div class="d-md-none">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#filtersCanvas"
+              aria-controls="filtersCanvas"
+              class="button-primary"
+            >
+              Filters
+            </button>
+          </div>
+        </div>
+
+        <app-products
+          [slider]="false"
+          [cols]="cols"
+          [fullWidthMode]="fullWidthMode"
+          [available]="available"
+          [bestSelling]="bestSelling"
+          [brand]="brand"
+          [cat]="cat"
+          [color]="color"
+          [latest]="latest"
+          [max]="max"
+          [min]="min"
+          [tag]="tag"
+          [removeFilters]="removeFilters"
+        ></app-products>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- responsive filters off canvas -->
+
+<div
+  class="offcanvas offcanvas-start"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="filtersCanvas"
+  aria-labelledby="Enable both scrolling & backdrop"
+>
+  <div class="offcanvas-header mb-1">
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ng-container>
+      @if (data$|async;as data) {
+      <div class="card category-filter p-2 mb-3">
+        <h5 class="mb-3">Filter By Category</h5>
+
+        <button
+          (click)="onSelectCategory('')"
+          class="text-start text-gloom fw-semibold mb-3"
+        >
+          All
+        </button>
+        @for (cat of data.categories; track $index) {
+        <button
+          (click)="onSelectCategory(cat.name)"
+          class="text-start text-gloom fw-semibold mb-3"
+        >
+          {{ cat.name }}
+        </button>
+        }
+      </div>
+
+      <div class="card general-filters p-2">
+        <h5 class="mb-3">Filter By</h5>
+
+        <div class="p-2 general-filter-1">
+          <h6 class="mb-2">Availability</h6>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="available"
+              id="available"
+              (change)="onSelectAvailable('true')"
+            />
+            <label
+              class="form-check-label text-gloom text-sm fw-semibold"
+              for="available"
+            >
+              Available (23)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="unavailable"
+              id="unavailable"
+              (change)="onSelectAvailable('false')"
+            />
+            <label
+              class="form-check-label text-gloom text-sm fw-semibold"
+              for="unavailable"
+            >
+              Not Available (2)
+            </label>
+          </div>
+        </div>
+
+        <div class="p-2 general-filter-2">
+          <h6 class="mb-2">Price</h6>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-floating">
+                <input
+                  (change)="onSelectMinPrice($event)"
+                  type="number"
+                  class="form-control"
+                  name="min"
+                  id="min"
+                />
+                <label class="text-gloom fw-semibold" for="min">Min</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating">
+                <input
+                  (change)="onSelectMaxPrice($event)"
+                  type="number"
+                  class="form-control"
+                  name="max"
+                  id="max"
+                />
+                <label class="text-gloom fw-semibold" for="max">Max</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 general-filter-3">
+          <h6 class="mb-2">Color</h6>
+
+          <div class="d-flex align-items-center gap-1 flex-wrap">
+            <app-color
+              (onSelectColorChange)="onSelectColor($event)"
+              [colors]="data.colors"
+              [size]="8"
+            ></app-color>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tag-filter px-2 py-3 my-3">
+        <h5 class="mb-3">Product Tag</h5>
+
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+          @for (tag of data.tags; track $index) {
+          <button
+            (click)="onSelectTag(tag.name)"
+            class="btn btn-product-badge text-sm fw-semibold text-capitalize"
+          >
+            {{ tag.name }}</button
+          >}
+        </div>
+      </div>
+
+      <div class="card category-filter px-2 py-3 mb-3">
+        <h5 class="mb-3">Random Products</h5>
+
+        <div class="row">
+          @for (item of [1,2]; track $index) {
+          <div
+            class="col-4 d-flex align-items-center justify-content-center overflow-hidden"
+          >
+            <img
+              src="assets/images/catbanner-01.jpg"
+              class="random-img"
+              alt="random-prod-img"
+            />
+          </div>
+          <div class="col-8">
+            <div class="product-card__details">
+              <h5 class="product-card-category mb-1">Havels</h5>
+              <h4 class="product-card-title mb-1">
+                Lorem ipsum dolor sit amet.
+              </h4>
+              <p class="product-card-price mb-1">{{ "500" | currency }}</p>
+              <app-rating [stars]="5"></app-rating>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      }
+    </ng-container>
+
+    <div class="card shadow">
+      <button
+        type="submit"
+        class="btn btn-product-badge fw-semibold py-2"
+        (click)="onRemoveFilters()"
+      >
+        Remove Filters
+      </button>
+    </div>
+  </div>
+</div>

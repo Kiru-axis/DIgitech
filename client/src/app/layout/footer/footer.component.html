@@ -1,0 +1,130 @@
+<footer class="footer">
+  <div class="footer__newsletters">
+    <div class="container">
+      <div
+        class="subscribe d-flex flex-column flex-md-row align-items-center justify-content-md-between justify-content-center text-start"
+      >
+        <div class="d-flex align-items-center gap-2">
+          <img src="assets/images/newsletter.png" alt="newsletter" />
+          <h4 class="m-0">Sign Up For Newsletter</h4>
+        </div>
+
+        <div class="input-group mt-4 mt-md-0">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="subscribe.."
+            aria-label="Button"
+            aria-describedby=""
+          />
+          <button class="btn" type="button" id="">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="footer__links">
+    <div class="container">
+      <div class="links">
+        <div class="link-group">
+          <h4 class="mb-3">Contact Us</h4>
+          <address>
+            <span class="d-block mb-1">Digitekk Store</span>
+            <span class="d-block mb-1">No. 1234 Freedom, New York, 1111</span>
+            <span class="d-block my-3"> +91-988377633</span>
+            <span class="d-block mb-1"> Digitekk&#64;yahoo.com</span>
+          </address>
+          <div class="social-imgs mt-3 d-flex align-items-center gap-1">
+            <a href="https://www.twitter.com" target="_blank" class="social-img"
+              ><fa-icon [icon]="icons.twt"></fa-icon
+            ></a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              class="social-img"
+              ><fa-icon [icon]="icons.fb"></fa-icon
+            ></a>
+            <a
+              href="https://www.pinterest.com"
+              target="_blank"
+              class="social-img"
+              ><fa-icon [icon]="icons.pint"></fa-icon
+            ></a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              class="social-img"
+              ><fa-icon [icon]="icons.ig"></fa-icon
+            ></a>
+            <a href="https://www.youtube.com" target="_blank" class="social-img"
+              ><fa-icon [icon]="icons.yt"></fa-icon
+            ></a>
+          </div>
+        </div>
+
+        <div class="link-group">
+          <h4 class="mb-3">Information</h4>
+          <a class="mb-2 d-block" routerLink="/policies/privacy"
+            >Privacy Policy</a
+          >
+          <a class="mb-2 d-block" routerLink="/policies/refund"
+            >Refund Policy</a
+          >
+          <a class="mb-2 d-block" routerLink="/policies/shipping"
+            >Shipping Policy</a
+          >
+          <a class="mb-2 d-block" routerLink="/policies/terms"
+            >Terms Of Service</a
+          >
+          <a class="d-block" routerLink="/blogs">Blogs</a>
+        </div>
+
+        <div class="link-group">
+          <h4 class="mb-3">Account</h4>
+          <a class="mb-2 d-block" routerLink="">Search</a>
+          <a class="mb-2 d-block" routerLink="">About Us</a>
+          <a class="mb-2 d-block" routerLink="">Faq</a>
+          <a class="mb-2 d-block" routerLink="/contact">Contact</a>
+          <a class="d-block" routerLink="">Size Chart</a>
+        </div>
+
+        <div class="link-group">
+          <h4 class="mb-3">Quick Links</h4>
+          <a class="mb-2 d-block" routerLink="">Accessories</a>
+          <a class="mb-2 d-block" routerLink="">Laptops</a>
+          <a class="mb-2 d-block" routerLink="">Headphones</a>
+          <a class="mb-2 d-block" routerLink="">Smart Wacthes</a>
+          <a class="d-block" routerLink="">Size Tablets</a>
+        </div>
+
+        <div class="link-group">
+          <h4 class="mb-3">Our App</h4>
+          <p class="">
+            Download our App and get 15% extra Discount on Your First Order
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="footer__footnote">
+    <div
+      class="container d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-between"
+    >
+      <div class="footer__footnote-left text-white fw-normal">
+        &copy; {{ year }}. Digitech Powered By KiruXY
+      </div>
+      <div class="footer__footnote-right mt-3 mt-sm-0">
+        <img
+          src="assets/images/credit-card.png"
+          class="credit-card-img"
+          alt="credit-card.png"
+        />
+      </div>
+    </div>
+  </div>
+</footer>

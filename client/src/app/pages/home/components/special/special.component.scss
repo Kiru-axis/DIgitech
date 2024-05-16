@@ -1,0 +1,98 @@
+@import "../../../../../styles/mixins.scss";
+
+.special-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-x: hidden;
+  @include sm {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.special-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    padding: 1rem;
+  }
+}
+
+.special-card__images {
+  .main-img {
+    height: 18rem;
+    object-fit: contain;
+    width: 100%;
+
+    @include sm {
+      height: 15rem;
+    }
+  }
+
+  .sub-img {
+    height: 5rem;
+    width: 5rem;
+    border: 0.1px solid var(--gray);
+  }
+
+  .special-card__images-subs {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @include sm {
+      display: none;
+    }
+  }
+}
+
+// details
+.special-card__details {
+  padding-top: 0.8rem;
+  @include sm {
+    padding: 0.6rem;
+  }
+
+  .button-primary {
+    padding: 8px 15px;
+  }
+
+  .custom-badge {
+    color: var(--white);
+    background-color: var(--error);
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .progress {
+    height: 8px;
+  }
+}
+
+.special-card-category {
+  color: var(--orange);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.special-card-title {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+  text-transform: capitalize;
+}
+
+.special-card-price {
+  color: var(--gray);
+  font-weight: 500;
+  margin-top: 0.6rem;
+
+  &.pprice {
+    color: var(--error);
+  }
+}

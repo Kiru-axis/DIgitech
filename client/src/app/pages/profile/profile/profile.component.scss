@@ -1,0 +1,48 @@
+@import "../../../../styles/mixins.scss";
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(40px, 150px) auto;
+  gap: 0.2rem;
+  grid-auto-flow: dense;
+  //   padding: 2rem 0;
+}
+
+.profile__sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  a {
+    color: var(--primary);
+    padding: 1rem 0;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    // text-align: center;
+    padding-left: 0.7rem;
+    transition: var(--transition);
+    text-transform: capitalize;
+    &:hover,
+    :focus {
+      //   background-color: #f1f1f1;
+      background-color: var(--white);
+      color: var(--gray);
+    }
+
+    .profile-text {
+      @media screen and (max-width: 706px) {
+        display: none;
+      }
+    }
+
+    .profile-icon {
+      display: none;
+
+      @media screen and (max-width: 706px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

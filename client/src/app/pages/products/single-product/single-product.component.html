@@ -1,0 +1,340 @@
+@if (product) {
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">{{
+    product.title
+  }}</span>
+</nav>
+
+<div class="product seperator">
+  <div class="container">
+    <div class="card bg-white shadow rounded p-3">
+      <div class="row">
+        <div class="col-12 col-md-6 product__images">
+          <div class="row">
+            <div class="col-3 d-none d-md-flex flex-column gap-3">
+              @if (product.images && product.images.length) { @for (img of
+              product.images; track $index) {
+              <div class="sub-img-container border p-1">
+                <img
+                  class="img-fluid"
+                  [src]="product.images[$index + 1] || 'assets/images/404.png'"
+                  alt="sub-img"
+                />
+              </div>
+              } }
+            </div>
+            <div class="col-md-9 col-12">
+              @if (product.images && product.images.length) { @for (img of
+              product.images; track $index) {
+              <div class="main-img-container border p-1">
+                <img
+                  class="img-fluid"
+                  [src]="product.images[0] || 'assets/images/404.png'"
+                  alt="main-img"
+                />
+              </div>
+              }}@else {
+              <img
+                class="img-fluid"
+                src="assets/images/404.png"
+                alt="main-img"
+              />
+              }
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mt-3 mt-sm-0 product__desc">
+          <h4 class="product-card-title mb-2 border-bottom">
+            {{ product.title }}
+          </h4>
+
+          <div class="pb-2 border-bottom">
+            <h4 class="product-card-title">{{ product.price | currency }}</h4>
+
+            <div class="d-flex align-items-center gap-1">
+              <app-rating
+                [size]="'sm'"
+                [stars]="product.totalRating / product.reviewersCount"
+              ></app-rating>
+              <span class="text-sm text-gloom fw-semibold"
+                >({{ product.Reviews?.length }}) reviews</span
+              >
+            </div>
+
+            @if (user) {
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#modalId"
+              class="text-sm text-gloom my-3 modal-btn"
+            >
+              Write a review
+            </button>
+            }
+          </div>
+
+          <div class="">
+            <div class="py-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Type:</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">
+                {{ product.Category.name }}
+              </p>
+            </div>
+
+            <div class="pb-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Brand:</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">
+                {{ product.Brand.name }}
+              </p>
+            </div>
+
+            <div class="pb-3">
+              <p class="mb-0 text-dark fw-bold text-captalize">Categories:</p>
+
+              <div
+                class="mb-0 fw-semibold text-gloom text-sm d-flex align-items-center flex-wrap gap-2"
+              >
+                @for (item of
+                ['tech','lifestyle','trending','special','new','model','latest','casual','business'];
+                track $index) {
+                <span class="d-block">{{ item }}</span>
+                }
+              </div>
+            </div>
+
+            <div class="pb-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Tags:</p>
+              <div
+                class="mb-0 fw-semibold text-gloom text-sm d-flex flex-wrap align-items-center gap-2"
+              >
+                @for (tag of product.Tags; track $index) {
+                <span class="d-block">{{ tag.name }}</span>
+                }
+              </div>
+            </div>
+
+            @if (product.available) {
+            <div class="pb-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Availability:</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">
+                {{ product.quantity }} in stock
+              </p>
+            </div>
+            }@else {
+            <div class="pb-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Availability:</p>
+              <p class="mb-0 fw-semibold text-danger text-sm">Out of stock</p>
+            </div>
+            }
+
+            <div class="pb-3 d-flex align-items-center gap-2">
+              <p class="mb-0 text-dark fw-bold text-captalize">Color:</p>
+              <app-color
+                (onSelectColorChange)="selectColor($event)"
+                [colors]="product.Colors"
+              ></app-color>
+            </div>
+
+            <div class="my-3 d-flex align-items-center gap-2">
+              <app-qty-counter
+                (valueChange)="quantityChanges($event)"
+                [value]="1"
+                [max]="product.quantity"
+              ></app-qty-counter>
+
+              <button
+                class="button-primary"
+                (click)="onAddToCart(product.id, product.Colors[0].name)"
+              >
+                Add To Cart
+              </button>
+              <button class="button-warn">Buy Now</button>
+            </div>
+
+            <div class="my-3 my-md-4 d-flex align-items-center gap-3">
+              <button
+                (click)="onAddToWishlist({ productId: product.id })"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Add to wishlist"
+                class="d-flex align-items-center gap-1"
+              >
+                <img src="assets/images/wish.svg" alt="wish.svg" />
+                <span class="text-dark f">Add to wishlist</span>
+              </button>
+
+              <button
+                (click)="onAddToCompare({ productId: product.id })"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Add to compare list"
+                class="d-flex align-items-center gap-1"
+              >
+                <img
+                  src="assets/images/prodcompare.svg"
+                  alt="prodcompare.svg"
+                />
+                <span class="text-dark f">Add to compare</span>
+              </button>
+            </div>
+
+            <div class="product-accordions my-2">
+              <app-product-accordion></app-product-accordion>
+            </div>
+
+            <div
+              class="my-3 p-3 bg-f1 d-flex flex-column align-items-center justify-content-center"
+            >
+              <h6 class="mb-3 fw-semibold">Payment Methods</h6>
+
+              <img
+                src="assets/images/credit-card.png"
+                alt="credit-card.png"
+                class=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-3 p-3 shadow bg-white">
+      <!-- Nav tabs -->
+      <ul
+        class="nav nav-tabs d-flex align-items-center justify-content-center border-0"
+        id="myTab"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#home"
+            type="button"
+            role="tab"
+            aria-controls="home"
+            aria-selected="true"
+          >
+            Description
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#profile"
+            type="button"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+          >
+            Reviews
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content p-3">
+        <div
+          class="tab-pane active text-gloom fw-semibold"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          {{ product.desc }}
+        </div>
+        <div
+          class="tab-pane reviews position-relative"
+          id="profile"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          <div
+            class="reviews__header me-3 mb-3 mb-md-4 d-flex align-items-center justify-content-between"
+          >
+            <div class="left">
+              <h5 class="mb-2">Customer Reviews</h5>
+              <div class="d-flex align-items-center gap-1">
+                <app-rating
+                  [size]="'sm'"
+                  [stars]="product.totalRating / product.reviewersCount"
+                ></app-rating>
+                @if (product.Reviews?.length) {
+                <span class="text-sm text-gloom fw-semibold"
+                  >based on {{ product.Reviews?.length }} reviews</span
+                >
+                }
+              </div>
+            </div>
+            @if (user) {
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#modalId"
+              class="text-sm text-gloom my-3 modal-btn"
+            >
+              Write a review
+            </button>
+            }
+          </div>
+
+          @if (product.Reviews) {
+          <div class="reviews__body d-flex gap-3 flex-column">
+            <app-product-reviews
+              [reviews]="product.Reviews"
+              [user]="user"
+              (deleteReviewChange)="deleteReview($event)"
+            ></app-product-reviews>
+          </div>
+
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="section-header">You May Also Like</h2>
+      <app-products [slider]="true"></app-products>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div
+  class="modal fade"
+  id="modalId"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  role="dialog"
+  aria-labelledby="modalTitleId"
+  aria-hidden="true"
+  #modal
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Create Review</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <app-product-review-form
+        (submitRatingChange)="createReview($event)"
+      ></app-product-review-form>
+    </div>
+  </div>
+</div>
+
+}

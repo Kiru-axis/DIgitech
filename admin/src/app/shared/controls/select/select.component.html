@@ -1,0 +1,30 @@
+@if (control) {
+<ng-container>
+  @if (items()) {
+  <ng-container>
+    @if (multiple()) {
+    <ng-container>
+      <label [class.required]="required" [for]="id()">{{ label() }}</label>
+      <mat-select
+        multiple
+        class="form-select"
+        [id]="id()"
+        [formControl]="control"
+      >
+        @for (item of items(); track $index) {
+        <mat-option [value]="item.value">{{ item.label }}</mat-option>
+        }
+      </mat-select>
+    </ng-container>
+    } @else {
+    <label [class.required]="required" [for]="id()">{{ label() }}</label>
+    <mat-select class="form-select" [id]="id()" [formControl]="control">
+      @for (item of items(); track $index) {
+      <mat-option [value]="item.value">{{ item.label }}</mat-option>
+      }
+    </mat-select>
+    }
+  </ng-container>
+  }
+</ng-container>
+}

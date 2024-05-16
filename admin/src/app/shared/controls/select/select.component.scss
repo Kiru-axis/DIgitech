@@ -1,0 +1,11 @@
+:host-context(.form-group_error) {
+  select,
+  .mat-mdc-select {
+    border: 1px solid var(--error);
+  }
+}
+
+.mat-mdc-select {
+  background-color: #f1f1f1;
+  color: black !important;
+}

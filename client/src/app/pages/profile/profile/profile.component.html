@@ -1,0 +1,48 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">{{
+    user.firstname
+  }}</span>
+</nav>
+
+<div class="seperator">
+  <div class="profile shadow">
+    <div class="profile__sidebar">
+      <a routerLink="/profile" class="">
+        <span class="profile-text">Home</span>
+        <span class="profile-icon"
+          ><fa-icon [icon]="icons.home"></fa-icon
+        ></span>
+      </a>
+      <a routerLink="/profile/address" class="">
+        <span class="profile-text">Address</span>
+        <span class="profile-icon"
+          ><fa-icon [icon]="icons.address"></fa-icon
+        ></span>
+      </a>
+      <a routerLink="/profile/user-wishlist" class="">
+        <span class="profile-text">Wishlist</span>
+        <span class="profile-icon"
+          ><fa-icon [icon]="icons.heart"></fa-icon
+        ></span>
+      </a>
+      <a routerLink="/profile/user-compares" class="">
+        <span class="profile-text">Compares</span>
+        <span class="profile-icon"
+          ><fa-icon [icon]="icons.comp"></fa-icon
+        ></span>
+      </a>
+      <a routerLink="/profile/user-orders" class="">
+        <span class="profile-text">Orders</span>
+        <span class="profile-icon"
+          ><fa-icon [icon]="icons.orders"></fa-icon
+        ></span>
+      </a>
+    </div>
+    <div class="profile__interface bg-white">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

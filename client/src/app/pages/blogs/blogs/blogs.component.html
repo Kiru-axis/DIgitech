@@ -1,0 +1,40 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">News</span>
+</nav>
+<section class="blogs py-4 my-4">
+  <div class="container">
+    <div class="row g-2">
+      <div class="col-3 d-none d-md-block">
+        <div class="card p-2">
+          <h5 class="mb-3">Filter By Category</h5>
+          <button
+            (click)="selectCategory('')"
+            class="cat-btn pointer text-start text-gloom fw-semibold py-2"
+          >
+            All
+          </button>
+
+          @if (blogCategories$|async; as blogCategories) { @for (cat of
+          blogCategories; track $index) {
+          <button
+            (click)="selectCategory(cat.name)"
+            class="cat-btn pointer text-start text-gloom fw-semibold py-2"
+          >
+            {{ cat.name }}
+          </button>
+          } }
+        </div>
+      </div>
+      <div class="col-md-9">
+        <app-blog-card
+          [slider]="false"
+          [colums]="{ md: 6, lg: 6, sm: 6 }"
+          [category]="filterCategory"
+        ></app-blog-card>
+      </div>
+    </div>
+  </div>
+</section>

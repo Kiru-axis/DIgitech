@@ -1,0 +1,12 @@
+<div class="d-flex align-items-center gap-2">
+  <button (click)="decrease()" class="rem">&minus;</button>
+  <input
+    type="number"
+    class="form-control"
+    [value]="value()"
+    placeholder="1"
+    min="1"
+    [max]="max()"
+  />
+  <button (click)="increase()" class="add">&plus;</button>
+</div>

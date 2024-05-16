@@ -1,0 +1,1147 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SpecialComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/home/components/special/special.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-special</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>AsyncPipe</code>
+                            <code>RouterLink</code>
+                            <code>CurrencyPipe</code>
+                            <code>SlicePipe</code>
+                                <code><a href="../components/RatingComponent.html" target="_self" >RatingComponent</a></code>
+                                <code><a href="../directives/SwiperDirective.html" target="_self" >SwiperDirective</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./special.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./special.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addedToWishlist" >addedToWishlist</a>
+                            </li>
+                            <li>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#products$" >products$</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToCart" >onAddToCart</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToCompare" >onAddToCompare</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToWishlist" >onAddToWishlist</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: Store, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUser()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToCart"></a>
+                    <span class="name">
+                        <span ><b>onAddToCart</b></span>
+                        <a href="#onAddToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToCart(productId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>productId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>color</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToCompare"></a>
+                    <span class="name">
+                        <span ><b>onAddToCompare</b></span>
+                        <a href="#onAddToCompare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToCompare(dto: <a href="../interfaces/ICreateCompare.html" target="_self">ICreateCompare</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateCompare.html" target="_self" >ICreateCompare</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToWishlist"></a>
+                    <span class="name">
+                        <span ><b>onAddToWishlist</b></span>
+                        <a href="#onAddToWishlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToWishlist(dto: <a href="../interfaces/ICreateWishlist.html" target="_self">ICreateWishlist</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/pages/home/components/special/special.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateWishlist.html" target="_self" >ICreateWishlist</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addedToWishlist"></a>
+                    <span class="name">
+                        <span ><b>addedToWishlist</b></span>
+                        <a href="#addedToWishlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SpecialSwiperConfig</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="products$"></a>
+                    <span class="name">
+                        <span ><b>products$</b></span>
+                        <a href="#products$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;[] | undefined | null&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/home/components/special/special.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AsyncPipe, CurrencyPipe, SlicePipe } from &#x27;@angular/common&#x27;;
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  OnDestroy,
+  OnInit,
+} from &#x27;@angular/core&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { Observable, Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+
+import { SwiperDirective } from &#x27;@shared/directives/swiper.directive&#x27;;
+import { SpecialSwiperConfig } from &#x27;./swiper.config&#x27;;
+import {
+  ICreateCart,
+  ICreateCompare,
+  ICreateWishlist,
+  IProduct,
+  IUser,
+} from &#x27;@app/models&#x27;;
+import { customerActions } from &#x27;@app/store/customer&#x27;;
+import { selectSpecialProducts } from &#x27;@app/store/products&#x27;;
+import { RatingComponent } from &#x27;@app/shared&#x27;;
+import { selectAuthUser } from &#x27;@app/store/auth&#x27;;
+
+@Component({
+  selector: &#x27;app-special&#x27;,
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    RouterLink,
+    CurrencyPipe,
+    SlicePipe,
+    RatingComponent,
+    SwiperDirective,
+  ],
+  templateUrl: &#x27;./special.component.html&#x27;,
+  styleUrl: &#x27;./special.component.scss&#x27;,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class SpecialComponent implements OnInit, OnDestroy {
+  constructor(private store: Store, private router: Router) {}
+
+  addedToWishlist &#x3D; false;
+
+  config &#x3D; SpecialSwiperConfig;
+
+  products$!: Observable&lt;IProduct[] | undefined | null&gt;;
+
+  user!: IUser;
+
+  destroy$ &#x3D; new Subject();
+
+  ngOnInit(): void {
+    this.getUser();
+    this.products$ &#x3D; this.store.select(selectSpecialProducts);
+  }
+
+  onAddToWishlist(dto: ICreateWishlist) {
+    if (this.user) {
+      this.store.dispatch(customerActions.addToWishlist({ request: dto }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  onAddToCompare(dto: ICreateCompare) {
+    if (this.user) {
+      this.store.dispatch(customerActions.addToCompare({ request: dto }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  onAddToCart(productId: string, color: string) {
+    if (this.user) {
+      const request: ICreateCart &#x3D; {
+        productId,
+        color,
+        quantity: 1,
+      };
+      this.store.dispatch(customerActions.addToCart({ request }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  private getUser() {
+    this.store
+      .select(selectAuthUser)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((user) &#x3D;&gt; {
+        if (user) this.user &#x3D; user;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(&#x27;&#x27;);
+    this.destroy$.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (products$|async;as products) {
+&lt;div class&#x3D;&quot;special container my-4&quot;&gt;
+  &lt;h2 class&#x3D;&quot;section-header&quot;&gt;Special Collection&lt;/h2&gt;
+
+  &lt;swiper-container appSwiper [config]&#x3D;&quot;config&quot; init&#x3D;&quot;false&quot;&gt;
+    @for (product of products; track $index) {
+    &lt;swiper-slide&gt;
+      &lt;div class&#x3D;&quot;card shadow special-card&quot;&gt;
+        &lt;div class&#x3D;&quot;special-card__images&quot;&gt;
+          &lt;div class&#x3D;&quot;special-card__header&quot;&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;
+              @if (addedToWishlist) {
+              &lt;img
+                (click)&#x3D;&quot;onAddToWishlist({ productId: product.id })&quot;
+                data-bs-toggle&#x3D;&quot;tooltip&quot;
+                data-bs-placement&#x3D;&quot;top&quot;
+                title&#x3D;&quot;Already added to wishlist&quot;
+                src&#x3D;&quot;assets/images/wish-black.svg&quot;
+                alt&#x3D;&quot;wishlist&quot;
+                class&#x3D;&quot;pointer black-wish icon-img&quot;
+              /&gt;
+              } @else {
+              &lt;img
+                (click)&#x3D;&quot;onAddToWishlist({ productId: product.id })&quot;
+                data-bs-toggle&#x3D;&quot;tooltip&quot;
+                data-bs-placement&#x3D;&quot;top&quot;
+                title&#x3D;&quot;Add to wishlist&quot;
+                src&#x3D;&quot;assets/images/wish.svg&quot;
+                alt&#x3D;&quot;wishlist&quot;
+                class&#x3D;&quot;pointer&quot;
+              /&gt;
+              }
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;a
+            routerLink&#x3D;&quot;/store/{{ product.id }}&quot;
+            data-bs-toggle&#x3D;&quot;tooltip&quot;
+            data-bs-placement&#x3D;&quot;top&quot;
+            title&#x3D;&quot;View Details&quot;
+          &gt;
+            &lt;img
+              [src]&#x3D;&quot;product.images[0] || &#x27;assets/images/404.png&#x27;&quot;
+              alt&#x3D;&quot;main-img&quot;
+              class&#x3D;&quot;main-img&quot;
+            /&gt;
+            &lt;div class&#x3D;&quot;special-card__images-subs&quot;&gt;
+              &lt;img
+                [src]&#x3D;&quot;product.images[1] || &#x27;assets/images/404.png&#x27;&quot;
+                alt&#x3D;&quot;sub-img&quot;
+                class&#x3D;&quot;sub-img&quot;
+              /&gt;
+              &lt;img
+                [src]&#x3D;&quot;product.images[2] || &#x27;assets/images/404.png&#x27;&quot;
+                alt&#x3D;&quot;sub-img&quot;
+                class&#x3D;&quot;sub-img&quot;
+              /&gt;
+            &lt;/div&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;special-card__details p-1&quot;&gt;
+          &lt;h5 class&#x3D;&quot;special-card-category&quot;&gt;{{ product.Category.name }}&lt;/h5&gt;
+          &lt;h4 class&#x3D;&quot;special-card-title&quot;&gt;
+            {{ product.title | slice : 0 : 12 }}
+          &lt;/h4&gt;
+          &lt;app-rating [stars]&#x3D;&quot;product.totalRating&quot;&gt;&lt;/app-rating&gt;
+          &lt;p class&#x3D;&quot;special-card-price&quot;&gt;{{ product.price | currency }}&lt;/p&gt;
+
+          &lt;div
+            class&#x3D;&quot;availabilty text-gloom mb-4 d-flex gap-2 align-items-center pe-2&quot;
+          &gt;
+            &lt;p class&#x3D;&quot;m-0 fw-semibold&quot;&gt;
+              &lt;b class&#x3D;&quot;text-dark fw-bold&quot;&gt;245&lt;/b&gt;
+              &lt;span class&#x3D;&quot;ms-2&quot;&gt;days&lt;/span&gt;
+            &lt;/p&gt;
+            &lt;span class&#x3D;&quot;custom-badge&quot;&gt;15&lt;/span&gt;:
+            &lt;span class&#x3D;&quot;custom-badge&quot;&gt;08&lt;/span&gt;:
+            &lt;span class&#x3D;&quot;custom-badge&quot;&gt;10&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;special-card-progress mb-4 overflow-hidden&quot;&gt;
+            &lt;span class&#x3D;&quot;text-muted mb-1 fw-medium d-block text-sm&quot;
+              &gt;Products: {{ product.quantity - product.sold }}&lt;/span
+            &gt;
+            &lt;div class&#x3D;&quot;progress&quot;&gt;
+              &lt;div
+                class&#x3D;&quot;progress-bar bg-success&quot;
+                role&#x3D;&quot;progressbar&quot;
+                [style]&#x3D;&quot;{
+                  width:
+                    ((product.quantity - product.sold) * 100) /
+                      product.quantity +
+                    &#x27;%&#x27;
+                }&quot;
+                [attr.aria-valuenow]&#x3D;&quot;
+                  ((product.quantity - product.sold) * 100) / product.quantity
+                &quot;
+                aria-valuemin&#x3D;&quot;0&quot;
+                [attr.aria-valuemax]&#x3D;&quot;product.quantity&quot;
+              &gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button
+            (click)&#x3D;&quot;onAddToCart(product.id, product.Colors[0].name)&quot;
+            data-bs-toggle&#x3D;&quot;tooltip&quot;
+            data-bs-placement&#x3D;&quot;top&quot;
+            title&#x3D;&quot;Add to cart&quot;
+            class&#x3D;&quot;button-primary px-2&quot;
+          &gt;
+            Add To Cart
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/swiper-slide&gt;
+    }
+  &lt;/swiper-container&gt;
+&lt;/div&gt;
+
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (products$|async;as products) {<div class="special container my-4">  <h2 class="section-header">Special Collection</h2>  <swiper-container appSwiper [config]="config" init="false">    @for (product of products; track $index) {    <swiper-slide>      <div class="card shadow special-card">        <div class="special-card__images">          <div class="special-card__header">            <div></div>            <div>              @if (addedToWishlist) {              <img                (click)="onAddToWishlist({ productId: product.id })"                data-bs-toggle="tooltip"                data-bs-placement="top"                title="Already added to wishlist"                src="assets/images/wish-black.svg"                alt="wishlist"                class="pointer black-wish icon-img"              />              } @else {              <img                (click)="onAddToWishlist({ productId: product.id })"                data-bs-toggle="tooltip"                data-bs-placement="top"                title="Add to wishlist"                src="assets/images/wish.svg"                alt="wishlist"                class="pointer"              />              }            </div>          </div>          <a            routerLink="/store/{{ product.id }}"            data-bs-toggle="tooltip"            data-bs-placement="top"            title="View Details"          >            <img              [src]="product.images[0] || \'assets/images/404.png\'"              alt="main-img"              class="main-img"            />            <div class="special-card__images-subs">              <img                [src]="product.images[1] || \'assets/images/404.png\'"                alt="sub-img"                class="sub-img"              />              <img                [src]="product.images[2] || \'assets/images/404.png\'"                alt="sub-img"                class="sub-img"              />            </div>          </a>        </div>        <div class="special-card__details p-1">          <h5 class="special-card-category">{{ product.Category.name }}</h5>          <h4 class="special-card-title">            {{ product.title | slice : 0 : 12 }}          </h4>          <app-rating [stars]="product.totalRating"></app-rating>          <p class="special-card-price">{{ product.price | currency }}</p>          <div            class="availabilty text-gloom mb-4 d-flex gap-2 align-items-center pe-2"          >            <p class="m-0 fw-semibold">              <b class="text-dark fw-bold">245</b>              <span class="ms-2">days</span>            </p>            <span class="custom-badge">15</span>:            <span class="custom-badge">08</span>:            <span class="custom-badge">10</span>          </div>          <div class="special-card-progress mb-4 overflow-hidden">            <span class="text-muted mb-1 fw-medium d-block text-sm"              >Products: {{ product.quantity - product.sold }}</span            >            <div class="progress">              <div                class="progress-bar bg-success"                role="progressbar"                [style]="{                  width:                    ((product.quantity - product.sold) * 100) /                      product.quantity +                    \'%\'                }"                [attr.aria-valuenow]="                  ((product.quantity - product.sold) * 100) / product.quantity                "                aria-valuemin="0"                [attr.aria-valuemax]="product.quantity"              ></div>            </div>          </div>          <button            (click)="onAddToCart(product.id, product.Colors[0].name)"            data-bs-toggle="tooltip"            data-bs-placement="top"            title="Add to cart"            class="button-primary px-2"          >            Add To Cart          </button>        </div>      </div>    </swiper-slide>    }  </swiper-container></div>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BlogCardComponent', 'selector': 'app-blog-card'},{'name': 'BlogComponent', 'selector': 'app-blog'},{'name': 'BlogsComponent', 'selector': 'app-blogs'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ColorComponent', 'selector': 'app-color'},{'name': 'CompareComponent', 'selector': 'app-compare'},{'name': 'EnquiryComponent', 'selector': 'app-enquiry'},{'name': 'FeaturedComponent', 'selector': 'app-featured'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormGroupComponent', 'selector': 'app-form-group'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OffersComponent', 'selector': 'app-offers'},{'name': 'PasswordComponent', 'selector': 'app-password'},{'name': 'PopularComponent', 'selector': 'app-popular'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductAccordionComponent', 'selector': 'app-product-accordion'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductReviewFormComponent', 'selector': 'app-product-review-form'},{'name': 'ProductReviewsComponent', 'selector': 'app-product-reviews'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'QtyCounterComponent', 'selector': 'app-qty-counter'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RefundComponent', 'selector': 'app-refund'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'ShippingComponent', 'selector': 'app-shipping'},{'name': 'ShopComponent', 'selector': 'app-shop'},{'name': 'SingleProductComponent', 'selector': 'app-single-product'},{'name': 'SliderComponent', 'selector': 'app-slider'},{'name': 'SpecialComponent', 'selector': 'app-special'},{'name': 'TermsPolicyComponent', 'selector': 'app-terms-policy'},{'name': 'TextAreaComponent', 'selector': 'app-textarea'},{'name': 'UsedByComponent', 'selector': 'app-used-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserCompareComponent', 'selector': 'user-compare'},{'name': 'UserHomeComponent', 'selector': 'app-user-home'},{'name': 'UserOrdersComponent', 'selector': 'app-user-orders'},{'name': 'UserWishlistComponent', 'selector': 'user-wishlist'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [{'name': 'ControlValueAccessorDirective', 'selector': '[appControlValueAccessor]'},{'name': 'SwiperDirective', 'selector': '[appSwiper]'}];
+    var ACTUAL_COMPONENT = {'name': 'SpecialComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SpecialComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

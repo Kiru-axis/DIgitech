@@ -1,0 +1,121 @@
+@if (products$|async;as products) {
+<div class="special container my-4">
+  <h2 class="section-header">Special Collection</h2>
+
+  <swiper-container appSwiper [config]="config" init="false">
+    @for (product of products; track $index) {
+    <swiper-slide>
+      <div class="card shadow special-card">
+        <div class="special-card__images">
+          <div class="special-card__header">
+            <div></div>
+            <div>
+              @if (addedToWishlist) {
+              <img
+                (click)="onAddToWishlist({ productId: product.id })"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Already added to wishlist"
+                src="assets/images/wish-black.svg"
+                alt="wishlist"
+                class="pointer black-wish icon-img"
+              />
+              } @else {
+              <img
+                (click)="onAddToWishlist({ productId: product.id })"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Add to wishlist"
+                src="assets/images/wish.svg"
+                alt="wishlist"
+                class="pointer"
+              />
+              }
+            </div>
+          </div>
+
+          <a
+            routerLink="/store/{{ product.id }}"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="View Details"
+          >
+            <img
+              [src]="product.images[0] || 'assets/images/404.png'"
+              alt="main-img"
+              class="main-img"
+            />
+            <div class="special-card__images-subs">
+              <img
+                [src]="product.images[1] || 'assets/images/404.png'"
+                alt="sub-img"
+                class="sub-img"
+              />
+              <img
+                [src]="product.images[2] || 'assets/images/404.png'"
+                alt="sub-img"
+                class="sub-img"
+              />
+            </div>
+          </a>
+        </div>
+        <div class="special-card__details p-1">
+          <h5 class="special-card-category">{{ product.Category.name }}</h5>
+          <h4 class="special-card-title">
+            {{ product.title | slice : 0 : 12 }}
+          </h4>
+          <app-rating [stars]="product.totalRating"></app-rating>
+          <p class="special-card-price">{{ product.price | currency }}</p>
+
+          <div
+            class="availabilty text-gloom mb-4 d-flex gap-2 align-items-center pe-2"
+          >
+            <p class="m-0 fw-semibold">
+              <b class="text-dark fw-bold">245</b>
+              <span class="ms-2">days</span>
+            </p>
+            <span class="custom-badge">15</span>:
+            <span class="custom-badge">08</span>:
+            <span class="custom-badge">10</span>
+          </div>
+
+          <div class="special-card-progress mb-4 overflow-hidden">
+            <span class="text-muted mb-1 fw-medium d-block text-sm"
+              >Products: {{ product.quantity - product.sold }}</span
+            >
+            <div class="progress">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                [style]="{
+                  width:
+                    ((product.quantity - product.sold) * 100) /
+                      product.quantity +
+                    '%'
+                }"
+                [attr.aria-valuenow]="
+                  ((product.quantity - product.sold) * 100) / product.quantity
+                "
+                aria-valuemin="0"
+                [attr.aria-valuemax]="product.quantity"
+              ></div>
+            </div>
+          </div>
+
+          <button
+            (click)="onAddToCart(product.id, product.Colors[0].name)"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Add to cart"
+            class="button-primary px-2"
+          >
+            Add To Cart
+          </button>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</div>
+
+}

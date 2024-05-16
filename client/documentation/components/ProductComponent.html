@@ -1,0 +1,1333 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProductComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/products/products/components/product/product.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-product</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>AsyncPipe</code>
+                            <code>CurrencyPipe</code>
+                            <code>SlicePipe</code>
+                            <code>RouterLink</code>
+                                <code><a href="../components/RatingComponent.html" target="_self" >RatingComponent</a></code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./product.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./product.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addedToCompare" >addedToCompare</a>
+                            </li>
+                            <li>
+                                <a href="#addedToWishlist" >addedToWishlist</a>
+                            </li>
+                            <li>
+                                <a href="#cols" >cols</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#fullWidthMode" >fullWidthMode</a>
+                            </li>
+                            <li>
+                                <a href="#product" >product</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToCart" >onAddToCart</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToCompare" >onAddToCompare</a>
+                            </li>
+                            <li>
+                                <a href="#onAddToWishlist" >onAddToWishlist</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cols" >cols</a>
+                            </li>
+                            <li>
+                                <a href="#fullWidthMode" >fullWidthMode</a>
+                            </li>
+                            <li>
+                                <a href="#product" >product</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: Store, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cols"></a>
+                        <b>cols</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fullWidthMode"></a>
+                        <b>fullWidthMode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="product"></a>
+                        <b>product</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToCart"></a>
+                    <span class="name">
+                        <span ><b>onAddToCart</b></span>
+                        <a href="#onAddToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToCart(productId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>productId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>color</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToCompare"></a>
+                    <span class="name">
+                        <span ><b>onAddToCompare</b></span>
+                        <a href="#onAddToCompare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToCompare(dto: <a href="../interfaces/ICreateCompare.html" target="_self">ICreateCompare</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateCompare.html" target="_self" >ICreateCompare</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddToWishlist"></a>
+                    <span class="name">
+                        <span ><b>onAddToWishlist</b></span>
+                        <a href="#onAddToWishlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddToWishlist(dto: <a href="../interfaces/ICreateWishlist.html" target="_self">ICreateWishlist</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ICreateWishlist.html" target="_self" >ICreateWishlist</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addedToCompare"></a>
+                    <span class="name">
+                        <span ><b>addedToCompare</b></span>
+                        <a href="#addedToCompare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addedToWishlist"></a>
+                    <span class="name">
+                        <span ><b>addedToWishlist</b></span>
+                        <a href="#addedToWishlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cols"></a>
+                    <span class="name">
+                        <span ><b>cols</b></span>
+                        <a href="#cols"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fullWidthMode"></a>
+                    <span class="name">
+                        <span ><b>fullWidthMode</b></span>
+                        <a href="#fullWidthMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="product"></a>
+                    <span class="name">
+                        <span ><b>product</b></span>
+                        <a href="#product"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/products/products/components/product/product.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit, input } from &#x27;@angular/core&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { AsyncPipe, CurrencyPipe, NgClass, SlicePipe } from &#x27;@angular/common&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+
+import { selectAuthUser } from &#x27;@app/store/auth&#x27;;
+import { customerActions } from &#x27;@app/store/customer&#x27;;
+import { RatingComponent } from &#x27;@app/shared&#x27;;
+
+import {
+  ICreateCart,
+  ICreateCompare,
+  ICreateWishlist,
+  IProduct,
+  IUser,
+} from &#x27;@app/models&#x27;;
+
+@Component({
+  selector: &#x27;app-product&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./product.component.html&#x27;,
+  styleUrl: &#x27;./product.component.scss&#x27;,
+  imports: [
+    AsyncPipe,
+    CurrencyPipe,
+    SlicePipe,
+    RouterLink,
+    RatingComponent,
+    NgClass,
+  ],
+})
+export class ProductComponent implements OnInit, OnDestroy {
+  constructor(private store: Store, private router: Router) {}
+
+  product &#x3D; input.required&lt;IProduct&gt;();
+
+  cols &#x3D; input&lt;number&gt;();
+
+  fullWidthMode &#x3D; input&lt;boolean&gt;(false);
+
+  destroy$ &#x3D; new Subject();
+
+  user!: IUser;
+
+  addedToWishlist &#x3D; false;
+
+  addedToCompare &#x3D; false;
+  ngOnInit(): void {
+    this.store
+      .select(selectAuthUser)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((user) &#x3D;&gt; {
+        if (user) {
+          this.user &#x3D; user;
+        }
+      });
+  }
+
+  onAddToWishlist(dto: ICreateWishlist) {
+    if (this.user) {
+      this.store.dispatch(customerActions.addToWishlist({ request: dto }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  onAddToCompare(dto: ICreateCompare) {
+    if (this.user) {
+      this.store.dispatch(customerActions.addToCompare({ request: dto }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  onAddToCart(productId: string, color: string) {
+    if (this.user) {
+      const request: ICreateCart &#x3D; {
+        productId,
+        color,
+        quantity: 1,
+      };
+      this.store.dispatch(customerActions.addToCart({ request }));
+    } else {
+      this.router.navigate([&#x27;/auth/login&#x27;]);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(&#x27;&#x27;);
+    this.destroy$.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (product()) {
+&lt;ng-container&gt;
+  &lt;!-- cols determine how to show cards in the shop interface --&gt;
+  @if (cols()) {
+  &lt;div class&#x3D;&quot;card shadow product-card&quot;&gt;
+    &lt;div class&#x3D;&quot;product-card__header&quot;&gt;
+      &lt;div&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;&quot;&gt;
+        @if (addedToWishlist) {
+        &lt;img
+          (click)&#x3D;&quot;onAddToWishlist({ productId: product().id })&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Already added to wishlist&quot;
+          src&#x3D;&quot;assets/images/wish-black.svg&quot;
+          alt&#x3D;&quot;wishlist&quot;
+          class&#x3D;&quot;pointer black-wish icon-img&quot;
+        /&gt;
+        } @else {
+        &lt;img
+          (click)&#x3D;&quot;onAddToWishlist({ productId: product().id })&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Add to wishlist&quot;
+          src&#x3D;&quot;assets/images/wish.svg&quot;
+          alt&#x3D;&quot;wishlist&quot;
+          class&#x3D;&quot;pointer&quot;
+        /&gt;
+        }
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div [ngClass]&#x3D;&quot;{ &#x27;row g-2&#x27;: fullWidthMode() }&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;product-card__images&quot;
+        [ngClass]&#x3D;&quot;{ &#x27;col-6 p-0&#x27;: fullWidthMode() }&quot;
+      &gt;
+        &lt;img
+          class&#x3D;&quot;card-img-top main-img&quot;
+          [src]&#x3D;&quot;product().images[0] || &#x27;assets/images/404.png&#x27;&quot;
+          alt&#x3D;&quot;main-img&quot;
+        /&gt;
+        &lt;img
+          class&#x3D;&quot;card-img-top sub-img&quot;
+          [src]&#x3D;&quot;product().images[1] || &#x27;assets/images/404.png&#x27;&quot;
+          alt&#x3D;&quot;sub-img&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;product-card__hoverables mt-1&quot;
+        [ngClass]&#x3D;&quot;{ &#x27;end-0&#x27;: fullWidthMode() }&quot;
+      &gt;
+        &lt;div
+          class&#x3D;&quot;hv-img-box&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;bg-transparent rounded-0&#x27;: fullWidthMode() }&quot;
+        &gt;
+          &lt;img
+            (click)&#x3D;&quot;onAddToCompare({ productId: product().id })&quot;
+            data-bs-toggle&#x3D;&quot;tooltip&quot;
+            data-bs-placement&#x3D;&quot;top&quot;
+            title&#x3D;&quot;Add to compare list&quot;
+            src&#x3D;&quot;assets/images/prodcompare.svg&quot;
+            class&#x3D;&quot;icons-img pointer&quot;
+            alt&#x3D;&quot;icon-img&quot;
+          /&gt;
+        &lt;/div&gt;
+        &lt;a
+          routerLink&#x3D;&quot;/store/{{ product().id }}&quot;
+          class&#x3D;&quot;hv-img-box&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;bg-transparent rounded-0&#x27;: fullWidthMode() }&quot;
+        &gt;
+          &lt;img
+            data-bs-toggle&#x3D;&quot;tooltip&quot;
+            data-bs-placement&#x3D;&quot;top&quot;
+            title&#x3D;&quot;View product&quot;
+            src&#x3D;&quot;assets/images/view.svg&quot;
+            class&#x3D;&quot;icons-img pointer&quot;
+            alt&#x3D;&quot;icon-img&quot;
+          /&gt;
+        &lt;/a&gt;
+        &lt;div
+          class&#x3D;&quot;hv-img-box&quot;
+          [ngClass]&#x3D;&quot;{ &#x27;bg-transparent rounded-0&#x27;: fullWidthMode() }&quot;
+        &gt;
+          &lt;img
+            (click)&#x3D;&quot;onAddToCart(product().id, product().Colors[0].name)&quot;
+            data-bs-toggle&#x3D;&quot;tooltip&quot;
+            data-bs-placement&#x3D;&quot;top&quot;
+            title&#x3D;&quot;Add to cart &quot;
+            src&#x3D;&quot;assets/images/add-cart.svg&quot;
+            class&#x3D;&quot;icons-img pointer&quot;
+            alt&#x3D;&quot;icon-img&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;product-card__details&quot;
+        [ngClass]&#x3D;&quot;{ &#x27;col-6 p-0&#x27;: fullWidthMode() }&quot;
+      &gt;
+        &lt;h5 class&#x3D;&quot;product-card-category&quot;&gt;{{ product().Brand.name }}&lt;/h5&gt;
+        @if (fullWidthMode()) {
+        &lt;h4 class&#x3D;&quot;product-card-title&quot;&gt;
+          {{ product().title }}
+        &lt;/h4&gt;
+        }@else {
+        &lt;h4 class&#x3D;&quot;product-card-title&quot;&gt;
+          {{ product().title | slice : 0 : 15 }}
+        &lt;/h4&gt;
+        }
+
+        &lt;p class&#x3D;&quot;product-card-price&quot;&gt;{{ product().price | currency }}&lt;/p&gt;
+        @if (fullWidthMode()) {
+        &lt;p class&#x3D;&quot;text-sm text-gloom&quot;&gt;
+          {{ product().desc }}
+        &lt;/p&gt;
+        }
+        &lt;ng-container&gt;
+          @if (product().totalRating) {
+          &lt;app-rating
+            [stars]&#x3D;&quot;product().totalRating / product().reviewersCount&quot;
+          &gt;&lt;/app-rating&gt;
+          } @else {
+          &lt;p class&#x3D;&quot;mb-0 text-sm mb-1 text-info&quot;&gt;No reviews availble&lt;/p&gt;
+          }
+        &lt;/ng-container&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  } @else {
+
+  &lt;!-- default way --&gt;
+  &lt;div class&#x3D;&quot;card shadow product-card&quot;&gt;
+    &lt;div class&#x3D;&quot;product-card__header&quot;&gt;
+      &lt;div&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;&quot;&gt;
+        @if (addedToWishlist) {
+        &lt;img
+          (click)&#x3D;&quot;onAddToWishlist({ productId: product().id })&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Already added to wishlist&quot;
+          src&#x3D;&quot;assets/images/wish-black.svg&quot;
+          alt&#x3D;&quot;wishlist&quot;
+          class&#x3D;&quot;pointer black-wish icon-img&quot;
+        /&gt;
+        } @else {
+        &lt;img
+          (click)&#x3D;&quot;onAddToWishlist({ productId: product().id })&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Add to wishlist&quot;
+          src&#x3D;&quot;assets/images/wish.svg&quot;
+          alt&#x3D;&quot;wishlist&quot;
+          class&#x3D;&quot;pointer&quot;
+        /&gt;
+        }
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;product-card__images&quot;&gt;
+      &lt;img
+        class&#x3D;&quot;card-img-top main-img&quot;
+        src&#x3D;&quot;assets/images/tab.jpg&quot;
+        alt&#x3D;&quot;Title&quot;
+      /&gt;
+      &lt;img
+        class&#x3D;&quot;card-img-top sub-img&quot;
+        src&#x3D;&quot;assets/images/tv.jpg&quot;
+        alt&#x3D;&quot;Title&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;product-card__hoverables mt-1&quot;&gt;
+      &lt;div class&#x3D;&quot;hv-img-box&quot;&gt;
+        &lt;img
+          (click)&#x3D;&quot;onAddToCompare({ productId: product().id })&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Add to compare list&quot;
+          src&#x3D;&quot;assets/images/prodcompare.svg&quot;
+          class&#x3D;&quot;icons-img pointer&quot;
+          alt&#x3D;&quot;icon-img&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;a routerLink&#x3D;&quot;/store/{{ product().id }}&quot; class&#x3D;&quot;hv-img-box&quot;&gt;
+        &lt;img
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;View product&quot;
+          src&#x3D;&quot;assets/images/view.svg&quot;
+          class&#x3D;&quot;icons-img pointer&quot;
+          alt&#x3D;&quot;icon-img&quot;
+        /&gt;
+      &lt;/a&gt;
+      &lt;div class&#x3D;&quot;hv-img-box&quot;&gt;
+        &lt;img
+          (click)&#x3D;&quot;onAddToCart(product().id, product().Colors[0].name)&quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Add to cart &quot;
+          src&#x3D;&quot;assets/images/add-cart.svg&quot;
+          class&#x3D;&quot;icons-img pointer&quot;
+          alt&#x3D;&quot;icon-img&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;product-card__details&quot;&gt;
+      &lt;h5 class&#x3D;&quot;product-card-category&quot;&gt;{{ product().Brand.name }}&lt;/h5&gt;
+      @if (fullWidthMode()) {
+      &lt;h4 class&#x3D;&quot;product-card-title&quot;&gt;
+        {{ product().title }}
+      &lt;/h4&gt;
+      }@else {
+      &lt;h4 class&#x3D;&quot;product-card-title&quot;&gt;
+        {{ product().title | slice : 0 : 15 }}
+      &lt;/h4&gt;
+      }
+
+      &lt;p class&#x3D;&quot;product-card-price&quot;&gt;{{ product().price | currency }}&lt;/p&gt;
+      @if (fullWidthMode()) {
+      &lt;p class&#x3D;&quot;text-sm text-gloom&quot;&gt;
+        {{ product().desc }}
+      &lt;/p&gt;
+      }
+      &lt;ng-container&gt;
+        @if (product().totalRating) {
+        &lt;app-rating [stars]&#x3D;&quot;product().totalRating&quot;&gt;&lt;/app-rating&gt;
+        } @else {
+        &lt;p class&#x3D;&quot;mb-0 text-sm mb-1 text-info&quot;&gt;No reviews availble&lt;/p&gt;
+        }
+      &lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  }
+&lt;/ng-container&gt;
+
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (product()) {<ng-container>  <!-- cols determine how to show cards in the shop interface -->  @if (cols()) {  <div class="card shadow product-card">    <div class="product-card__header">      <div></div>      <div class="">        @if (addedToWishlist) {        <img          (click)="onAddToWishlist({ productId: product().id })"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Already added to wishlist"          src="assets/images/wish-black.svg"          alt="wishlist"          class="pointer black-wish icon-img"        />        } @else {        <img          (click)="onAddToWishlist({ productId: product().id })"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Add to wishlist"          src="assets/images/wish.svg"          alt="wishlist"          class="pointer"        />        }      </div>    </div>    <div [ngClass]="{ \'row g-2\': fullWidthMode() }">      <div        class="product-card__images"        [ngClass]="{ \'col-6 p-0\': fullWidthMode() }"      >        <img          class="card-img-top main-img"          [src]="product().images[0] || \'assets/images/404.png\'"          alt="main-img"        />        <img          class="card-img-top sub-img"          [src]="product().images[1] || \'assets/images/404.png\'"          alt="sub-img"        />      </div>      <div        class="product-card__hoverables mt-1"        [ngClass]="{ \'end-0\': fullWidthMode() }"      >        <div          class="hv-img-box"          [ngClass]="{ \'bg-transparent rounded-0\': fullWidthMode() }"        >          <img            (click)="onAddToCompare({ productId: product().id })"            data-bs-toggle="tooltip"            data-bs-placement="top"            title="Add to compare list"            src="assets/images/prodcompare.svg"            class="icons-img pointer"            alt="icon-img"          />        </div>        <a          routerLink="/store/{{ product().id }}"          class="hv-img-box"          [ngClass]="{ \'bg-transparent rounded-0\': fullWidthMode() }"        >          <img            data-bs-toggle="tooltip"            data-bs-placement="top"            title="View product"            src="assets/images/view.svg"            class="icons-img pointer"            alt="icon-img"          />        </a>        <div          class="hv-img-box"          [ngClass]="{ \'bg-transparent rounded-0\': fullWidthMode() }"        >          <img            (click)="onAddToCart(product().id, product().Colors[0].name)"            data-bs-toggle="tooltip"            data-bs-placement="top"            title="Add to cart "            src="assets/images/add-cart.svg"            class="icons-img pointer"            alt="icon-img"          />        </div>      </div>      <div        class="product-card__details"        [ngClass]="{ \'col-6 p-0\': fullWidthMode() }"      >        <h5 class="product-card-category">{{ product().Brand.name }}</h5>        @if (fullWidthMode()) {        <h4 class="product-card-title">          {{ product().title }}        </h4>        }@else {        <h4 class="product-card-title">          {{ product().title | slice : 0 : 15 }}        </h4>        }        <p class="product-card-price">{{ product().price | currency }}</p>        @if (fullWidthMode()) {        <p class="text-sm text-gloom">          {{ product().desc }}        </p>        }        <ng-container>          @if (product().totalRating) {          <app-rating            [stars]="product().totalRating / product().reviewersCount"          ></app-rating>          } @else {          <p class="mb-0 text-sm mb-1 text-info">No reviews availble</p>          }        </ng-container>      </div>    </div>  </div>  } @else {  <!-- default way -->  <div class="card shadow product-card">    <div class="product-card__header">      <div></div>      <div class="">        @if (addedToWishlist) {        <img          (click)="onAddToWishlist({ productId: product().id })"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Already added to wishlist"          src="assets/images/wish-black.svg"          alt="wishlist"          class="pointer black-wish icon-img"        />        } @else {        <img          (click)="onAddToWishlist({ productId: product().id })"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Add to wishlist"          src="assets/images/wish.svg"          alt="wishlist"          class="pointer"        />        }      </div>    </div>    <div class="product-card__images">      <img        class="card-img-top main-img"        src="assets/images/tab.jpg"        alt="Title"      />      <img        class="card-img-top sub-img"        src="assets/images/tv.jpg"        alt="Title"      />    </div>    <div class="product-card__hoverables mt-1">      <div class="hv-img-box">        <img          (click)="onAddToCompare({ productId: product().id })"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Add to compare list"          src="assets/images/prodcompare.svg"          class="icons-img pointer"          alt="icon-img"        />      </div>      <a routerLink="/store/{{ product().id }}" class="hv-img-box">        <img          data-bs-toggle="tooltip"          data-bs-placement="top"          title="View product"          src="assets/images/view.svg"          class="icons-img pointer"          alt="icon-img"        />      </a>      <div class="hv-img-box">        <img          (click)="onAddToCart(product().id, product().Colors[0].name)"          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Add to cart "          src="assets/images/add-cart.svg"          class="icons-img pointer"          alt="icon-img"        />      </div>    </div>    <div class="product-card__details">      <h5 class="product-card-category">{{ product().Brand.name }}</h5>      @if (fullWidthMode()) {      <h4 class="product-card-title">        {{ product().title }}      </h4>      }@else {      <h4 class="product-card-title">        {{ product().title | slice : 0 : 15 }}      </h4>      }      <p class="product-card-price">{{ product().price | currency }}</p>      @if (fullWidthMode()) {      <p class="text-sm text-gloom">        {{ product().desc }}      </p>      }      <ng-container>        @if (product().totalRating) {        <app-rating [stars]="product().totalRating"></app-rating>        } @else {        <p class="mb-0 text-sm mb-1 text-info">No reviews availble</p>        }      </ng-container>    </div>  </div>  }</ng-container>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BlogCardComponent', 'selector': 'app-blog-card'},{'name': 'BlogComponent', 'selector': 'app-blog'},{'name': 'BlogsComponent', 'selector': 'app-blogs'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ColorComponent', 'selector': 'app-color'},{'name': 'CompareComponent', 'selector': 'app-compare'},{'name': 'EnquiryComponent', 'selector': 'app-enquiry'},{'name': 'FeaturedComponent', 'selector': 'app-featured'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormGroupComponent', 'selector': 'app-form-group'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OffersComponent', 'selector': 'app-offers'},{'name': 'PasswordComponent', 'selector': 'app-password'},{'name': 'PopularComponent', 'selector': 'app-popular'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductAccordionComponent', 'selector': 'app-product-accordion'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductReviewFormComponent', 'selector': 'app-product-review-form'},{'name': 'ProductReviewsComponent', 'selector': 'app-product-reviews'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'QtyCounterComponent', 'selector': 'app-qty-counter'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RefundComponent', 'selector': 'app-refund'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'ShippingComponent', 'selector': 'app-shipping'},{'name': 'ShopComponent', 'selector': 'app-shop'},{'name': 'SingleProductComponent', 'selector': 'app-single-product'},{'name': 'SliderComponent', 'selector': 'app-slider'},{'name': 'SpecialComponent', 'selector': 'app-special'},{'name': 'TermsPolicyComponent', 'selector': 'app-terms-policy'},{'name': 'TextAreaComponent', 'selector': 'app-textarea'},{'name': 'UsedByComponent', 'selector': 'app-used-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserCompareComponent', 'selector': 'user-compare'},{'name': 'UserHomeComponent', 'selector': 'app-user-home'},{'name': 'UserOrdersComponent', 'selector': 'app-user-orders'},{'name': 'UserWishlistComponent', 'selector': 'user-wishlist'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [{'name': 'ControlValueAccessorDirective', 'selector': '[appControlValueAccessor]'},{'name': 'SwiperDirective', 'selector': '[appSwiper]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProductComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

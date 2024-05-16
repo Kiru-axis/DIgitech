@@ -1,0 +1,57 @@
+<div class="home">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Users</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="resource">
+      <div class="resource-info">
+        <h3 class="h3">Total Users</h3>
+        <h4 class="h4">{{ users.total }}</h4>
+      </div>
+      <div class="resource-info">
+        <h3 class="h3">Blocked User (s)</h3>
+        <h4 class="h4">{{ users.blocked }}</h4>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Products</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="resource">
+      <div class="resource-info">
+        <h3 class="h3">Total Products</h3>
+        <h4 class="h4">{{ products.total }}</h4>
+      </div>
+      <div class="resource-info">
+        <h3 class="h3">Unavailable Products</h3>
+        <h4 class="h4">{{ products.unavailable }}</h4>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Orders</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="resource">
+      <div class="resource-info">
+        <h3 class="h3">Orders Placed</h3>
+        <h4 class="h4">{{ orders.ordersPlaced }}</h4>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Revenue</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="resource">
+      <div class="resource-info">
+        <h3 class="h3">Total</h3>
+        <h4 class="h4">{{ orders.revenue | currency }}</h4>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

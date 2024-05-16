@@ -1,0 +1,1545 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/layout/header/header.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterLink</code>
+                            <code>FontAwesomeModule</code>
+                            <code>SlicePipe</code>
+                            <code>CurrencyPipe</code>
+                            <code>NgClass</code>
+                            <code>NgStyle</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currency" >currency</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#icons" >icons</a>
+                            </li>
+                            <li>
+                                <a href="#language" >language</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                            <li>
+                                <a href="#userCartData" >userCartData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_getCurrentUser" >_getCurrentUser</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onGlobalProductSearch" >onGlobalProductSearch</a>
+                            </li>
+                            <li>
+                                <a href="#refreshAccessToken" >refreshAccessToken</a>
+                            </li>
+                            <li>
+                                <a href="#removeProductFromCart" >removeProductFromCart</a>
+                            </li>
+                            <li>
+                                <a href="#setCurrency" >setCurrency</a>
+                            </li>
+                            <li>
+                                <a href="#setLanguage" >setLanguage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: Store, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/layout/header/header.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_getCurrentUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_getCurrentUser</b></span>
+                        <a href="#_getCurrentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_getCurrentUser()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onGlobalProductSearch"></a>
+                    <span class="name">
+                        <span ><b>onGlobalProductSearch</b></span>
+                        <a href="#onGlobalProductSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onGlobalProductSearch(e: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshAccessToken"></a>
+                    <span class="name">
+                        <span ><b>refreshAccessToken</b></span>
+                        <a href="#refreshAccessToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refreshAccessToken()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeProductFromCart"></a>
+                    <span class="name">
+                        <span ><b>removeProductFromCart</b></span>
+                        <a href="#removeProductFromCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeProductFromCart(dto: <a href="../interfaces/IDeleteCartProduct.html" target="_self">IDeleteCartProduct</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IDeleteCartProduct.html" target="_self" >IDeleteCartProduct</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCurrency"></a>
+                    <span class="name">
+                        <span ><b>setCurrency</b></span>
+                        <a href="#setCurrency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCurrency(newCurr: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newCurr</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLanguage"></a>
+                    <span class="name">
+                        <span ><b>setLanguage</b></span>
+                        <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLanguage(newLang: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/layout/header/header.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newLang</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currency"></a>
+                    <span class="name">
+                        <span ><b>currency</b></span>
+                        <a href="#currency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;USD&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/layout/header/header.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/layout/header/header.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="icons"></a>
+                    <span class="name">
+                        <span ><b>icons</b></span>
+                        <a href="#icons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Icons</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/layout/header/header.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="language"></a>
+                    <span class="name">
+                        <span ><b>language</b></span>
+                        <a href="#language"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;English&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/layout/header/header.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IUser | null | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/layout/header/header.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userCartData"></a>
+                    <span class="name">
+                        <span ><b>userCartData</b></span>
+                        <a href="#userCartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ICartData | undefined | null</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/layout/header/header.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CurrencyPipe, NgClass, NgStyle, SlicePipe } from &#x27;@angular/common&#x27;;
+import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+
+import { Icons } from &#x27;@app/shared&#x27;;
+import { ICartData, IDeleteCartProduct, IUser } from &#x27;@app/models&#x27;;
+import { authActions, selectAuthUser } from &#x27;@app/store/auth&#x27;;
+import { customerActions, selectCartData } from &#x27;@app/store/customer&#x27;;
+import { selectProducts } from &#x27;@app/store/products&#x27;;
+
+@Component({
+  selector: &#x27;app-header&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./header.component.html&#x27;,
+  styleUrl: &#x27;./header.component.scss&#x27;,
+  imports: [
+    RouterLink,
+    FontAwesomeModule,
+    SlicePipe,
+    CurrencyPipe,
+    NgClass,
+    NgStyle,
+  ],
+})
+export class HeaderComponent implements OnInit, OnDestroy {
+  constructor(private store: Store, private router: Router) {}
+
+  destroy$ &#x3D; new Subject();
+
+  language &#x3D; &#x27;English&#x27;;
+
+  currency &#x3D; &#x27;USD&#x27;;
+
+  icons &#x3D; Icons;
+
+  user!: IUser | null | undefined;
+
+  userCartData!: ICartData | undefined | null;
+
+  ngOnInit(): void {
+    this._getCurrentUser();
+  }
+
+  setLanguage(newLang: string) {
+    this.language &#x3D; newLang;
+  }
+  setCurrency(newCurr: string) {
+    this.currency &#x3D; newCurr;
+  }
+
+  onGlobalProductSearch(e: Event) {
+    const term &#x3D; (e.target as HTMLInputElement).value;
+    if (term.length &gt; 1) {
+      this.router.navigate([&#x27;/store&#x27;]);
+      this.store
+        .select(selectProducts)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((d) &#x3D;&gt; {
+          let found &#x3D; d.filter((prod) &#x3D;&gt;
+            prod.title.toLowerCase().includes(term.toLowerCase())
+          );
+
+          if (found.length) {
+            this.router.navigate([&#x60;/store/${found[0].id}&#x60;]);
+          }
+        });
+    } else {
+      this.router.navigate([&#x27;/&#x27;]);
+    }
+  }
+
+  removeProductFromCart(dto: IDeleteCartProduct) {
+    this.store.dispatch(
+      customerActions.removeProductFromCart({ request: dto })
+    );
+  }
+
+  logout() {
+    this.store.dispatch(authActions.logout());
+    this.user &#x3D; null;
+    this.userCartData &#x3D; null;
+  }
+
+  refreshAccessToken() {
+    this.store.dispatch(authActions.refreshToken());
+  }
+
+  private _getCurrentUser() {
+    // can be improved
+    this.store
+      .select(selectAuthUser)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((user) &#x3D;&gt; {
+        if (user) {
+          this.user &#x3D; user;
+          this.store.dispatch(customerActions.getCart());
+          this.store
+            .select(selectCartData)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((cart) &#x3D;&gt; {
+              if (cart) {
+                if (cart) this.userCartData &#x3D; cart;
+              }
+            });
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(&#x27;&#x27;);
+    this.destroy$.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;header&quot;&gt;
+  &lt;nav class&#x3D;&quot;header__top py-3&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;container d-flex flex-column flex-md-row justify-content-between align-items-center&quot;
+    &gt;
+      &lt;p class&#x3D;&quot;text-capitalize mb-3 mb-md-0&quot;&gt;
+        Free shipping oveer $100 and free returns
+      &lt;/p&gt;
+      &lt;div class&#x3D;&quot;header__top-dropdowns d-flex align-items-center gap-md-4&quot;&gt;
+        &lt;a
+          class&#x3D;&quot;border-md-end pe-md-4&quot;
+          href&#x3D;&quot;tel: (969) 3567 9999-(9876) 3245 2222&quot;
+          &gt;Hotline (969) 3567 9999-(9876) 3245 2222&lt;/a
+        &gt;
+
+        &lt;div class&#x3D;&quot;dropdown&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;dropdown-toggle&quot;
+            type&#x3D;&quot;button&quot;
+            id&#x3D;&quot;languageId&quot;
+            data-bs-toggle&#x3D;&quot;dropdown&quot;
+            aria-haspopup&#x3D;&quot;true&quot;
+            aria-expanded&#x3D;&quot;false&quot;
+          &gt;
+            {{ language }}
+          &lt;/button&gt;
+          &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;languageId&quot;&gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setLanguage(&#x27;French&#x27;)&quot;&gt;French&lt;/a&gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setLanguage(&#x27;English&#x27;)&quot;
+              &gt;English&lt;/a
+            &gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setLanguage(&#x27;German&#x27;)&quot;&gt;German&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;dropdown&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;dropdown-toggle&quot;
+            type&#x3D;&quot;button&quot;
+            id&#x3D;&quot;currencyId&quot;
+            data-bs-toggle&#x3D;&quot;dropdown&quot;
+            aria-haspopup&#x3D;&quot;true&quot;
+            aria-expanded&#x3D;&quot;false&quot;
+          &gt;
+            {{ currency }}
+          &lt;/button&gt;
+          &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;currencyId&quot;&gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setCurrency(&#x27;USD&#x27;)&quot;&gt;USD&lt;/a&gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setCurrency(&#x27;Euro&#x27;)&quot;&gt;Euro&lt;/a&gt;
+            &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;setCurrency(&#x27;ASD&#x27;)&quot;&gt;ASD&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;hr /&gt;
+
+  &lt;nav class&#x3D;&quot;header__main py-4&quot;&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12 col-sm-2&quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex align-items-center justify-content-between mb-0&quot;&gt;
+            &lt;h2 class&#x3D;&quot;mb-0&quot;&gt;
+              &lt;a class&#x3D;&quot;text-white&quot; routerLink&#x3D;&quot;&quot;&gt;Digitek&lt;/a&gt;
+            &lt;/h2&gt;
+
+            &lt;div class&#x3D;&quot;dropdown responsive-dropdown d-block d-sm-none&quot;&gt;
+              &lt;button
+                class&#x3D;&quot;btn btn-secondary dropdown-toggle&quot;
+                type&#x3D;&quot;button&quot;
+                id&#x3D;&quot;resposiveNav&quot;
+                data-bs-toggle&#x3D;&quot;dropdown&quot;
+                aria-haspopup&#x3D;&quot;true&quot;
+                aria-expanded&#x3D;&quot;false&quot;
+              &gt;
+                &lt;fa-icon [icon]&#x3D;&quot;icons.bars&quot; size&#x3D;&quot;lg&quot;&gt;&lt;/fa-icon&gt;
+              &lt;/button&gt;
+
+              &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;resposiveNav&quot;&gt;
+                &lt;div class&#x3D;&quot;dropdown-item&quot;&gt;
+                  &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/compare.svg&quot; alt&#x3D;&quot;img-234&quot; /&gt;
+                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+                      &lt;a routerLink&#x3D;&quot;/customer/compare&quot;&gt;Compare&lt;/a&gt;
+                      &lt;br /&gt;
+                      &lt;a routerLink&#x3D;&quot;/store&quot;&gt;Products&lt;/a&gt;
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;dropdown-item mb-3&quot;&gt;
+                  &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/wishlist.svg&quot; alt&#x3D;&quot;img-2&quot; /&gt;
+                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+                      &lt;a routerLink&#x3D;&quot;/customer/wishlist&quot;&gt;Favourite&lt;/a&gt;
+                      &lt;br /&gt;
+                      &lt;a routerLink&#x3D;&quot;/customer/wishlist&quot;&gt;Wishlist&lt;/a&gt;
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;dropdown-item mb-3&quot;&gt;
+                  &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/user.svg&quot; alt&#x3D;&quot;img-3&quot; /&gt;
+                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+                      @if (!user) {
+                      &lt;a routerLink&#x3D;&quot;/auth/login&quot;&gt;Login&lt;/a&gt;
+                      }@if(user) {
+                      &lt;button (click)&#x3D;&quot;logout()&quot; class&#x3D;&quot;text-white&quot;&gt;
+                        Logout
+                      &lt;/button&gt;
+                      }
+                      &lt;br /&gt;
+                      &lt;a routerLink&#x3D;&quot;/profile&quot;&gt;My Account&lt;/a&gt;
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;dropdown-item mb-3&quot;&gt;
+                  &lt;div
+                    class&#x3D;&quot;pointer d-flex align-items-center gap-2&quot;
+                    data-bs-toggle&#x3D;&quot;offcanvas&quot;
+                    data-bs-target&#x3D;&quot;#cartOffCanvas&quot;
+                    aria-controls&#x3D;&quot;cartOffCanvas&quot;
+                  &gt;
+                    &lt;img src&#x3D;&quot;assets/images/cart.svg&quot; alt&#x3D;&quot;img-4&quot; /&gt;
+                    &lt;p class&#x3D;&quot;mb-0 text-center&quot;&gt;
+                      &lt;span class&#x3D;&quot;badge bg-white text-dark px-3&quot;&gt;{{
+                        userCartData?.quantity || 0
+                      }}&lt;/span&gt;
+                      &lt;br /&gt;
+                      &lt;span&gt;{{
+                        userCartData?.totalPrice || 0 | currency
+                      }}&lt;/span&gt;
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-5 my-3 my-md-0&quot;&gt;
+          &lt;div class&#x3D;&quot;input-group&quot;&gt;
+            &lt;input
+              type&#x3D;&quot;text&quot;
+              class&#x3D;&quot;form-control&quot;
+              placeholder&#x3D;&quot;Search for products here&quot;
+              aria-label&#x3D;&quot;Button&quot;
+              aria-describedby&#x3D;&quot;searchProducts&quot;
+              (input)&#x3D;&quot;onGlobalProductSearch($event)&quot;
+            /&gt;
+            &lt;button
+              class&#x3D;&quot;btn search-products-btn&quot;
+              type&#x3D;&quot;button&quot;
+              id&#x3D;&quot;searchProducts&quot;
+            &gt;
+              &lt;fa-icon [icon]&#x3D;&quot;icons.search&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div
+          class&#x3D;&quot;header__main-links col-5 d-none d-sm-flex align-items-center justify-content-between&quot;
+        &gt;
+          &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/compare.svg&quot; alt&#x3D;&quot;img-234&quot; /&gt;
+            &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+              &lt;a routerLink&#x3D;&quot;/customer/compare&quot;&gt;Compare&lt;/a&gt;
+              &lt;br /&gt;
+              &lt;a routerLink&#x3D;&quot;/store&quot;&gt;Products&lt;/a&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/wishlist.svg&quot; alt&#x3D;&quot;img-2&quot; /&gt;
+            &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+              &lt;a routerLink&#x3D;&quot;/customer/wishlist&quot;&gt;Favourite&lt;/a&gt;
+              &lt;br /&gt;
+              &lt;a routerLink&#x3D;&quot;/customer/wishlist&quot;&gt;Wishlist&lt;/a&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;d-flex align-items-center gap-2&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/user.svg&quot; alt&#x3D;&quot;img-3&quot; /&gt;
+            &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+              @if (!user) {
+              &lt;a routerLink&#x3D;&quot;/auth/login&quot;&gt;Login&lt;/a&gt;
+              }@if(user) {
+              &lt;button (click)&#x3D;&quot;logout()&quot; class&#x3D;&quot;text-white&quot;&gt;Logout&lt;/button&gt;
+              }
+              &lt;br /&gt;
+              &lt;a routerLink&#x3D;&quot;/profile&quot;&gt;My Account&lt;/a&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;pointer d-flex align-items-center gap-2&quot;
+            data-bs-toggle&#x3D;&quot;offcanvas&quot;
+            data-bs-target&#x3D;&quot;#cartOffCanvas&quot;
+            aria-controls&#x3D;&quot;cartOffCanvas&quot;
+          &gt;
+            &lt;img src&#x3D;&quot;assets/images/cart.svg&quot; alt&#x3D;&quot;img-4&quot; /&gt;
+            &lt;p class&#x3D;&quot;mb-0 text-center&quot;&gt;
+              &lt;span class&#x3D;&quot;badge bg-white text-dark px-3&quot;&gt;{{
+                userCartData?.quantity || 0
+              }}&lt;/span&gt;
+              &lt;br /&gt;
+              &lt;span&gt;{{ userCartData?.totalPrice || 0 | currency }}&lt;/span&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;nav class&#x3D;&quot;header__bottom py-3&quot;&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;div class&#x3D;&quot;d-flex align-items-center gap-5&quot;&gt;
+        &lt;div class&#x3D;&quot;header__bottom-dropdown border-end&quot;&gt;
+          &lt;div class&#x3D;&quot;dropdown&quot;&gt;
+            &lt;button
+              class&#x3D;&quot;btn dropdown-toggle text-white text-uppercase&quot;
+              type&#x3D;&quot;button&quot;
+              id&#x3D;&quot;shopCategories&quot;
+              data-bs-toggle&#x3D;&quot;dropdown&quot;
+              aria-haspopup&#x3D;&quot;true&quot;
+              aria-expanded&#x3D;&quot;false&quot;
+            &gt;
+              &lt;img src&#x3D;&quot;assets/images/menu.svg&quot; alt&#x3D;&quot;some&quot; /&gt;
+              &lt;span class&#x3D;&quot;text&quot;&gt; Shop Categories&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;shopCategories&quot;&gt;
+              &lt;a class&#x3D;&quot;dropdown-item&quot; routerLink&#x3D;&quot;/&quot;&gt;Home&lt;/a&gt;
+              &lt;a class&#x3D;&quot;dropdown-item&quot; routerLink&#x3D;&quot;/store&quot;&gt;Store&lt;/a&gt;
+              &lt;a class&#x3D;&quot;dropdown-item&quot; routerLink&#x3D;&quot;/blogs&quot;&gt;Blogs&lt;/a&gt;
+              &lt;a class&#x3D;&quot;dropdown-item&quot; routerLink&#x3D;&quot;/contact&quot;&gt;Contact&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;header__bottom-links&quot;&gt;
+          &lt;a class&#x3D;&quot;&quot; routerLink&#x3D;&quot;/&quot;&gt;Home&lt;/a&gt;
+          &lt;a class&#x3D;&quot;&quot; routerLink&#x3D;&quot;/store&quot;&gt;Store&lt;/a&gt;
+          &lt;a class&#x3D;&quot;&quot; routerLink&#x3D;&quot;/blogs&quot;&gt;Blogs&lt;/a&gt;
+          &lt;a class&#x3D;&quot;&quot; routerLink&#x3D;&quot;/contact&quot;&gt;Contact&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;!-- cart off canvas --&gt;
+&lt;div
+  class&#x3D;&quot;offcanvas offcanvas-end&quot;
+  data-bs-scroll&#x3D;&quot;true&quot;
+  tabindex&#x3D;&quot;-1&quot;
+  id&#x3D;&quot;cartOffCanvas&quot;
+  aria-labelledby&#x3D;&quot;Enable both scrolling &amp; backdrop&quot;
+&gt;
+  &lt;div class&#x3D;&quot;offcanvas-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row g-2&quot;&gt;
+      @for (item of userCartData?.cart; track $index) {
+      &lt;div class&#x3D;&quot;col-3&quot;&gt;
+        &lt;img
+          [src]&#x3D;&quot;item.Product.images[0]&quot;
+          class&#x3D;&quot;cart-img&quot;
+          [alt]&#x3D;&quot;&#x27;cart-img&#x27; + $index&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-5 d-flex flex-column&quot;&gt;
+        &lt;p class&#x3D;&quot;mb-0 text-wrap fw-medium&quot;&gt;
+          {{ item.Product.title | slice : 0 : 30 }}
+        &lt;/p&gt;
+        &lt;p class&#x3D;&quot;my-2 text-gloom fw-medium&quot;&gt;
+          &lt;span class&#x3D;&quot;text-muted text-sm&quot;&gt;Quantity: &lt;/span&gt; X
+          {{ item.quantity }}
+        &lt;/p&gt;
+        &lt;p class&#x3D;&quot;mb-0 text-gloom fw-medium&quot;&gt;
+          &lt;span class&#x3D;&quot;text-muted text-sm&quot;&gt;Color: &lt;/span&gt; {{ item.color }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;col-4 d-flex align-items-center justify-content-center&quot;&gt;
+        &lt;button
+          (click)&#x3D;&quot;
+            removeProductFromCart({
+              cartId: item.id,
+              productId: item.productId
+            })
+          &quot;
+          data-bs-toggle&#x3D;&quot;tooltip&quot;
+          data-bs-placement&#x3D;&quot;top&quot;
+          title&#x3D;&quot;Remove From cart&quot;
+          class&#x3D;&quot;rem-btn top-0 end-0 m-2&quot;
+        &gt;
+          &lt;fa-icon size&#x3D;&quot;sm&quot; [icon]&#x3D;&quot;icons.del&quot;&gt;&lt;/fa-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;canvas-actions mt-3 w-100 py-3 px-2&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;canvas-actions__top d-flex align-items-center justify-content-between&quot;
+      &gt;
+        &lt;p class&#x3D;&quot;fw-bold&quot;&gt;
+          Total Item
+          &lt;br /&gt;
+          {{ userCartData?.quantity || 0 }}
+        &lt;/p&gt;
+        &lt;p class&#x3D;&quot;fw-bold&quot;&gt;
+          Sub Total
+          &lt;br /&gt;
+          {{ userCartData?.totalPrice || 0 | currency }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;hr /&gt;
+      &lt;div
+        class&#x3D;&quot;canvas-actions__bottom d-flex align-items-center justify-content-center gap-2 mt-2&quot;
+      &gt;
+        &lt;a routerLink&#x3D;&quot;/customer/cart&quot; class&#x3D;&quot;button-primary&quot;&gt;View Cart&lt;/a&gt;
+        &lt;button routerLink&#x3D;&quot;/customer/checkout&quot; class&#x3D;&quot;button-warn&quot;&gt;
+          Check Out
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header class="header">  <nav class="header__top py-3">    <div      class="container d-flex flex-column flex-md-row justify-content-between align-items-center"    >      <p class="text-capitalize mb-3 mb-md-0">        Free shipping oveer $100 and free returns      </p>      <div class="header__top-dropdowns d-flex align-items-center gap-md-4">        <a          class="border-md-end pe-md-4"          href="tel: (969) 3567 9999-(9876) 3245 2222"          >Hotline (969) 3567 9999-(9876) 3245 2222</a        >        <div class="dropdown">          <button            class="dropdown-toggle"            type="button"            id="languageId"            data-bs-toggle="dropdown"            aria-haspopup="true"            aria-expanded="false"          >            {{ language }}          </button>          <div class="dropdown-menu" aria-labelledby="languageId">            <a class="dropdown-item" (click)="setLanguage(\'French\')">French</a>            <a class="dropdown-item" (click)="setLanguage(\'English\')"              >English</a            >            <a class="dropdown-item" (click)="setLanguage(\'German\')">German</a>          </div>        </div>        <div class="dropdown">          <button            class="dropdown-toggle"            type="button"            id="currencyId"            data-bs-toggle="dropdown"            aria-haspopup="true"            aria-expanded="false"          >            {{ currency }}          </button>          <div class="dropdown-menu" aria-labelledby="currencyId">            <a class="dropdown-item" (click)="setCurrency(\'USD\')">USD</a>            <a class="dropdown-item" (click)="setCurrency(\'Euro\')">Euro</a>            <a class="dropdown-item" (click)="setCurrency(\'ASD\')">ASD</a>          </div>        </div>      </div>    </div>  </nav>  <hr />  <nav class="header__main py-4">    <div class="container">      <div class="row">        <div class="col-12 col-sm-2">          <div class="d-flex align-items-center justify-content-between mb-0">            <h2 class="mb-0">              <a class="text-white" routerLink="">Digitek</a>            </h2>            <div class="dropdown responsive-dropdown d-block d-sm-none">              <button                class="btn btn-secondary dropdown-toggle"                type="button"                id="resposiveNav"                data-bs-toggle="dropdown"                aria-haspopup="true"                aria-expanded="false"              >                <fa-icon [icon]="icons.bars" size="lg"></fa-icon>              </button>              <div class="dropdown-menu" aria-labelledby="resposiveNav">                <div class="dropdown-item">                  <div class="d-flex align-items-center gap-2">                    <img src="assets/images/compare.svg" alt="img-234" />                    <p class="mb-0">                      <a routerLink="/customer/compare">Compare</a>                      <br />                      <a routerLink="/store">Products</a>                    </p>                  </div>                </div>                <div class="dropdown-item mb-3">                  <div class="d-flex align-items-center gap-2">                    <img src="assets/images/wishlist.svg" alt="img-2" />                    <p class="mb-0">                      <a routerLink="/customer/wishlist">Favourite</a>                      <br />                      <a routerLink="/customer/wishlist">Wishlist</a>                    </p>                  </div>                </div>                <div class="dropdown-item mb-3">                  <div class="d-flex align-items-center gap-2">                    <img src="assets/images/user.svg" alt="img-3" />                    <p class="mb-0">                      @if (!user) {                      <a routerLink="/auth/login">Login</a>                      }@if(user) {                      <button (click)="logout()" class="text-white">                        Logout                      </button>                      }                      <br />                      <a routerLink="/profile">My Account</a>                    </p>                  </div>                </div>                <div class="dropdown-item mb-3">                  <div                    class="pointer d-flex align-items-center gap-2"                    data-bs-toggle="offcanvas"                    data-bs-target="#cartOffCanvas"                    aria-controls="cartOffCanvas"                  >                    <img src="assets/images/cart.svg" alt="img-4" />                    <p class="mb-0 text-center">                      <span class="badge bg-white text-dark px-3">{{                        userCartData?.quantity || 0                      }}</span>                      <br />                      <span>{{                        userCartData?.totalPrice || 0 | currency                      }}</span>                    </p>                  </div>                </div>              </div>            </div>          </div>        </div>        <div class="col-md-5 my-3 my-md-0">          <div class="input-group">            <input              type="text"              class="form-control"              placeholder="Search for products here"              aria-label="Button"              aria-describedby="searchProducts"              (input)="onGlobalProductSearch($event)"            />            <button              class="btn search-products-btn"              type="button"              id="searchProducts"            >              <fa-icon [icon]="icons.search"></fa-icon>            </button>          </div>        </div>        <div          class="header__main-links col-5 d-none d-sm-flex align-items-center justify-content-between"        >          <div class="d-flex align-items-center gap-2">            <img src="assets/images/compare.svg" alt="img-234" />            <p class="mb-0">              <a routerLink="/customer/compare">Compare</a>              <br />              <a routerLink="/store">Products</a>            </p>          </div>          <div class="d-flex align-items-center gap-2">            <img src="assets/images/wishlist.svg" alt="img-2" />            <p class="mb-0">              <a routerLink="/customer/wishlist">Favourite</a>              <br />              <a routerLink="/customer/wishlist">Wishlist</a>            </p>          </div>          <div class="d-flex align-items-center gap-2">            <img src="assets/images/user.svg" alt="img-3" />            <p class="mb-0">              @if (!user) {              <a routerLink="/auth/login">Login</a>              }@if(user) {              <button (click)="logout()" class="text-white">Logout</button>              }              <br />              <a routerLink="/profile">My Account</a>            </p>          </div>          <div            class="pointer d-flex align-items-center gap-2"            data-bs-toggle="offcanvas"            data-bs-target="#cartOffCanvas"            aria-controls="cartOffCanvas"          >            <img src="assets/images/cart.svg" alt="img-4" />            <p class="mb-0 text-center">              <span class="badge bg-white text-dark px-3">{{                userCartData?.quantity || 0              }}</span>              <br />              <span>{{ userCartData?.totalPrice || 0 | currency }}</span>            </p>          </div>        </div>      </div>    </div>  </nav>  <nav class="header__bottom py-3">    <div class="container">      <div class="d-flex align-items-center gap-5">        <div class="header__bottom-dropdown border-end">          <div class="dropdown">            <button              class="btn dropdown-toggle text-white text-uppercase"              type="button"              id="shopCategories"              data-bs-toggle="dropdown"              aria-haspopup="true"              aria-expanded="false"            >              <img src="assets/images/menu.svg" alt="some" />              <span class="text"> Shop Categories</span>            </button>            <div class="dropdown-menu" aria-labelledby="shopCategories">              <a class="dropdown-item" routerLink="/">Home</a>              <a class="dropdown-item" routerLink="/store">Store</a>              <a class="dropdown-item" routerLink="/blogs">Blogs</a>              <a class="dropdown-item" routerLink="/contact">Contact</a>            </div>          </div>        </div>        <div class="header__bottom-links">          <a class="" routerLink="/">Home</a>          <a class="" routerLink="/store">Store</a>          <a class="" routerLink="/blogs">Blogs</a>          <a class="" routerLink="/contact">Contact</a>        </div>      </div>    </div>  </nav></header><!-- cart off canvas --><div  class="offcanvas offcanvas-end"  data-bs-scroll="true"  tabindex="-1"  id="cartOffCanvas"  aria-labelledby="Enable both scrolling & backdrop">  <div class="offcanvas-body">    <div class="row g-2">      @for (item of userCartData?.cart; track $index) {      <div class="col-3">        <img          [src]="item.Product.images[0]"          class="cart-img"          [alt]="\'cart-img\' + $index"        />      </div>      <div class="col-5 d-flex flex-column">        <p class="mb-0 text-wrap fw-medium">          {{ item.Product.title | slice : 0 : 30 }}        </p>        <p class="my-2 text-gloom fw-medium">          <span class="text-muted text-sm">Quantity: </span> X          {{ item.quantity }}        </p>        <p class="mb-0 text-gloom fw-medium">          <span class="text-muted text-sm">Color: </span> {{ item.color }}        </p>      </div>      <div class="col-4 d-flex align-items-center justify-content-center">        <button          (click)="            removeProductFromCart({              cartId: item.id,              productId: item.productId            })          "          data-bs-toggle="tooltip"          data-bs-placement="top"          title="Remove From cart"          class="rem-btn top-0 end-0 m-2"        >          <fa-icon size="sm" [icon]="icons.del"></fa-icon>        </button>      </div>      }    </div>    <div class="canvas-actions mt-3 w-100 py-3 px-2">      <div        class="canvas-actions__top d-flex align-items-center justify-content-between"      >        <p class="fw-bold">          Total Item          <br />          {{ userCartData?.quantity || 0 }}        </p>        <p class="fw-bold">          Sub Total          <br />          {{ userCartData?.totalPrice || 0 | currency }}        </p>      </div>      <hr />      <div        class="canvas-actions__bottom d-flex align-items-center justify-content-center gap-2 mt-2"      >        <a routerLink="/customer/cart" class="button-primary">View Cart</a>        <button routerLink="/customer/checkout" class="button-warn">          Check Out        </button>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BlogCardComponent', 'selector': 'app-blog-card'},{'name': 'BlogComponent', 'selector': 'app-blog'},{'name': 'BlogsComponent', 'selector': 'app-blogs'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ColorComponent', 'selector': 'app-color'},{'name': 'CompareComponent', 'selector': 'app-compare'},{'name': 'EnquiryComponent', 'selector': 'app-enquiry'},{'name': 'FeaturedComponent', 'selector': 'app-featured'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormGroupComponent', 'selector': 'app-form-group'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OffersComponent', 'selector': 'app-offers'},{'name': 'PasswordComponent', 'selector': 'app-password'},{'name': 'PopularComponent', 'selector': 'app-popular'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductAccordionComponent', 'selector': 'app-product-accordion'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductReviewFormComponent', 'selector': 'app-product-review-form'},{'name': 'ProductReviewsComponent', 'selector': 'app-product-reviews'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'QtyCounterComponent', 'selector': 'app-qty-counter'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'RefundComponent', 'selector': 'app-refund'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'ShippingComponent', 'selector': 'app-shipping'},{'name': 'ShopComponent', 'selector': 'app-shop'},{'name': 'SingleProductComponent', 'selector': 'app-single-product'},{'name': 'SliderComponent', 'selector': 'app-slider'},{'name': 'SpecialComponent', 'selector': 'app-special'},{'name': 'TermsPolicyComponent', 'selector': 'app-terms-policy'},{'name': 'TextAreaComponent', 'selector': 'app-textarea'},{'name': 'UsedByComponent', 'selector': 'app-used-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserCompareComponent', 'selector': 'user-compare'},{'name': 'UserHomeComponent', 'selector': 'app-user-home'},{'name': 'UserOrdersComponent', 'selector': 'app-user-orders'},{'name': 'UserWishlistComponent', 'selector': 'user-wishlist'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [{'name': 'ControlValueAccessorDirective', 'selector': '[appControlValueAccessor]'},{'name': 'SwiperDirective', 'selector': '[appSwiper]'}];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

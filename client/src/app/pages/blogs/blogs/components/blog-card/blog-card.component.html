@@ -1,0 +1,71 @@
+@if (blogs.length) {
+<ng-container>
+  @if (slider()) {
+  <app-slider
+    [itemTemplate]="blogCard"
+    [config]="config"
+    [data]="blogs"
+  ></app-slider>
+  <ng-template #blogCard let-item>
+    <div class="card shadow">
+      <div class="blog-img-box">
+        <img
+          class="card-img-top"
+          src="{{ item.image || 'assets/images/placeholder.png' }}"
+          alt="item-img"
+        />
+      </div>
+      <div class="card-body">
+        <p class="text-gloom text-sm fw-medium mb-2">
+          {{ item.updatedAt | timesince }}
+        </p>
+        <h4 class="text-capitalize mb-2">
+          {{ item.title | slice : 0 : 34 }}
+        </h4>
+        <p class="text-sm text-gloom">
+          {{ item.desc | slice : 0 : 50 }}
+        </p>
+        <a routerLink="/blogs/{{ item.id }}" class="button-primary"
+          >Read More</a
+        >
+      </div>
+    </div> </ng-template
+  >} @else {
+
+  <div class="row g-2">
+    @for (blog of blogs; track $index) {
+    <div
+      class="col-12 col-sm-{{ colums().sm }} col-md-{{ colums().md }} col-lg-{{
+        colums().lg
+      }}"
+    >
+      <div class="card shadow">
+        <div class="blog-img-box">
+          <img
+            class="card-img-top"
+            src="{{ blog.image || 'assets/images/placeholder.png' }}"
+            alt="blog-img"
+          />
+        </div>
+        <div class="card-body">
+          <p class="text-gloom text-sm fw-medium mb-2">
+            {{ blog.updatedAt | timesince }}
+          </p>
+          <h4 class="text-capitalize mb-2">
+            {{ blog.title | slice : 0 : 34 }}
+          </h4>
+          <p class="text-sm text-gloom">
+            {{ blog.desc | slice : 0 : 50 }}
+          </p>
+          <a routerLink="/blogs/{{ blog.id }}" class="button-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</ng-container>
+
+}

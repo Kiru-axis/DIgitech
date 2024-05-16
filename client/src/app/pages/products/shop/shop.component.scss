@@ -1,0 +1,40 @@
+.btn-product-badge {
+  background-color: #888da8;
+  color: var(--white);
+}
+
+.form-floating {
+  .form-control {
+    height: 20px;
+  }
+}
+
+.random-img {
+  height: max-content;
+  @media screen and (max-width: 592px) {
+    height: min-content;
+  }
+}
+
+.controller-button {
+  padding: 5px;
+  border-radius: 3px;
+  transition: var(--transition);
+  img {
+    color: #fff;
+  }
+  &:hover,
+  :focus {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+  }
+}
+
+.svg-img {
+  display: block;
+  object-fit: cover;
+  height: 1rem;
+}
+
+.random-products {
+}

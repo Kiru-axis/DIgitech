@@ -1,0 +1,10 @@
+button {
+  font-size: 2rem;
+}
+
+.form-control {
+  width: 5rem;
+  &::placeholder {
+    color: var(--primary);
+  }
+}

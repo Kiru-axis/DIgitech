@@ -1,0 +1,13 @@
+.card {
+  height: 28rem;
+}
+
+.blog-img-box {
+  height: 50%;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}

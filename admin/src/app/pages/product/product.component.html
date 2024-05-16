@@ -1,0 +1,148 @@
+@if (product) {
+
+<mat-tab-group>
+  <mat-tab label="Product">
+    <div class="tab-content">
+      <div class="resource">
+        <div class="resource__images">
+          <div class="resource__images-subs">
+            @for (img of product.images; track $index) {
+            <div class="resource__images-sub">
+              <img
+                src="{{
+                  product.images[$index + 1] || 'assets/images/tab2.jpg'
+                }}"
+                alt="main-img"
+                class="sub-img"
+              />
+            </div>
+            }
+          </div>
+          <div class="resource__images-main">
+            <img
+              src="{{ product.images[0] || 'assets/images/tab.jpg' }}"
+              alt="main-img"
+              class="main-img"
+            />
+          </div>
+        </div>
+        <div class="resource__desc">
+          <h2 class="resource-title">{{ product.title }}</h2>
+
+          <h3 class="resource-price">{{ product.price | currency }}</h3>
+
+          <div class="resource-item">
+            @if (product.totalRating) {
+
+            <span class="resource-item-key">
+              <app-rating [stars]="product.totalRating"></app-rating>
+            </span>
+            }
+            <span class="resource-item-value text-muted">
+              ({{ product.Reviews?.length }}) reviews
+            </span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Brand</span>
+            <span class="resource-item-value">{{ product.Brand.name }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Category</span>
+            <span class="resource-item-value">{{ product.Category.name }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Tags</span>
+            <span class="resource-item-value">
+              @for (tag of product.Tags; track $index) {
+              <span>{{ tag.name }}</span>
+              }
+            </span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Available</span>
+            <span class="resource-item-value">
+              <span class="badge">{{ product.quantity }}</span>
+            </span>
+          </div>
+          <div class="resource-item">
+            <span class="resource-item-key">Sold</span>
+            <span class="resource-item-value">
+              <span class="badge sold">{{ product.sold }}</span>
+            </span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Colors</span>
+            <span class="resource-item-value">
+              <app-color [colors]="product.Colors"></app-color>
+            </span>
+          </div>
+
+          <div class="resource-actions">
+            <button
+              class="delete-btn"
+              (click)="openDeleteDialog(product)"
+              mat-button
+            >
+              Delete
+            </button>
+            <button
+              class="update-btn"
+              (click)="openUpdateForm(product)"
+              mat-button
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Reviews">
+    <div class="tab-content">
+      <div class="reviews">
+        @for (rev of product.Reviews; track $index) {
+        <div class="review">
+          <div class="reviewer">
+            <img
+              src="assets/images/avatar-2.png"
+              alt="reviwer-img"
+              class="icon-img reviewer-img"
+            />
+            <div class="reviewer-dets">
+              <span class="reviewer-name"
+                >{{ rev.User.firstname }} {{ rev.User.lastname }}
+              </span>
+              <span class="review-date text-muted text-sm">{{
+                rev.updatedAt | timesince
+              }}</span>
+            </div>
+          </div>
+          <div class="review-content">
+            <app-rating [stars]="rev.star"></app-rating>
+            <span class="review-content-text">
+              {{ rev.comment }}
+            </span>
+          </div>
+        </div>
+        } @empty {
+        <div class="back">
+          <div class="back-to">
+            <p class="back-to-header">No Reviews</p>
+            <a class="back-to-link">
+              <span class="back-to-entity text-center">&LeftArrow;</span>
+              <span class="back-to-text">Back </span>
+            </a>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+}

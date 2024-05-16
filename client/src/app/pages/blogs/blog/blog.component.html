@@ -1,0 +1,107 @@
+@if (blog) {
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">{{
+    blog.title
+  }}</span>
+</nav>
+
+<div class="blog seperator">
+  <div class="container">
+    <div class="card bg-white shadow rounded p-3">
+      <div class="row g-3">
+        <div
+          class="col-12 col-sm-6 d-flex align-items-center justify-content-center"
+        >
+          <div class="blog-img">
+            <img
+              class="card-img-top"
+              src="{{
+                blog.image ? blog.image : 'assets/images/plaeholder.png'
+              }}"
+              alt="blog-img"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 d-flex flex-column gap-4">
+          <h4 class="mb-0">
+            {{ blog.title }}
+          </h4>
+
+          <p class="text-gloom mb-0 fw-semibold">
+            <span>{{ blog.updatedAt | date }}</span>
+          </p>
+
+          <p class="text-muted mb-0">
+            {{ blog.desc }}
+          </p>
+
+          <a
+            routerLink="/blogs"
+            class="fw-semibold text-gloom d-flex align-items-center gap-2"
+          >
+            <fa-icon [icon]="icons.arrLeft"></fa-icon>
+            <span class="text-sm">Back to blog</span>
+          </a>
+        </div>
+        <p class="posted-by">
+          <small class="text-dark text-sm fw-semibold">Credit </small>
+          <span class="text-gloom fw-semibold">{{
+            blog.Author.firstname + " " + blog.Author.lastname
+          }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-2">
+    <div class="card bg-white rounded shadow px-2 py-3">
+      <form novalidate autocomplete="off" class="w-75 mx-auto">
+        <legend>Leave A Comment</legend>
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-control"
+                placeholder="Name"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="comment" class="form-label">Comment</label>
+              <textarea
+                class="form-control"
+                name="comment"
+                id="comment"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button class="button-primary mt-3">Post</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+}

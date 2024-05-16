@@ -1,0 +1,66 @@
+<form #form="ngForm" novalidate autocomplete="off">
+  <div class="modal-body">
+    <div class="mb-3">
+      <label for="star" class="form-label">star</label>
+      <select
+        required
+        class="form-select"
+        name="star"
+        id="star"
+        [(ngModel)]="formValues.star"
+        #star="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            star.invalid && (star.dirty || star.touched || form.submitted),
+          'is-valid':
+            star.valid && (star.dirty || star.touched || form.submitted)
+        }"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+
+        <div>
+          @if ( star.invalid && (star.dirty || star.touched || form.submitted)
+          && star.errors?.required) {}
+          <span class="text-danger">Star rating is required</span>
+        </div>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea
+        required
+        class="form-control"
+        name="comment"
+        id="comment"
+        rows="3"
+        placeholder="Write your comment here"
+        [(ngModel)]="formValues.comment"
+        #comment="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            comment.invalid &&
+            (comment.dirty || comment.touched || form.submitted),
+          'is-valid':
+            comment.valid &&
+            (comment.dirty || comment.touched || form.submitted)
+        }"
+      ></textarea>
+      @if ( (comment.dirty || comment.touched || form.submitted) &&
+      comment.invalid && comment.errors?.required) {}
+      <span class="text-danger">Comment is required</span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Close
+    </button>
+    <button type="submit" (click)="submit()" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</form>

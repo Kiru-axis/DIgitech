@@ -1,0 +1,32 @@
+@if (control) {
+<label
+  [ngStyle]="{ color: labelColor()?.toLowerCase() }"
+  [class.required]="required"
+  [for]="id()"
+  >{{ label() }}</label
+>
+<div class="form-control-date d-flex">
+  <input
+    class="form-control"
+    type="text"
+    [placeholder]="placeholder() || label()"
+    [id]="id()"
+    [name]="id()"
+    [attr.disabled]="isDisabled ? true : null"
+    [formControl]="control"
+    [matDatepicker]="picker"
+    [min]="minDate"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+  <mat-datepicker #picker></mat-datepicker>
+</div>
+}
+
+<!-- <mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> -->

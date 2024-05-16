@@ -1,0 +1,61 @@
+@if (data$ | async; as data) {
+<div class="form-container">
+  <div class="form-container-card">
+    <mat-card>
+      <mat-card-header>Login</mat-card-header>
+
+      <mat-card-content>
+        <form
+          [formGroup]="form"
+          (ngSubmit)="submit()"
+          autocomplete="off"
+          novalidate
+          class="form-card"
+        >
+          <div class="form-card-content">
+            <app-form-group
+              [control]="form.controls.email"
+              [patternError]="regexErrors.email"
+            >
+              <app-input
+                label="Email"
+                id="email"
+                formControlName="email"
+              ></app-input>
+            </app-form-group>
+
+            <app-form-group
+              [control]="form.controls.password"
+              [patternError]="regexErrors.password"
+            >
+              <app-password
+                label="Password"
+                id="password"
+                formControlName="password"
+              ></app-password>
+            </app-form-group>
+
+            <div class="form-card-footer">
+              <a
+                routerLink="/auth/forgot-password"
+                class="text-gloom router-link"
+                >Forgot Password?</a
+              >
+            </div>
+
+            <div class="form-card-footer__actions">
+              <button
+                [disabled]="data.isLoading"
+                mat-raised-button
+                class="form-btn"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+}

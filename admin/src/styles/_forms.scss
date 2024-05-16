@@ -1,0 +1,136 @@
+@import "mixins";
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .mat-mdc-card-header {
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  &-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .form-btn {
+    background-color: var(--secondary);
+    color: var(--white);
+    margin: 1rem 0;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group_error {
+  label {
+    &.required {
+      &::after {
+        content: "*";
+        color: var(--error);
+      }
+    }
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  border: 1px solid #ced5df;
+  // border: 1px solid rgba(0, 0, 0, 0.25);
+
+  border-radius: 2px;
+  box-shadow: none;
+  height: 35px;
+  font-size: 14px;
+  color: #888da8;
+  padding: 0 0.4rem;
+  transition: var(--transition);
+
+  &::placeholder {
+    color: #e0e2e9;
+    padding: 0 0.4rem;
+  }
+
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+    border-color: #3daef3;
+  }
+}
+
+textarea.form-control {
+  min-height: 100px;
+}
+
+.form-check-input {
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+    border-color: #3daef3;
+  }
+}
+
+.form-select {
+  border: 1px solid #ced5df;
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+    border-color: #3daef3;
+  }
+}
+
+.router-link {
+  transition: var(--transition);
+  color: var(--gray);
+  font-weight: 500;
+  font-size: 14px;
+  &:hover,
+  :focus {
+    text-decoration: underline;
+    color: #0c7bbe;
+  }
+}
+
+.db-form {
+  padding: 1rem;
+  .db-form-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    input,
+    .mat-mdc-select {
+      height: 40px;
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .add-btn {
+    width: 30%;
+    min-width: max-content;
+    margin: 0.5rem 0 0.7rem 0.7rem;
+    background-color: var(--secondary);
+    color: #fff !important;
+  }
+}

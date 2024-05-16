@@ -1,0 +1,219 @@
+@if (user) {
+
+<mat-tab-group>
+  <mat-tab label="User">
+    <div class="tab-content">
+      <div class="resource">
+        <div class="resource__images">
+          <div class="resource__images-main">
+            <img
+              src="{{ user.image || 'assets/images/avatar-1.png' }}"
+              alt="main-img"
+              class="main-img"
+            />
+          </div>
+        </div>
+        <div class="resource__desc">
+          <h2 class="resource-title">
+            {{ user.firstname }} {{ user.lastname }}
+          </h2>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Email</span>
+            <span class="resource-item-value">{{ user.email }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Created At</span>
+            <span class="resource-item-value">{{ user.createdAt | date }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Role</span>
+            <span class="resource-item-value">{{ user.role }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Blocked</span>
+            <span class="resource-item-value">{{ user.blocked }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Mobile</span>
+            <span class="resource-item-value">{{ user.mobile }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Updated At</span>
+            <span class="resource-item-value">{{ user.updatedAt | date }}</span>
+          </div>
+
+          @if (user.Address) {
+          <div class="resource-item">
+            <span class="resource-item-key">Address 1</span>
+            <span class="resource-item-value">{{ user.Address.address1 }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Address 2</span>
+            <span class="resource-item-value">{{ user.Address.address2 }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">State</span>
+            <span class="resource-item-value">{{ user.Address.state }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">City</span>
+            <span class="resource-item-value">{{ user.Address.city }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Zip Code</span>
+            <span class="resource-item-value">{{ user.Address.zipCode }}</span>
+          </div>
+
+          <div class="resource-item">
+            <span class="resource-item-key">Other</span>
+            <span class="resource-item-value">{{ user.Address.other }}</span>
+          </div>
+          }
+
+          <div class="resource-actions">
+            <button
+              class="delete-btn"
+              (click)="openDeleteDialog(user)"
+              mat-button
+            >
+              Delete
+            </button>
+            <button
+              class="update-btn"
+              (click)="openEditDialog(user)"
+              mat-button
+            >
+              {{ user.blocked ? "UnBlock" : "Block" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  @if (user.Cart.length) {
+  <mat-tab label="Cart">
+    <div class="tab-content">
+      <table class="cst-responsive-table">
+        <thead>
+          <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Color</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (item of user.Cart; track $index) {
+          <tr>
+            <th scope="row">{{ item.productId }}</th>
+            <td data-title="Color">{{ item.color }}</td>
+            <td data-title="Quantity">{{ item.quantity }}</td>
+            <td data-title="Price" data-type="currency">
+              {{ item.price | currency }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+  } @if (user.Orders.length) {
+  <mat-tab label="Orders">
+    <div class="tab-content">
+      <table class="cst-responsive-table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Paid At</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (item of user.Orders; track $index) {
+          <tr>
+            <th scope="row">{{ item.id }}</th>
+            <td data-title="Total Price">
+              {{ item.totalPrice | currency }}
+            </td>
+            <td data-title="Paid At">
+              {{ item.paidAt | date }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+  } @if (user.Compare.length) {
+  <mat-tab label="Compares">
+    <div class="tab-content">
+      <table class="cst-responsive-table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (item of user.Compare; track $index) {
+          <tr>
+            <th scope="row">{{ item.id }}</th>
+            <td data-title="Product Id">{{ item.productId }}</td>
+            <td data-title="Title">{{ item.Product.title }}</td>
+            <td data-title="Price" data-type="currency">
+              {{ item.Product.price | currency }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+  } @if (user.Wishlist.length) {
+  <mat-tab label="Wishlist">
+    <div class="tab-content">
+      <table class="cst-responsive-table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (item of user.Wishlist; track $index) {
+          <tr>
+            <th scope="row">{{ item.id }}</th>
+            <td data-title="Product Id">{{ item.productId }}</td>
+            <td data-title="Title">{{ item.Product.title }}</td>
+            <td data-title="Price" data-type="currency">
+              {{ item.Product.price | currency }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+  }
+</mat-tab-group>
+
+}

@@ -1,0 +1,326 @@
+<header class="header">
+  <nav class="header__top py-3">
+    <div
+      class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
+    >
+      <p class="text-capitalize mb-3 mb-md-0">
+        Free shipping oveer $100 and free returns
+      </p>
+      <div class="header__top-dropdowns d-flex align-items-center gap-md-4">
+        <a
+          class="border-md-end pe-md-4"
+          href="tel: (969) 3567 9999-(9876) 3245 2222"
+          >Hotline (969) 3567 9999-(9876) 3245 2222</a
+        >
+
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            id="languageId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ language }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="languageId">
+            <a class="dropdown-item" (click)="setLanguage('French')">French</a>
+            <a class="dropdown-item" (click)="setLanguage('English')"
+              >English</a
+            >
+            <a class="dropdown-item" (click)="setLanguage('German')">German</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            id="currencyId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ currency }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="currencyId">
+            <a class="dropdown-item" (click)="setCurrency('USD')">USD</a>
+            <a class="dropdown-item" (click)="setCurrency('Euro')">Euro</a>
+            <a class="dropdown-item" (click)="setCurrency('ASD')">ASD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <hr />
+
+  <nav class="header__main py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-2">
+          <div class="d-flex align-items-center justify-content-between mb-0">
+            <h2 class="mb-0">
+              <a class="text-white" routerLink="">Digitech</a>
+            </h2>
+
+            <div class="dropdown responsive-dropdown d-block d-sm-none">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="resposiveNav"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <fa-icon [icon]="icons.bars" size="lg"></fa-icon>
+              </button>
+
+              <div class="dropdown-menu" aria-labelledby="resposiveNav">
+                <div class="dropdown-item">
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/compare.svg" alt="img-234" />
+                    <p class="mb-0">
+                      <a routerLink="/customer/compare">Compare</a>
+                      <br />
+                      <a routerLink="/store">Products</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="dropdown-item mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/wishlist.svg" alt="img-2" />
+                    <p class="mb-0">
+                      <a routerLink="/customer/wishlist">Favourite</a>
+                      <br />
+                      <a routerLink="/customer/wishlist">Wishlist</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="dropdown-item mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/user.svg" alt="img-3" />
+                    <p class="mb-0">
+                      @if (!user) {
+                      <a routerLink="/auth/login">Login</a>
+                      }@if(user) {
+                      <button (click)="logout()" class="text-white">
+                        Logout
+                      </button>
+                      }
+                      <br />
+                      <a routerLink="/profile">My Account</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="dropdown-item mb-3">
+                  <div
+                    class="pointer d-flex align-items-center gap-2"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#cartOffCanvas"
+                    aria-controls="cartOffCanvas"
+                  >
+                    <img src="assets/images/cart.svg" alt="img-4" />
+                    <p class="mb-0 text-center">
+                      <span class="badge bg-white text-dark px-3">{{
+                        userCartData?.quantity || 0
+                      }}</span>
+                      <br />
+                      <span>{{
+                        userCartData?.totalPrice || 0 | currency
+                      }}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 my-3 my-md-0">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search for products here"
+              aria-label="Button"
+              aria-describedby="searchProducts"
+              (input)="onGlobalProductSearch($event)"
+            />
+            <button
+              class="btn search-products-btn"
+              type="button"
+              id="searchProducts"
+            >
+              <fa-icon [icon]="icons.search"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div
+          class="header__main-links col-5 d-none d-sm-flex align-items-center justify-content-between"
+        >
+          <div class="d-flex align-items-center gap-2">
+            <img src="assets/images/compare.svg" alt="img-234" />
+            <p class="mb-0">
+              <a routerLink="/customer/compare">Compare</a>
+              <br />
+              <a routerLink="/store">Products</a>
+            </p>
+          </div>
+
+          <div class="d-flex align-items-center gap-2">
+            <img src="assets/images/wishlist.svg" alt="img-2" />
+            <p class="mb-0">
+              <a routerLink="/customer/wishlist">Favourite</a>
+              <br />
+              <a routerLink="/customer/wishlist">Wishlist</a>
+            </p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <img src="assets/images/user.svg" alt="img-3" />
+            <p class="mb-0">
+              @if (!user) {
+              <a routerLink="/auth/login">Login</a>
+              }@if(user) {
+              <button (click)="logout()" class="text-white">Logout</button>
+              }
+              <br />
+              <a routerLink="/profile">My Account</a>
+            </p>
+          </div>
+          <div
+            class="pointer d-flex align-items-center gap-2"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartOffCanvas"
+            aria-controls="cartOffCanvas"
+          >
+            <img src="assets/images/cart.svg" alt="img-4" />
+            <p class="mb-0 text-center">
+              <span class="badge bg-white text-dark px-3">{{
+                userCartData?.quantity || 0
+              }}</span>
+              <br />
+              <span>{{ userCartData?.totalPrice || 0 | currency }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="header__bottom py-3">
+    <div class="container">
+      <div class="d-flex align-items-center gap-5">
+        <div class="header__bottom-dropdown border-end">
+          <div class="dropdown">
+            <button
+              class="btn dropdown-toggle text-white text-uppercase"
+              type="button"
+              id="shopCategories"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img src="assets/images/menu.svg" alt="some" />
+              <span class="text"> Shop Categories</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="shopCategories">
+              <a class="dropdown-item" routerLink="/">Home</a>
+              <a class="dropdown-item" routerLink="/store">Store</a>
+              <a class="dropdown-item" routerLink="/blogs">Blogs</a>
+              <a class="dropdown-item" routerLink="/contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="header__bottom-links">
+          <a class="" routerLink="/">Home</a>
+          <a class="" routerLink="/store">Store</a>
+          <a class="" routerLink="/blogs">Blogs</a>
+          <a class="" routerLink="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- cart off canvas -->
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="cartOffCanvas"
+  aria-labelledby="Enable both scrolling & backdrop"
+>
+  <div class="offcanvas-body">
+    <div class="row g-2">
+      @for (item of userCartData?.cart; track $index) {
+      <div class="col-3">
+        <img
+          [src]="item.Product.images[0]"
+          class="cart-img"
+          [alt]="'cart-img' + $index"
+        />
+      </div>
+      <div class="col-5 d-flex flex-column">
+        <p class="mb-0 text-wrap fw-medium">
+          {{ item.Product.title | slice : 0 : 30 }}
+        </p>
+        <p class="my-2 text-gloom fw-medium">
+          <span class="text-muted text-sm">Quantity: </span> X
+          {{ item.quantity }}
+        </p>
+        <p class="mb-0 text-gloom fw-medium">
+          <span class="text-muted text-sm">Color: </span> {{ item.color }}
+        </p>
+      </div>
+
+      <div class="col-4 d-flex align-items-center justify-content-center">
+        <button
+          (click)="
+            removeProductFromCart({
+              cartId: item.id,
+              productId: item.productId
+            })
+          "
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Remove From cart"
+          class="rem-btn top-0 end-0 m-2"
+        >
+          <fa-icon size="sm" [icon]="icons.del"></fa-icon>
+        </button>
+      </div>
+      }
+    </div>
+
+    <div class="canvas-actions mt-3 w-100 py-3 px-2">
+      <div
+        class="canvas-actions__top d-flex align-items-center justify-content-between"
+      >
+        <p class="fw-bold">
+          Total Item
+          <br />
+          {{ userCartData?.quantity || 0 }}
+        </p>
+        <p class="fw-bold">
+          Sub Total
+          <br />
+          {{ userCartData?.totalPrice || 0 | currency }}
+        </p>
+      </div>
+      <hr />
+      <div
+        class="canvas-actions__bottom d-flex align-items-center justify-content-center gap-2 mt-2"
+      >
+        <a routerLink="/customer/cart" class="button-primary">View Cart</a>
+        <button routerLink="/customer/checkout" class="button-warn">
+          Check Out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

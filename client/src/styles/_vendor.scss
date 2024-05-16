@@ -1,0 +1,29 @@
+// all third party styles and resets
+
+a.breadcrumb-item {
+  color: #888da8;
+}
+
+.card {
+  border-radius: 5px;
+  border: none;
+}
+
+.accordion {
+  .accordion-item {
+    border: none;
+  }
+
+  .accordion-button {
+    background-color: transparent;
+    &:focus {
+      outline: 0 none;
+      box-shadow: none;
+      border-color: #3daef3;
+    }
+  }
+
+  .accordion-body {
+    font-size: 14px;
+  }
+}

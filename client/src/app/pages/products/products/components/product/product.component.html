@@ -1,0 +1,236 @@
+@if (product()) {
+<ng-container>
+  <!-- cols determine how to show cards in the shop interface -->
+  @if (cols()) {
+  <div class="card shadow product-card">
+    <div class="product-card__header">
+      <div></div>
+      <div class="">
+        @if (addedToWishlist) {
+        <img
+          (click)="onAddToWishlist({ productId: product().id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Already added to wishlist"
+          src="assets/images/wish-black.svg"
+          alt="wishlist"
+          class="pointer black-wish icon-img"
+        />
+        } @else {
+        <img
+          (click)="onAddToWishlist({ productId: product().id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Add to wishlist"
+          src="assets/images/wish.svg"
+          alt="wishlist"
+          class="pointer"
+        />
+        }
+      </div>
+    </div>
+
+    <div [ngClass]="{ 'row g-2': fullWidthMode() }">
+      <div
+        class="product-card__images"
+        [ngClass]="{ 'col-6 p-0': fullWidthMode() }"
+      >
+        <img
+          class="card-img-top main-img"
+          [src]="product().images[0] || 'assets/images/404.png'"
+          alt="main-img"
+        />
+        <img
+          class="card-img-top sub-img"
+          [src]="product().images[1] || 'assets/images/404.png'"
+          alt="sub-img"
+        />
+      </div>
+      <div
+        class="product-card__hoverables mt-1"
+        [ngClass]="{ 'end-0': fullWidthMode() }"
+      >
+        <div
+          class="hv-img-box"
+          [ngClass]="{ 'bg-transparent rounded-0': fullWidthMode() }"
+        >
+          <img
+            (click)="onAddToCompare({ productId: product().id })"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Add to compare list"
+            src="assets/images/prodcompare.svg"
+            class="icons-img pointer"
+            alt="icon-img"
+          />
+        </div>
+        <a
+          routerLink="/store/{{ product().id }}"
+          class="hv-img-box"
+          [ngClass]="{ 'bg-transparent rounded-0': fullWidthMode() }"
+        >
+          <img
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="View product"
+            src="assets/images/view.svg"
+            class="icons-img pointer"
+            alt="icon-img"
+          />
+        </a>
+        <div
+          class="hv-img-box"
+          [ngClass]="{ 'bg-transparent rounded-0': fullWidthMode() }"
+        >
+          <img
+            (click)="onAddToCart(product().id, product().Colors[0].name)"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Add to cart "
+            src="assets/images/add-cart.svg"
+            class="icons-img pointer"
+            alt="icon-img"
+          />
+        </div>
+      </div>
+      <div
+        class="product-card__details"
+        [ngClass]="{ 'col-6 p-0': fullWidthMode() }"
+      >
+        <h5 class="product-card-category">{{ product().Brand.name }}</h5>
+        @if (fullWidthMode()) {
+        <h4 class="product-card-title">
+          {{ product().title }}
+        </h4>
+        }@else {
+        <h4 class="product-card-title">
+          {{ product().title | slice : 0 : 15 }}
+        </h4>
+        }
+
+        <p class="product-card-price">{{ product().price | currency }}</p>
+        @if (fullWidthMode()) {
+        <p class="text-sm text-gloom">
+          {{ product().desc }}
+        </p>
+        }
+        <ng-container>
+          @if (product().totalRating) {
+          <app-rating
+            [stars]="product().totalRating / product().reviewersCount"
+          ></app-rating>
+          } @else {
+          <p class="mb-0 text-sm mb-1 text-info">No reviews availble</p>
+          }
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  } @else {
+
+  <!-- default way -->
+  <div class="card shadow product-card">
+    <div class="product-card__header">
+      <div></div>
+      <div class="">
+        @if (addedToWishlist) {
+        <img
+          (click)="onAddToWishlist({ productId: product().id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Already added to wishlist"
+          src="assets/images/wish-black.svg"
+          alt="wishlist"
+          class="pointer black-wish icon-img"
+        />
+        } @else {
+        <img
+          (click)="onAddToWishlist({ productId: product().id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Add to wishlist"
+          src="assets/images/wish.svg"
+          alt="wishlist"
+          class="pointer"
+        />
+        }
+      </div>
+    </div>
+
+    <div class="product-card__images">
+      <img
+        class="card-img-top main-img"
+        src="assets/images/tab.jpg"
+        alt="Title"
+      />
+      <img
+        class="card-img-top sub-img"
+        src="assets/images/tv.jpg"
+        alt="Title"
+      />
+    </div>
+    <div class="product-card__hoverables mt-1">
+      <div class="hv-img-box">
+        <img
+          (click)="onAddToCompare({ productId: product().id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Add to compare list"
+          src="assets/images/prodcompare.svg"
+          class="icons-img pointer"
+          alt="icon-img"
+        />
+      </div>
+      <a routerLink="/store/{{ product().id }}" class="hv-img-box">
+        <img
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="View product"
+          src="assets/images/view.svg"
+          class="icons-img pointer"
+          alt="icon-img"
+        />
+      </a>
+      <div class="hv-img-box">
+        <img
+          (click)="onAddToCart(product().id, product().Colors[0].name)"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Add to cart "
+          src="assets/images/add-cart.svg"
+          class="icons-img pointer"
+          alt="icon-img"
+        />
+      </div>
+    </div>
+    <div class="product-card__details">
+      <h5 class="product-card-category">{{ product().Brand.name }}</h5>
+      @if (fullWidthMode()) {
+      <h4 class="product-card-title">
+        {{ product().title }}
+      </h4>
+      }@else {
+      <h4 class="product-card-title">
+        {{ product().title | slice : 0 : 15 }}
+      </h4>
+      }
+
+      <p class="product-card-price">{{ product().price | currency }}</p>
+      @if (fullWidthMode()) {
+      <p class="text-sm text-gloom">
+        {{ product().desc }}
+      </p>
+      }
+      <ng-container>
+        @if (product().totalRating) {
+        <app-rating [stars]="product().totalRating"></app-rating>
+        } @else {
+        <p class="mb-0 text-sm mb-1 text-info">No reviews availble</p>
+        }
+      </ng-container>
+    </div>
+  </div>
+  }
+</ng-container>
+
+}

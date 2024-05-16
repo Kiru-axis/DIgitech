@@ -1,0 +1,92 @@
+@import "../mixins.scss";
+
+.footer {
+  background-color: var(--primary);
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.footer__newsletters,
+.footer__links {
+  padding: 2rem 0;
+
+  .social-imgs {
+    @include xs {
+      justify-content: center;
+    }
+  }
+
+  .social-img {
+    padding: 6px;
+    background-color: var(--secondary);
+    color: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+  }
+
+  .links {
+    display: grid;
+    grid-auto-flow: dense;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+      text-align: center;
+      // gap: 2rem;
+    }
+  }
+
+  .link-group {
+    & > a {
+      color: var(--white);
+      transition: var(--transition);
+      &:hover {
+        color: #0c7bbe;
+      }
+    }
+  }
+}
+
+.footer__newsletters {
+  button {
+    background-color: var(--primary);
+    color: var(--white);
+    border: 0.1px solid var(--gray);
+    &:hover {
+      background-color: var(--secondary);
+      border: none;
+    }
+  }
+
+  .subscribe {
+    width: 80%;
+    margin: 0 auto;
+    & > div {
+      flex: 1;
+    }
+  }
+}
+
+.footer__footnote {
+  padding: 1rem 0;
+  .credit-card-img {
+    height: 2rem;
+  }
+}

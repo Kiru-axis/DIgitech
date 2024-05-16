@@ -1,0 +1,871 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>admin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">admin documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CouponFormsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-coupon-forms</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/DateComponent.html" target="_self" >DateComponent</a></code>
+                                <code><a href="../components/InputComponent.html" target="_self" >InputComponent</a></code>
+                                <code><a href="../components/FormGroupComponent.html" target="_self" >FormGroupComponent</a></code>
+                            <code>MatDialogModule</code>
+                            <code>JsonPipe</code>
+                            <code>MatButtonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./coupon-forms.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./coupon-forms.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addForm" >addForm</a>
+                            </li>
+                            <li>
+                                <a href="#deleteCoupon" >deleteCoupon</a>
+                            </li>
+                            <li>
+                                <a href="#formType" >formType</a>
+                            </li>
+                            <li>
+                                <a href="#regexErrors" >regexErrors</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addNewCoupon" >addNewCoupon</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#ondeleteCoupon" >ondeleteCoupon</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, store: Store, dialogData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, dialogRef: <a href="../components/CouponFormsComponent.html" target="_self">MatDialogRef&lt;CouponFormsComponent&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogData</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/CouponFormsComponent.html" target="_self" >MatDialogRef&lt;CouponFormsComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addNewCoupon"></a>
+                    <span class="name">
+                        <span ><b>addNewCoupon</b></span>
+                        <a href="#addNewCoupon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addNewCoupon()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ondeleteCoupon"></a>
+                    <span class="name">
+                        <span ><b>ondeleteCoupon</b></span>
+                        <a href="#ondeleteCoupon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ondeleteCoupon()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addForm"></a>
+                    <span class="name">
+                        <span ><b>addForm</b></span>
+                        <a href="#addForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    code: [&#x27;&#x27;, [Validators.required]],
+    discount: [
+      &#x27;&#x27;,
+      [
+        Validators.required,
+        Validators.pattern(regex.numbers),
+        Validators.min(1),
+        Validators.max(99),
+      ],
+    ],
+    expiresAt: [&#x27;&#x27;, [Validators.required]],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteCoupon"></a>
+                    <span class="name">
+                        <span ><b>deleteCoupon</b></span>
+                        <a href="#deleteCoupon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ICoupon.html" target="_self" >ICoupon</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formType"></a>
+                    <span class="name">
+                        <span ><b>formType</b></span>
+                        <a href="#formType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#formType" target="_self" >formType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Add&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regexErrors"></a>
+                    <span class="name">
+                        <span ><b>regexErrors</b></span>
+                        <a href="#regexErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>regexErrors</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/common/coupons/components/coupon-forms/coupon-forms.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from &#x27;@angular/material/dialog&#x27;;
+
+import {
+  DateComponent,
+  FormGroupComponent,
+  InputComponent,
+  markFormGroupTouched,
+  regex,
+  regexErrors,
+} from &#x27;@app/shared&#x27;;
+import { commonActions } from &#x27;@app/store/common&#x27;;
+import { ICoupon } from &#x27;@app/models&#x27;;
+import { JsonPipe } from &#x27;@angular/common&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+
+type formType &#x3D; &#x27;Add&#x27; | &#x27;Edit&#x27; | &#x27;Delete&#x27;;
+
+@Component({
+  selector: &#x27;app-coupon-forms&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./coupon-forms.component.html&#x27;,
+  styleUrl: &#x27;./coupon-forms.component.scss&#x27;,
+  imports: [
+    ReactiveFormsModule,
+    DateComponent,
+    InputComponent,
+    FormGroupComponent,
+    MatDialogModule,
+    JsonPipe,
+    MatButtonModule,
+  ],
+})
+export class CouponFormsComponent implements OnInit {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    @Inject(MAT_DIALOG_DATA) private dialogData: any,
+    private dialogRef: MatDialogRef&lt;CouponFormsComponent&gt;
+  ) {}
+
+  formType: formType &#x3D; &#x27;Add&#x27;;
+
+  deleteCoupon!: ICoupon;
+
+  regexErrors &#x3D; regexErrors;
+
+  addForm &#x3D; this.fb.group({
+    code: [&#x27;&#x27;, [Validators.required]],
+    discount: [
+      &#x27;&#x27;,
+      [
+        Validators.required,
+        Validators.pattern(regex.numbers),
+        Validators.min(1),
+        Validators.max(99),
+      ],
+    ],
+    expiresAt: [&#x27;&#x27;, [Validators.required]],
+  });
+
+  ngOnInit(): void {
+    this.formType &#x3D; this.dialogData.formType;
+
+    if (this.dialogData.deleteCoupon) {
+      this.deleteCoupon &#x3D; this.dialogData.deleteCoupon;
+    }
+  }
+
+  addNewCoupon() {
+    if (this.addForm.invalid) {
+      markFormGroupTouched(this.addForm);
+      return;
+    }
+
+    const data &#x3D; this.addForm.getRawValue();
+
+    this.store.dispatch(
+      commonActions.createCoupon({
+        request: {
+          code: String(data.code),
+          discount: Number(data.discount),
+          expiresAt: data.expiresAt ? new Date(data.expiresAt) : new Date(),
+        },
+      })
+    );
+
+    this.dialogRef.close();
+  }
+
+  ondeleteCoupon() {
+    this.store.dispatch(
+      commonActions.deleteCoupon({
+        couponId: this.deleteCoupon.id,
+      })
+    );
+
+    this.dialogRef.close();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (formType &#x3D;&#x3D;&#x3D; &#x27;Add&#x27;) {
+&lt;ng-container&gt;
+  &lt;form
+    novalidate
+    autocomplete&#x3D;&quot;off&quot;
+    class&#x3D;&quot;db-form&quot;
+    [formGroup]&#x3D;&quot;addForm&quot;
+    (ngSubmit)&#x3D;&quot;addNewCoupon()&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;db-form-content&quot;&gt;
+      &lt;app-form-group [control]&#x3D;&quot;addForm.controls.code&quot;&gt;
+        &lt;app-input id&#x3D;&quot;code&quot; label&#x3D;&quot;Code&quot; formControlName&#x3D;&quot;code&quot;&gt;&lt;/app-input&gt;
+      &lt;/app-form-group&gt;
+
+      &lt;app-form-group
+        [control]&#x3D;&quot;addForm.controls.discount&quot;
+        [patternError]&#x3D;&quot;regexErrors.numbers&quot;
+      &gt;
+        &lt;app-input
+          id&#x3D;&quot;discount&quot;
+          label&#x3D;&quot;Discount&quot;
+          formControlName&#x3D;&quot;discount&quot;
+        &gt;&lt;/app-input&gt;
+      &lt;/app-form-group&gt;
+
+      &lt;app-form-group [control]&#x3D;&quot;addForm.controls.expiresAt&quot;&gt;
+        &lt;app-date
+          id&#x3D;&quot;expiresAt&quot;
+          label&#x3D;&quot;Expires At&quot;
+          formControlName&#x3D;&quot;expiresAt&quot;
+        &gt;&lt;/app-date&gt;
+      &lt;/app-form-group&gt;
+    &lt;/div&gt;
+
+    &lt;button mat-button class&#x3D;&quot;add-btn&quot; type&#x3D;&quot;submit&quot;&gt;Add&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/ng-container&gt;
+} @else {
+&lt;ng-container&gt;
+  &lt;div class&#x3D;&quot;confirm&quot;&gt;
+    &lt;h4&gt;
+      Are you sure you want to delete?
+      &lt;span class&#x3D;&quot;confirm-subject&quot;&gt;{{ deleteCoupon.code }}&lt;/span&gt;
+    &lt;/h4&gt;
+
+    &lt;div class&#x3D;&quot;confirm-actions&quot;&gt;
+      &lt;button mat-button class&#x3D;&quot;accept&quot; (click)&#x3D;&quot;ondeleteCoupon()&quot;&gt;Yes&lt;/button&gt;
+      &lt;button mat-button class&#x3D;&quot;deny&quot; mat-dialog-close&gt;Cancel&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-container&gt;
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (formType === \'Add\') {<ng-container>  <form    novalidate    autocomplete="off"    class="db-form"    [formGroup]="addForm"    (ngSubmit)="addNewCoupon()"  >    <div class="db-form-content">      <app-form-group [control]="addForm.controls.code">        <app-input id="code" label="Code" formControlName="code"></app-input>      </app-form-group>      <app-form-group        [control]="addForm.controls.discount"        [patternError]="regexErrors.numbers"      >        <app-input          id="discount"          label="Discount"          formControlName="discount"        ></app-input>      </app-form-group>      <app-form-group [control]="addForm.controls.expiresAt">        <app-date          id="expiresAt"          label="Expires At"          formControlName="expiresAt"        ></app-date>      </app-form-group>    </div>    <button mat-button class="add-btn" type="submit">Add</button>  </form></ng-container>} @else {<ng-container>  <div class="confirm">    <h4>      Are you sure you want to delete?      <span class="confirm-subject">{{ deleteCoupon.code }}</span>    </h4>    <div class="confirm-actions">      <button mat-button class="accept" (click)="ondeleteCoupon()">Yes</button>      <button mat-button class="deny" mat-dialog-close>Cancel</button>    </div>  </div></ng-container>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BlogCategoriesComponent', 'selector': 'app-blog-categories'},{'name': 'BlogCategoryFormsComponent', 'selector': 'app-blog-category-forms'},{'name': 'BlogsComponent', 'selector': 'app-blogs'},{'name': 'BlogsFormComponent', 'selector': 'app-blogs-form'},{'name': 'BrandFormsComponent', 'selector': 'app-brand-forms'},{'name': 'BrandsComponent', 'selector': 'app-brands'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesFormsComponent', 'selector': 'app-categories-forms'},{'name': 'ColorComponent', 'selector': 'app-color'},{'name': 'ColorsComponent', 'selector': 'app-colors'},{'name': 'ColorsFormsComponent', 'selector': 'app-colors-forms'},{'name': 'CouponFormsComponent', 'selector': 'app-coupon-forms'},{'name': 'CouponsComponent', 'selector': 'app-coupons'},{'name': 'DateComponent', 'selector': 'app-date'},{'name': 'EnquiriesComponent', 'selector': 'app-enquiries'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FormGroupComponent', 'selector': 'app-form-group'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputComponent', 'selector': 'app-input'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PasswordComponent', 'selector': 'app-password'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductFormsComponent', 'selector': 'app-product-forms'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'RatingComponent', 'selector': 'app-rating'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SubnavComponent', 'selector': 'app-subnav'},{'name': 'TagFormsComponent', 'selector': 'app-tag-forms'},{'name': 'TagsComponent', 'selector': 'app-tags'},{'name': 'TextAreaComponent', 'selector': 'app-textarea'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFormsComponent', 'selector': 'app-user-forms'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [{'name': 'ControlValueAccessorDirective', 'selector': '[appControlValueAccessor]'}];
+    var ACTUAL_COMPONENT = {'name': 'CouponFormsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CouponFormsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,198 @@
+@if (data$|async; as data) { @if (formType === 'Add') {
+<ng-container>
+  <form
+    novalidate
+    autocomplete="off"
+    class="db-form"
+    [formGroup]="addForm"
+    (ngSubmit)="addNewProduct()"
+  >
+    <div class="db-form-content">
+      <app-form-group [control]="addForm.controls.title">
+        <app-input id="title" label="Title" formControlName="title"></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="addForm.controls.price"
+        [patternError]="regexErrors.numbers"
+      >
+        <app-input id="price" label="Price" formControlName="price"></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="addForm.controls.quantity"
+        [patternError]="regexErrors.numbers"
+      >
+        <app-input
+          id="quantity"
+          label="Quantity"
+          formControlName="quantity"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group [control]="addForm.controls.brandId">
+        <app-select
+          [items]="data.brands"
+          id="brandId"
+          label="Brand"
+          formControlName="brandId"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="addForm.controls.categoryId">
+        <app-select
+          [items]="data.categories"
+          id="categoryId"
+          label="Category"
+          formControlName="categoryId"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="addForm.controls.colors">
+        <app-select
+          [items]="data.colors"
+          [multiple]="true"
+          id="colors"
+          label="Colors"
+          formControlName="colors"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="addForm.controls.tags">
+        <app-select
+          [items]="data.tags"
+          [multiple]="true"
+          id="tags"
+          label="Tags"
+          formControlName="tags"
+        ></app-select>
+      </app-form-group>
+
+      <div class="form-group">
+        <label for="images" class="form-label">Images</label>
+        <input
+          type="file"
+          multiple
+          name="images"
+          id="images"
+          class="form-control"
+          (change)="onSelectFiles($event)"
+          accept="image/*"
+        />
+      </div>
+      <app-form-group [control]="addForm.controls.desc">
+        <app-textarea
+          id="desc"
+          label="Description"
+          formControlName="desc"
+        ></app-textarea>
+      </app-form-group>
+    </div>
+
+    <button
+      mat-button
+      class="add-btn"
+      [disabled]="addForm.invalid"
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+</ng-container>
+}@else if( formType === "Edit") {
+<ng-container>
+  <form
+    novalidate
+    autocomplete="off"
+    class="db-form"
+    [formGroup]="editForm"
+    (ngSubmit)="onEditProduct()"
+  >
+    <div class="db-form-content">
+      <app-form-group [control]="editForm.controls.title">
+        <app-input id="title" label="Title" formControlName="title"></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="editForm.controls.price"
+        [patternError]="regexErrors.numbers"
+      >
+        <app-input id="price" label="Price" formControlName="price"></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="editForm.controls.quantity"
+        [patternError]="regexErrors.numbers"
+      >
+        <app-input
+          id="quantity"
+          label="Quantity"
+          formControlName="quantity"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group [control]="editForm.controls.brandId">
+        <app-select
+          [items]="data.brands"
+          id="brandId"
+          label="Brand"
+          formControlName="brandId"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="editForm.controls.categoryId">
+        <app-select
+          [items]="data.categories"
+          id="categoryId"
+          label="Category"
+          formControlName="categoryId"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="editForm.controls.colors">
+        <app-select
+          [items]="data.colors"
+          [multiple]="true"
+          id="colors"
+          label="Colors"
+          formControlName="colors"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="editForm.controls.tags">
+        <app-select
+          [items]="data.tags"
+          [multiple]="true"
+          id="tags"
+          label="Tags"
+          formControlName="tags"
+        ></app-select>
+      </app-form-group>
+
+      <app-form-group [control]="editForm.controls.desc">
+        <app-textarea
+          id="desc"
+          label="Description"
+          formControlName="desc"
+        ></app-textarea>
+      </app-form-group>
+    </div>
+
+    <button mat-button class="add-btn" type="submit">Update</button>
+  </form>
+</ng-container>
+} @else {
+<ng-container>
+  <div class="confirm">
+    <h4>
+      Are you sure you want to delete?
+      <span class="confirm-subject">{{ deleteProduct.title }}</span>
+    </h4>
+
+    <div class="confirm-actions">
+      <button mat-button class="accept" (click)="onDeleteProduct()">Yes</button>
+      <button mat-button class="deny" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</ng-container>
+} }

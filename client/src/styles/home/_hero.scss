@@ -1,0 +1,58 @@
+@import "../mixins.scss";
+
+.carousel-item {
+  .hc-cat {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem !important;
+  }
+  .hc-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem !important;
+    font-weight: 900;
+  }
+  .hc-desc {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem !important;
+  }
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  grid-auto-flow: dense;
+
+  @include md {
+    display: none;
+  }
+}
+
+.hero-cards__text {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+
+  .hc-cat {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    display: block;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 500;
+  }
+  .hc-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5em;
+    display: block;
+    color: var(--primary);
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+  .hc-desc {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    display: block;
+    color: var(--secondary);
+    font-weight: 400;
+  }
+}

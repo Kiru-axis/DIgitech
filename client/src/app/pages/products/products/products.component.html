@@ -1,0 +1,72 @@
+@if (products && products.length) {
+
+<ng-container>
+  @if (slider()) {
+  <ng-container>
+    <app-slider
+      [itemTemplate]="productSlider"
+      [data]="products"
+      [config]="swiperConfig"
+    ></app-slider>
+
+    <ng-template #productSlider let-item>
+      <app-product [product]="item"></app-product>
+    </ng-template>
+  </ng-container>
+  }@else {
+
+  <div class="row g-2">
+    @for (product of products; track $index) {
+    <ng-container>
+      <!-- cols control the layout of shop interface -->
+      @if (cols()) {
+      <div class="col-{{ cols() }}">
+        <app-product
+          [fullWidthMode]="fullWidthMode()"
+          [cols]="cols()"
+          [product]="product"
+        ></app-product>
+      </div>
+
+      } @else {
+      <!-- default way  -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <app-product [product]="product"></app-product>
+      </div>
+
+      } </ng-container
+    >}
+  </div>
+
+  <!-- pagination -->
+  <nav
+    aria-label="Page navigation"
+    class="d-flex align-items-center justify-content-between bg-white p-2 shadow rounded"
+  >
+    <p class="mb-0 text-gloom fw-semibold text-sm">
+      Showing 15 of {{ products.length }}
+    </p>
+
+    <ul class="pagination p-0 m-0">
+      <li class="page-item disabled">
+        <a class="page-link" routerLink="/" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" routerLink="/">1</a>
+      </li>
+      <li class="page-item"><a class="page-link" routerLink="/">2</a></li>
+      <li class="page-item">
+        <a class="page-link" routerLink="/">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" routerLink="/" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  }
+</ng-container>
+}

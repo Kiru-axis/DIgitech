@@ -1,0 +1,19 @@
+<div class="cats my-4">
+  <div class="container bg-white rounded overflow-hidden py-4">
+    <div class="cats-container py-3">
+      @for (cat of categories; track $index) {
+      <div class="row cat-box g-0">
+        <div class="px-2 col-7">
+          <span class="category-label fw-semibold text-capitalize mb-2">{{
+            cat.label
+          }}</span>
+          <span class="text-sm text-gloom">{{ $index + 1 }} items</span>
+        </div>
+        <div class="px-2 col-5">
+          <img [src]="cat.img" alt="tab.jpg" class="offer-box-img" />
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

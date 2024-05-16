@@ -1,0 +1,31 @@
+@if (formType === 'Edit') {
+<ng-container>
+  <div class="confirm">
+    <h4>
+      Are you sure you want to {{ editUser.blocked ? "UnBlock" : "Block" }}
+      <span class="confirm-subject">{{ editUser.firstname }}</span>
+    </h4>
+
+    <div class="confirm-actions">
+      <button mat-button class="accept" (click)="onEditUser()">Yes</button>
+      <button mat-button class="deny" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</ng-container>
+
+}@else if (formType === 'Delete') {
+
+<ng-container>
+  <div class="confirm">
+    <h4>
+      Are you sure you want to delete?
+      <span class="confirm-subject">{{ deleteUser.firstname }}</span>
+    </h4>
+
+    <div class="confirm-actions">
+      <button mat-button class="accept" (click)="onDeleteUser()">Yes</button>
+      <button mat-button class="deny" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</ng-container>
+}

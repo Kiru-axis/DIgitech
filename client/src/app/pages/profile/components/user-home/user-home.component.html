@@ -1,0 +1,251 @@
+<section class="rounded bg-white my-2">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        Profile
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Address
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <form
+      class="tab-pane active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+      [formGroup]="editUserForm"
+      (ngSubmit)="submitUserUpdate()"
+    >
+      <div class="row">
+        <div class="mx-md-auto col-md-10">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Profile Settings</h4>
+            </div>
+
+            @if (!selectedFile) {
+            <div class="mb-4">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="preview-img">
+                  <img [src]="user.image" alt="user-img" />
+                </div>
+              </div>
+            </div>
+            } @if (selectedFile) {
+            <div class="mb-4">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="preview-img">
+                  <img [src]="imagePreview" alt="" />
+                </div>
+              </div>
+            </div>
+            }
+
+            <div class="row mt-2">
+              <div class="form-group">
+                <label for="user-img" class="form-label">Select Image</label>
+                <input
+                  (change)="onSelectFile($event)"
+                  type="file"
+                  id="user-img"
+                  name="user-img"
+                  class="form-control"
+                />
+              </div>
+
+              <!-- <div class="col-md-10">
+                <app-form-group [control]="editUserForm.controls.image">
+                  <app-input
+                    type="file"
+                    label="Image"
+                    id="edtImage"
+                    formControlName="image"
+                  ></app-input>
+                </app-form-group>
+              </div> -->
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editUserForm.controls.firstname">
+                  <app-input
+                    label="First Name"
+                    id="edtFirstName"
+                    formControlName="firstname"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group [control]="editUserForm.controls.lastname">
+                  <app-input
+                    label="Last Name"
+                    id="edtLastName"
+                    formControlName="lastname"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editUserForm.controls.mobile">
+                  <app-input
+                    label="Mobile"
+                    id="edtMobile"
+                    formControlName="mobile"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group
+                  [control]="editUserForm.controls.email"
+                  [patternError]="regexErrors.email"
+                >
+                  <app-input
+                    label="Email"
+                    id="edtEmail"
+                    formControlName="email"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="submit">
+                Update Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form
+      class="tab-pane"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+      [formGroup]="editAddressForm"
+      (ngSubmit)="submitAddressUpdate()"
+    >
+      <div class="row">
+        <div class="mx-md-auto col-md-10">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Address Settings</h4>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.firstname">
+                  <app-input
+                    label="First Name"
+                    id="edtAddFirstName"
+                    formControlName="firstname"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.lastname">
+                  <app-input
+                    label="Last Name"
+                    id="edtAddLastName"
+                    formControlName="lastname"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.address1">
+                  <app-input
+                    label="Address 1"
+                    id="edtaddress1"
+                    formControlName="address1"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.address2">
+                  <app-input
+                    label="Address 2"
+                    id="edtaddress2"
+                    formControlName="address2"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.city">
+                  <app-input
+                    label="City "
+                    id="edtcity"
+                    formControlName="city"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.state">
+                  <app-input
+                    label="State"
+                    id="edtstate"
+                    formControlName="state"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.zipCode">
+                  <app-input
+                    label="Zip Code "
+                    id="edtzipCode"
+                    formControlName="zipCode"
+                  ></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-md-6">
+                <app-form-group [control]="editAddressForm.controls.other">
+                  <app-input
+                    label="Other"
+                    id="edtother"
+                    formControlName="other"
+                  ></app-input>
+                </app-form-group>
+              </div>
+            </div>
+
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="submit">
+                Update Address
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

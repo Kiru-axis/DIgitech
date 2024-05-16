@@ -1,0 +1,89 @@
+@if (showBreadcrumbs()) {
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Compare</span>
+</nav>
+} @if (compares$|async; as compares) {
+<div class="container seperator">
+  <div class="row g-2">
+    @for (comp of compares; track $index) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card shadow p-2 position-relative">
+        <div class="card-img-box">
+          <img
+            [src]="comp.Product.images[0] || 'assets/images/404.png'"
+            alt="compare-img"
+            class="wish-comp-img"
+          />
+        </div>
+
+        <div class="card-body">
+          <h4 class="product-card-title">
+            {{ comp.Product.title | slice : 0 : 45 }}
+          </h4>
+          <p class="product-card-price pb-2 border-bottom">
+            {{ comp.Product.price | currency }}
+          </p>
+          <div class="wish-comp-items d-flex flex-column gap-2">
+            <div
+              class="wish-comp-item py-3 border-bottom d-flex align-items-center gap-2 gap-md-0 justify-content-md-between"
+            >
+              <p class="mb-0 text-dark fw-bold text-captalize">Brand</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">
+                {{ comp.Product.Brand.name }}
+              </p>
+            </div>
+            <div
+              class="wish-comp-item py-3 border-bottom d-flex align-items-center gap-2 gap-md-0 justify-content-md-between"
+            >
+              <p class="mb-0 text-dark fw-bold text-captalize">Type</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">
+                {{ comp.Product.Category.name }}
+              </p>
+            </div>
+            <div
+              class="wish-comp-item py-3 border-bottom d-flex align-items-center gap-2 gap-md-0 justify-content-md-between"
+            >
+              <p class="mb-0 text-dark fw-bold text-captalize">Availability</p>
+              <p class="mb-0 fw-semibold text-gloom text-sm">In Stock</p>
+            </div>
+            <div
+              class="wish-comp-item py-3 border-bottom d-flex align-items-center gap-2 gap-md-0 justify-content-md-between"
+            >
+              <p class="mb-0 text-dark fw-bold text-captalize">Color</p>
+              <div class="d-flex align-items-center gap-1 flex-wrap">
+                <app-color [colors]="comp.Product.Colors"></app-color>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="removeFromCompares({ productId: comp.Product.id })"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Remove"
+          class="rem-btn position-absolute top-0 end-0 m-2"
+        >
+          &times;
+        </button>
+      </div>
+    </div>
+    } @empty {
+    <div
+      class="d-flex align-items-center justify-content-center bg-white shadow py-4 rounded"
+    >
+      <div class="back-to">
+        <p class="back-to-header">Your compare list is empty</p>
+        <a routerLink="/store" class="back-to-link">
+          <span class="back-to-entity">&LeftArrow;</span>
+          <span class="back-to-text">Back to shop</span>
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+}

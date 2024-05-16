@@ -1,0 +1,5671 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#$" title="src/app/pages/products/single-product/single-product.component.ts" ><b>$</b>&nbsp;&nbsp;&nbsp;(src/.../single-product.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addToCartEffects" title="src/app/store/customer/customer.effects.ts" ><b>addToCartEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addToComparesEffects" title="src/app/store/customer/customer.effects.ts" ><b>addToComparesEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addToWishlistEffects" title="src/app/store/customer/customer.effects.ts" ><b>addToWishlistEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfig" title="src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#auth_routes" title="src/app/pages/auth/auth.routes.ts" ><b>auth_routes</b>&nbsp;&nbsp;&nbsp;(src/.../auth.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authActions" title="src/app/store/auth/auth.actions.ts" ><b>authActions</b>&nbsp;&nbsp;&nbsp;(src/.../auth.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authFeature" title="src/app/store/auth/auth.reducers.ts" ><b>authFeature</b>&nbsp;&nbsp;&nbsp;(src/.../auth.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authGuard" title="src/app/core/guards/auth.guard.ts" ><b>authGuard</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#blog_routes" title="src/app/pages/blogs/blog.routes.ts" ><b>blog_routes</b>&nbsp;&nbsp;&nbsp;(src/.../blog.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#blogActions" title="src/app/store/blogs/blogs.actions.ts" ><b>blogActions</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#blogFeature" title="src/app/store/blogs/blogs.reducers.ts" ><b>blogFeature</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BlogSwiperConfig" title="src/app/pages/blogs/blogs/components/blog-card/swiper.config.ts" ><b>BlogSwiperConfig</b>&nbsp;&nbsp;&nbsp;(src/.../swiper.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriesDb" title="src/app/pages/home/components/categories/data.ts" ><b>CategoriesDb</b>&nbsp;&nbsp;&nbsp;(src/.../data.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#clearCartEffects" title="src/app/store/customer/customer.effects.ts" ><b>clearCartEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#clearComparesEffects" title="src/app/store/customer/customer.effects.ts" ><b>clearComparesEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#clearWishlistEffects" title="src/app/store/customer/customer.effects.ts" ><b>clearWishlistEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Countries" title="src/app/shared/countries/index.ts" ><b>Countries</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createAddressEffect" title="src/app/store/profile/profile.effects.ts" ><b>createAddressEffect</b>&nbsp;&nbsp;&nbsp;(src/.../profile.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createEnquiryEffects" title="src/app/store/enquiry/enquiry.effects.ts" ><b>createEnquiryEffects</b>&nbsp;&nbsp;&nbsp;(src/.../enquiry.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createOrderEffects" title="src/app/store/customer/customer.effects.ts" ><b>createOrderEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createReviewEffects" title="src/app/store/products/products.effects.ts" ><b>createReviewEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#customer_routes" title="src/app/pages/customer/customer.routes.ts" ><b>customer_routes</b>&nbsp;&nbsp;&nbsp;(src/.../customer.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#customerActions" title="src/app/store/customer/customer.actions.ts" ><b>customerActions</b>&nbsp;&nbsp;&nbsp;(src/.../customer.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#customerFeature" title="src/app/store/customer/customer.reducers.ts" ><b>customerFeature</b>&nbsp;&nbsp;&nbsp;(src/.../customer.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteReviewEffects" title="src/app/store/products/products.effects.ts" ><b>deleteReviewEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#enquiryActions" title="src/app/store/enquiry/enquiry.actions.ts" ><b>enquiryActions</b>&nbsp;&nbsp;&nbsp;(src/.../enquiry.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#enquiryFeature" title="src/app/store/enquiry/enquiry.reducers.ts" ><b>enquiryFeature</b>&nbsp;&nbsp;&nbsp;(src/.../enquiry.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.development.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.development.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#errorInterceptor" title="src/app/core/interceptors/error.interceptor.ts" ><b>errorInterceptor</b>&nbsp;&nbsp;&nbsp;(src/.../error.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#forgotPasswordEffect" title="src/app/store/auth/auth.effects.ts" ><b>forgotPasswordEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAllBlogCategoriesEffects" title="src/app/store/blogs/blogs.effects.ts" ><b>getAllBlogCategoriesEffects</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAllBlogsEffects" title="src/app/store/blogs/blogs.effects.ts" ><b>getAllBlogsEffects</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAllProductsEffects" title="src/app/store/products/products.effects.ts" ><b>getAllProductsEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getColorsEffects" title="src/app/store/products/products.effects.ts" ><b>getColorsEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getComparesEffects" title="src/app/store/customer/customer.effects.ts" ><b>getComparesEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getProductCategoriesEffects" title="src/app/store/products/products.effects.ts" ><b>getProductCategoriesEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSingleBlogEffects" title="src/app/store/blogs/blogs.effects.ts" ><b>getSingleBlogEffects</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSingleProductEffects" title="src/app/store/products/products.effects.ts" ><b>getSingleProductEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getTagsEffects" title="src/app/store/products/products.effects.ts" ><b>getTagsEffects</b>&nbsp;&nbsp;&nbsp;(src/.../products.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getUserOrdersEffects" title="src/app/store/customer/customer.effects.ts" ><b>getUserOrdersEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getWishlistEffects" title="src/app/store/customer/customer.effects.ts" ><b>getWishlistEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#geUserCartEffects" title="src/app/store/customer/customer.effects.ts" ><b>geUserCartEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Icons" title="src/app/shared/icons/index.ts" ><b>Icons</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initalState" title="src/app/store/customer/customer.reducers.ts" ><b>initalState</b>&nbsp;&nbsp;&nbsp;(src/.../customer.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/auth/auth.reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../auth.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/blogs/blogs.reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../blogs.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/enquiry/enquiry.reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../enquiry.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/products/products.reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../products.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/profile/profile.reducer.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../profile.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jwtInterceptor" title="src/app/core/interceptors/jwt.interceptor.ts" ><b>jwtInterceptor</b>&nbsp;&nbsp;&nbsp;(src/.../jwt.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loaderInterceptor" title="src/app/shared/indicators/loader/loader.interceptor.ts" ><b>loaderInterceptor</b>&nbsp;&nbsp;&nbsp;(src/.../loader.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loggedGuard" title="src/app/core/guards/logged.guard.ts" ><b>loggedGuard</b>&nbsp;&nbsp;&nbsp;(src/.../logged.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loginEffect" title="src/app/store/auth/auth.effects.ts" ><b>loginEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#logoutEffect" title="src/app/store/auth/auth.effects.ts" ><b>logoutEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#markFormGroupTouched" title="src/app/shared/utils/form.ts" ><b>markFormGroupTouched</b>&nbsp;&nbsp;&nbsp;(src/.../form.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#policy_routes" title="src/app/pages/policies/policy.routes.ts" ><b>policy_routes</b>&nbsp;&nbsp;&nbsp;(src/.../policy.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#productActions" title="src/app/store/products/products.actions.ts" ><b>productActions</b>&nbsp;&nbsp;&nbsp;(src/.../products.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#productFeature" title="src/app/store/products/products.reducers.ts" ><b>productFeature</b>&nbsp;&nbsp;&nbsp;(src/.../products.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProductSwiperConfig" title="src/app/pages/products/products/swiper.config.ts" ><b>ProductSwiperConfig</b>&nbsp;&nbsp;&nbsp;(src/.../swiper.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#profile_routes" title="src/app/pages/profile/profile.routes.ts" ><b>profile_routes</b>&nbsp;&nbsp;&nbsp;(src/.../profile.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#profileActions" title="src/app/store/profile/profile.actions.ts" ><b>profileActions</b>&nbsp;&nbsp;&nbsp;(src/.../profile.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#profileFeature" title="src/app/store/profile/profile.reducer.ts" ><b>profileFeature</b>&nbsp;&nbsp;&nbsp;(src/.../profile.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redirectAfterLoginSuccess" title="src/app/store/auth/auth.effects.ts" ><b>redirectAfterLoginSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redirectAfterLogoutSuccess" title="src/app/store/auth/auth.effects.ts" ><b>redirectAfterLogoutSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redirectAfterRefreshSuccess" title="src/app/store/auth/auth.effects.ts" ><b>redirectAfterRefreshSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redirectAfterRegisterSuccess" title="src/app/store/auth/auth.effects.ts" ><b>redirectAfterRegisterSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#redirectAfterResetSuccess" title="src/app/store/auth/auth.effects.ts" ><b>redirectAfterResetSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#refreshTokenEffect" title="src/app/store/auth/auth.effects.ts" ><b>refreshTokenEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#regex" title="src/app/shared/utils/regex.ts" ><b>regex</b>&nbsp;&nbsp;&nbsp;(src/.../regex.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#regexErrors" title="src/app/shared/utils/regex.ts" ><b>regexErrors</b>&nbsp;&nbsp;&nbsp;(src/.../regex.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#registerEffect" title="src/app/store/auth/auth.effects.ts" ><b>registerEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#removeFromCartEffects" title="src/app/store/customer/customer.effects.ts" ><b>removeFromCartEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#removeFromComparsEffects" title="src/app/store/customer/customer.effects.ts" ><b>removeFromComparsEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#removeFromWishlistEffects" title="src/app/store/customer/customer.effects.ts" ><b>removeFromWishlistEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#resetPasswordEffect" title="src/app/store/auth/auth.effects.ts" ><b>resetPasswordEffect</b>&nbsp;&nbsp;&nbsp;(src/.../auth.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#roleGuard" title="src/app/core/guards/role.guard.ts" ><b>roleGuard</b>&nbsp;&nbsp;&nbsp;(src/.../role.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SkipLoading" title="src/app/shared/indicators/loader/loader.interceptor.ts" ><b>SkipLoading</b>&nbsp;&nbsp;&nbsp;(src/.../loader.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SpecialSwiperConfig" title="src/app/pages/home/components/special/swiper.config.ts" ><b>SpecialSwiperConfig</b>&nbsp;&nbsp;&nbsp;(src/.../swiper.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/auth/auth.reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../auth.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/blogs/blogs.reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../blogs.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/customer/customer.reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../customer.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/enquiry/enquiry.reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../enquiry.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/products/products.reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../products.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateAddressEffect" title="src/app/store/profile/profile.effects.ts" ><b>updateAddressEffect</b>&nbsp;&nbsp;&nbsp;(src/.../profile.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateCartEffects" title="src/app/store/customer/customer.effects.ts" ><b>updateCartEffects</b>&nbsp;&nbsp;&nbsp;(src/.../customer.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateUserEffect" title="src/app/store/profile/profile.effects.ts" ><b>updateUserEffect</b>&nbsp;&nbsp;&nbsp;(src/.../profile.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="src/app/store/profile/profile.reducer.ts" ><b></b>&nbsp;&nbsp;&nbsp;(src/.../profile.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UsedBySwiperConfig" title="src/app/pages/home/components/used-by/swiper.config.ts" ><b>UsedBySwiperConfig</b>&nbsp;&nbsp;&nbsp;(src/.../swiper.config.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/pages/products/single-product/single-product.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="$"></a>
+                    <span class="name">
+                        <span ><b>$</b></span>
+                        <a href="#$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>window[&#x27;$&#x27;]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/customer/customer.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToCartEffects"></a>
+                    <span class="name">
+                        <span ><b>addToCartEffects</b></span>
+                        <a href="#addToCartEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.addToCart),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.addToCart(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Product added to cart&#x60;);
+            return customerActions.addToCartSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.addToCartFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToComparesEffects"></a>
+                    <span class="name">
+                        <span ><b>addToComparesEffects</b></span>
+                        <a href="#addToComparesEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.addToCompare),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.addToCompares({ productId: request.productId }).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Product added to compare list&#x60;);
+            return customerActions.addToCompareSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.addToCompareFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToWishlistEffects"></a>
+                    <span class="name">
+                        <span ><b>addToWishlistEffects</b></span>
+                        <a href="#addToWishlistEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.addToWishlist),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.addToWishlist({ productId: request.productId }).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Product added to wishlist&#x60;);
+            return customerActions.addToWishlistSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.addToWishlistFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearCartEffects"></a>
+                    <span class="name">
+                        <span ><b>clearCartEffects</b></span>
+                        <a href="#clearCartEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.clearCart),
+      mergeMap(() &#x3D;&gt;
+        customerService.clearCart().pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Cart Cleared&#x60;);
+            return customerActions.clearCartSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.clearCartFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearComparesEffects"></a>
+                    <span class="name">
+                        <span ><b>clearComparesEffects</b></span>
+                        <a href="#clearComparesEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.clearCompare),
+      mergeMap(() &#x3D;&gt;
+        customerService.clearCompares().pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Compare list Cleared&#x60;);
+            return customerActions.clearCompareSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.clearCompareFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearWishlistEffects"></a>
+                    <span class="name">
+                        <span ><b>clearWishlistEffects</b></span>
+                        <a href="#clearWishlistEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.clearWishlist),
+      mergeMap(() &#x3D;&gt;
+        customerService.clearWishlist().pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Wishlist Cleared&#x60;);
+            return customerActions.clearWishlistSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.clearWishlistFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createOrderEffects"></a>
+                    <span class="name">
+                        <span ><b>createOrderEffects</b></span>
+                        <a href="#createOrderEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.createOrder),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.createOrder(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Order Created successfull&#x60;);
+            window.location.href &#x3D; response.url;
+            console.log(response.url);
+
+            return customerActions.createOrderSuccess({
+              response: { url: response.url },
+            });
+          }),
+          catchError((error) &#x3D;&gt; {
+            console.log(error);
+
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.createOrderFailure({ error }));
+          }),
+          distinctUntilChanged(),
+          retry(3)
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getComparesEffects"></a>
+                    <span class="name">
+                        <span ><b>getComparesEffects</b></span>
+                        <a href="#getComparesEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), customerService &#x3D; inject(CustomerService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.getCompares),
+      mergeMap(() &#x3D;&gt;
+        customerService.getCompares().pipe(
+          map((response) &#x3D;&gt; customerActions.getComparesSuccess({ response })),
+          catchError((error) &#x3D;&gt;
+            of(customerActions.getComparesFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserOrdersEffects"></a>
+                    <span class="name">
+                        <span ><b>getUserOrdersEffects</b></span>
+                        <a href="#getUserOrdersEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.getOrders),
+      mergeMap(() &#x3D;&gt;
+        customerService.getUserOrders().pipe(
+          map((response) &#x3D;&gt; {
+            return customerActions.getOrdersSuccess({
+              response,
+            });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.getOrdersFailure({ error }));
+          }),
+          distinctUntilChanged(),
+          retry(3)
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWishlistEffects"></a>
+                    <span class="name">
+                        <span ><b>getWishlistEffects</b></span>
+                        <a href="#getWishlistEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), customerService &#x3D; inject(CustomerService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.getWishlist),
+      mergeMap(() &#x3D;&gt;
+        customerService.getWishlist().pipe(
+          map((response) &#x3D;&gt; customerActions.getWishlistSuccess({ response })),
+          catchError((error) &#x3D;&gt;
+            of(customerActions.getWishlistFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="geUserCartEffects"></a>
+                    <span class="name">
+                        <span ><b>geUserCartEffects</b></span>
+                        <a href="#geUserCartEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), customerService &#x3D; inject(CustomerService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.getCart),
+      mergeMap(() &#x3D;&gt;
+        customerService.getUserCart().pipe(
+          map((response) &#x3D;&gt; customerActions.getCartSuccess({ response })),
+          catchError((error) &#x3D;&gt; of(customerActions.getCartFailure({ error }))),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFromCartEffects"></a>
+                    <span class="name">
+                        <span ><b>removeFromCartEffects</b></span>
+                        <a href="#removeFromCartEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.removeProductFromCart),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.removeProductFromCart(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Product removed from cart&#x60;);
+            return customerActions.removeProductFromCartSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.removeProductFromCartFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFromComparsEffects"></a>
+                    <span class="name">
+                        <span ><b>removeFromComparsEffects</b></span>
+                        <a href="#removeFromComparsEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.removeFromCompare),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService
+          .removeFromCompares({ productId: request.productId })
+          .pipe(
+            map((response) &#x3D;&gt; {
+              toastr.success(&#x60;Product removed from compare list&#x60;);
+              return customerActions.removeFromCompareSuccess({ response });
+            }),
+            catchError((error) &#x3D;&gt; {
+              toastr.error(error.error.message, error.statusText);
+              return of(customerActions.removeFromCompareFailure({ error }));
+            }),
+            distinctUntilChanged()
+          )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFromWishlistEffects"></a>
+                    <span class="name">
+                        <span ><b>removeFromWishlistEffects</b></span>
+                        <a href="#removeFromWishlistEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.removeFromWishlist),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService
+          .removeFromWishlist({ productId: request.productId })
+          .pipe(
+            map((response) &#x3D;&gt; {
+              toastr.success(&#x60;Product removed from wishlist&#x60;);
+              return customerActions.removeFromWishlistSuccess({ response });
+            }),
+            catchError((error) &#x3D;&gt; {
+              toastr.error(error.error.message, error.statusText);
+              return of(customerActions.removeFromWishlistFailure({ error }));
+            }),
+            distinctUntilChanged()
+          )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCartEffects"></a>
+                    <span class="name">
+                        <span ><b>updateCartEffects</b></span>
+                        <a href="#updateCartEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    customerService &#x3D; inject(CustomerService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(customerActions.updateCart),
+      mergeMap(({ request }) &#x3D;&gt;
+        customerService.updateCart(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Cart updated&#x60;);
+            return customerActions.updateCartSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(customerActions.updateCartFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [
+    provideAnimationsAsync(),
+    provideRouter(routes, withHashLocation()),
+    provideHttpClient(
+      withInterceptors([loaderInterceptor, jwtInterceptor, errorInterceptor])
+    ),
+    importProvidersFrom([
+      ToastrModule.forRoot({
+        preventDuplicates: true,
+        timeOut: 10000,
+        positionClass: &#x27;toast-bottom-right&#x27;,
+      }),
+      JwtModule.forRoot({
+        config: {
+          throwNoTokenError: true,
+          tokenGetter() {
+            const token &#x3D; sessionStorage.getItem(&#x27;token&#x27;);
+            return token ? JSON.parse(token) : null;
+          },
+        },
+      }),
+    ]),
+
+    provideStore(),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      trace: false,
+      traceLimit: 75,
+    }),
+    provideState(authFeatureName, authReducer),
+    provideState(productFeatureName, productReducer),
+    provideState(blogFeatureName, blogReducer),
+    provideState(customerFeatureName, customerReducer),
+    provideState(enquiryFeatureName, enquiryReducer),
+    provideState(profileFeatureName, profileReducer),
+    provideEffects([
+      authEffects,
+      productEffects,
+      blogEffects,
+      customerEffects,
+      enquiryEffects,
+      profileEffects,
+    ]),
+  ],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/auth/auth.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth_routes"></a>
+                    <span class="name">
+                        <span ><b>auth_routes</b></span>
+                        <a href="#auth_routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  { path: &#x27;login&#x27;, component: LoginComponent },
+  { path: &#x27;register&#x27;, component: RegisterComponent },
+  {
+    path: &#x27;forgot-password&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./forgot-password/forgot-password.component&#x27;).then(
+        (c) &#x3D;&gt; c.ForgotPasswordComponent
+      ),
+  },
+  {
+    path: &#x27;reset-password/:token&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./reset-password/reset-password.component&#x27;).then(
+        (c) &#x3D;&gt; c.ResetPasswordComponent
+      ),
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/auth/auth.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authActions"></a>
+                    <span class="name">
+                        <span ><b>authActions</b></span>
+                        <a href="#authActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Auth]&#x27;,
+  events: {
+    Register: props&lt;{ request: IRegister }&gt;(),
+    &#x27;Register Success&#x27;: props&lt;{ response: IBackendSuccess }&gt;(),
+    &#x27;Register Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    Login: props&lt;{ request: ILogin }&gt;(),
+    &#x27;Login Success&#x27;: props&lt;{ response: IUser }&gt;(),
+    &#x27;Login Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    Logout: emptyProps(),
+    &#x27;Logout Success&#x27;: props&lt;{ response: {} }&gt;(),
+    &#x27;Logout Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    RefreshToken: emptyProps(),
+    &#x27;RefreshToken Success&#x27;: props&lt;{ response: IUser }&gt;(),
+    &#x27;RefreshToken Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    ResetPassword: props&lt;{ request: { dto: IResetPassword; token: string } }&gt;(),
+    &#x27;ResetPassword Success&#x27;: props&lt;{ response: IBackendSuccess }&gt;(),
+    &#x27;ResetPassword Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    ForgotPassword: props&lt;{
+      request: IForgotPassword;
+    }&gt;(),
+    &#x27;ForgotPassword Success&#x27;: props&lt;{ response: IBackendSuccess }&gt;(),
+    &#x27;ForgotPassword Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/auth/auth.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authFeature"></a>
+                    <span class="name">
+                        <span ><b>authFeature</b></span>
+                        <a href="#authFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Auth&#x27;,
+  reducer: createReducer(
+    initialState,
+
+    // REGISTER
+    on(authActions.register, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(authActions.registerSuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }),
+    on(authActions.registerFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+    // LOGIN
+    on(authActions.login, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(authActions.loginSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        authUser: payload.response,
+      };
+    }),
+    on(authActions.loginFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // LOGOUT
+    on(authActions.logout, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(authActions.logoutSuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        authUser: null,
+      };
+    }),
+    on(authActions.logoutFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+    // REFRESH
+    on(authActions.refreshToken, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(authActions.refreshTokenSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        authUser: payload.response,
+      };
+    }),
+    on(authActions.refreshTokenFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // RESET PASSWORD
+    on(authActions.resetPassword, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(authActions.resetPasswordSuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }),
+    on(authActions.resetPasswordFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // FORGOT PASSWORD
+    on(authActions.forgotPassword, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(authActions.forgotPasswordSuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }),
+    on(authActions.forgotPasswordFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IAuthStoreState.html" target="_self" >IAuthStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  error: null,
+  isLoading: false,
+  authUser: JSON.parse(sessionStorage.getItem(&#x27;currentUser&#x27;) as string),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>authFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/guards/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authGuard"></a>
+                    <span class="name">
+                        <span ><b>authGuard</b></span>
+                        <a href="#authGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const jwt &#x3D; inject(JwtHelperService);
+  const router &#x3D; inject(Router);
+
+  if (jwt.isTokenExpired() || !jwt.decodeToken()) {
+    router.navigateByUrl(&#x27;/auth/login&#x27;);
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/blogs/blog.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blog_routes"></a>
+                    <span class="name">
+                        <span ><b>blog_routes</b></span>
+                        <a href="#blog_routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  { path: &#x27;&#x27;, component: BlogsComponent },
+  {
+    path: &#x27;:id&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./blog/blog.component&#x27;).then((c) &#x3D;&gt; c.BlogComponent),
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/blogs/blogs.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blogActions"></a>
+                    <span class="name">
+                        <span ><b>blogActions</b></span>
+                        <a href="#blogActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Blogs]&#x27;,
+  events: {
+    // GET ALL Blogs
+    &#x27;Get All Blogs&#x27;: props&lt;{ request?: BlogQueryType }&gt;(),
+    &#x27;Get All Blogs Success&#x27;: props&lt;{ response: IBlog[] }&gt;(),
+    &#x27;Get All Blogs Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // GET SINGLE Blog
+    &#x27;Get Single Blog&#x27;: props&lt;{ blogId: string }&gt;(),
+    &#x27;Get Single Blog Success&#x27;: props&lt;{ response: IBlog }&gt;(),
+    &#x27;Get Single Blog Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // BLOG CATEGORIES
+    &#x27;Get All Blog Categories&#x27;: emptyProps(),
+    &#x27;Get All Blog Categories Success&#x27;: props&lt;{ response: IBlogCategory[] }&gt;(),
+    &#x27;Get All Blog Categories Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/blogs/blogs.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blogFeature"></a>
+                    <span class="name">
+                        <span ><b>blogFeature</b></span>
+                        <a href="#blogFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Blogs&#x27;,
+  reducer: createReducer(
+    initialState,
+    // GET ALL Blogs
+    on(blogActions.getAllBlogs, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(blogActions.getAllBlogsSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        blogs: payload.response,
+      };
+    }),
+    on(blogActions.getAllBlogsFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // GET SINGLE Blog
+    on(blogActions.getSingleBlog, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(blogActions.getSingleBlogSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        blog: payload.response,
+      };
+    }),
+    on(blogActions.getSingleBlogFailure, (state, payload) &#x3D;&gt; {
+      return { ...state, isLoading: false, error: payload.error };
+    }),
+
+    // GET Blog Categories
+    on(blogActions.getAllBlogCategories, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(blogActions.getAllBlogCategoriesSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        blogCategories: payload.response,
+      };
+    }),
+    on(blogActions.getAllBlogCategoriesFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IBlogStoreState.html" target="_self" >IBlogStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  error: null,
+  blog: null,
+  blogs: [],
+  blogCategories: [],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>blogFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/blogs/blogs/components/blog-card/swiper.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BlogSwiperConfig"></a>
+                    <span class="name">
+                        <span ><b>BlogSwiperConfig</b></span>
+                        <a href="#BlogSwiperConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SwiperOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  modules: [Pagination, A11y, Mousewheel, Navigation],
+  autoHeight: true,
+  spaceBetween: 20,
+  pagination: { clickable: true, dynamicBullets: true },
+  navigation: true,
+  slidesPerView: 1,
+  breakpoints: {
+    400: {
+      slidesPerView: &#x27;auto&#x27;,
+    },
+    600: {
+      slidesPerView: 2,
+    },
+    800: {
+      slidesPerView: 3,
+    },
+    1000: {
+      slidesPerView: 4,
+    },
+    1400: {
+      slidesPerView: 5,
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/home/components/categories/data.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriesDb"></a>
+                    <span class="name">
+                        <span ><b>CategoriesDb</b></span>
+                        <a href="#CategoriesDb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    label: &#x27;Computers &amp; Laptops&#x27;,
+    img: &#x27;assets/images/tab.jpg&#x27;,
+  },
+  {
+    label: &#x27;Cameras &amp; Videos&#x27;,
+    img: &#x27;assets/images/tab1.jpg&#x27;,
+  },
+  {
+    label: &#x27;Smart Television&#x27;,
+    img: &#x27;assets/images/tv.jpg&#x27;,
+  },
+  {
+    label: &#x27;Smartwatches&#x27;,
+    img: &#x27;assets/images/watch.jpg&#x27;,
+  },
+  {
+    label: &#x27;Music &amp; Gaming&#x27;,
+    img: &#x27;assets/images/tab2.jpg&#x27;,
+  },
+  {
+    label: &#x27;Mobile &amp; Tablets&#x27;,
+    img: &#x27;assets/images/tab3.jpg&#x27;,
+  },
+  {
+    label: &#x27;Headphones&#x27;,
+    img: &#x27;assets/images/headphone.jpg&#x27;,
+  },
+  {
+    label: &#x27;Accessories&#x27;,
+    img: &#x27;assets/images/acc.jpg&#x27;,
+  },
+  {
+    label: &#x27;Portable Speakers&#x27;,
+    img: &#x27;assets/images/speaker.jpg&#x27;,
+  },
+  {
+    label: &#x27;Home Appliances&#x27;,
+    img: &#x27;assets/images/homeapp.jpg&#x27;,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/countries/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Countries"></a>
+                    <span class="name">
+                        <span ><b>Countries</b></span>
+                        <a href="#Countries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    name: &#x27;Afghanistan&#x27;,
+    code: &#x27;AF&#x27;,
+  },
+  {
+    name: &#x27;Albania&#x27;,
+    code: &#x27;AL&#x27;,
+  },
+  {
+    name: &#x27;Algeria&#x27;,
+    code: &#x27;DZ&#x27;,
+  },
+  {
+    name: &#x27;American Samoa&#x27;,
+    code: &#x27;AS&#x27;,
+  },
+  {
+    name: &#x27;Andorra&#x27;,
+    code: &#x27;AD&#x27;,
+  },
+  {
+    name: &#x27;Angola&#x27;,
+    code: &#x27;AO&#x27;,
+  },
+  {
+    name: &#x27;Anguilla&#x27;,
+    code: &#x27;AI&#x27;,
+  },
+  {
+    name: &#x27;Antigua and Barbuda&#x27;,
+    code: &#x27;AG&#x27;,
+  },
+  {
+    name: &#x27;Argentina&#x27;,
+    code: &#x27;AR&#x27;,
+  },
+  {
+    name: &#x27;Armenia&#x27;,
+    code: &#x27;AM&#x27;,
+  },
+  {
+    name: &#x27;Aruba&#x27;,
+    code: &#x27;AW&#x27;,
+  },
+  {
+    name: &#x27;Australia&#x27;,
+    code: &#x27;AU&#x27;,
+  },
+  {
+    name: &#x27;Austria&#x27;,
+    code: &#x27;AT&#x27;,
+  },
+  {
+    name: &#x27;Azerbaijan&#x27;,
+    code: &#x27;AZ&#x27;,
+  },
+  {
+    name: &#x27;Bahamas&#x27;,
+    code: &#x27;BS&#x27;,
+  },
+  {
+    name: &#x27;Bahrain&#x27;,
+    code: &#x27;BH&#x27;,
+  },
+  {
+    name: &#x27;Bangladesh&#x27;,
+    code: &#x27;BD&#x27;,
+  },
+  {
+    name: &#x27;Barbados&#x27;,
+    code: &#x27;BB&#x27;,
+  },
+  {
+    name: &#x27;Belarus&#x27;,
+    code: &#x27;BY&#x27;,
+  },
+  {
+    name: &#x27;Belgium&#x27;,
+    code: &#x27;BE&#x27;,
+  },
+  {
+    name: &#x27;Belize&#x27;,
+    code: &#x27;BZ&#x27;,
+  },
+  {
+    name: &#x27;Benin&#x27;,
+    code: &#x27;BJ&#x27;,
+  },
+  {
+    name: &#x27;Bermuda&#x27;,
+    code: &#x27;BM&#x27;,
+  },
+  {
+    name: &#x27;Bhutan&#x27;,
+    code: &#x27;BT&#x27;,
+  },
+  {
+    name: &#x27;Bolivia&#x27;,
+    code: &#x27;BO&#x27;,
+  },
+  {
+    name: &#x27;Bosnia and Herzegovina&#x27;,
+    code: &#x27;BA&#x27;,
+  },
+  {
+    name: &#x27;Botswana&#x27;,
+    code: &#x27;BW&#x27;,
+  },
+  {
+    name: &#x27;Brazil&#x27;,
+    code: &#x27;BR&#x27;,
+  },
+  {
+    name: &#x27;Brunei Darussalam&#x27;,
+    code: &#x27;BN&#x27;,
+  },
+  {
+    name: &#x27;Bulgaria&#x27;,
+    code: &#x27;BG&#x27;,
+  },
+  {
+    name: &#x27;Burkina Faso&#x27;,
+    code: &#x27;BF&#x27;,
+  },
+  {
+    name: &#x27;Burundi&#x27;,
+    code: &#x27;BI&#x27;,
+  },
+  {
+    name: &#x27;Cambodia&#x27;,
+    code: &#x27;KH&#x27;,
+  },
+  {
+    name: &#x27;Cameroon&#x27;,
+    code: &#x27;CM&#x27;,
+  },
+  {
+    name: &#x27;Canada&#x27;,
+    code: &#x27;CA&#x27;,
+  },
+  {
+    name: &#x27;Cape Verde&#x27;,
+    code: &#x27;CV&#x27;,
+  },
+  {
+    name: &#x27;Cayman Islands&#x27;,
+    code: &#x27;KY&#x27;,
+  },
+  {
+    name: &#x27;Central African Republic&#x27;,
+    code: &#x27;CF&#x27;,
+  },
+  {
+    name: &#x27;Chad&#x27;,
+    code: &#x27;TD&#x27;,
+  },
+  {
+    name: &#x27;Chile&#x27;,
+    code: &#x27;CL&#x27;,
+  },
+  {
+    name: &#x27;China&#x27;,
+    code: &#x27;CN&#x27;,
+  },
+  {
+    name: &#x27;Christmas Island&#x27;,
+    code: &#x27;CX&#x27;,
+  },
+  {
+    name: &#x27;Cocos (Keeling) Islands&#x27;,
+    code: &#x27;CC&#x27;,
+  },
+  {
+    name: &#x27;Colombia&#x27;,
+    code: &#x27;CO&#x27;,
+  },
+  {
+    name: &#x27;Comoros&#x27;,
+    code: &#x27;KM&#x27;,
+  },
+  {
+    name: &#x27;Congo&#x27;,
+    code: &#x27;CG&#x27;,
+  },
+  {
+    name: &#x27;Congo, The Democratic Republic of the&#x27;,
+    code: &#x27;CD&#x27;,
+  },
+  {
+    name: &#x27;Cook Islands&#x27;,
+    code: &#x27;CK&#x27;,
+  },
+  {
+    name: &#x27;Costa Rica&#x27;,
+    code: &#x27;CR&#x27;,
+  },
+  {
+    name: &quot;Cote D&#x27;Ivoire&quot;,
+    code: &#x27;CI&#x27;,
+  },
+  {
+    name: &#x27;Croatia&#x27;,
+    code: &#x27;HR&#x27;,
+  },
+  {
+    name: &#x27;Cuba&#x27;,
+    code: &#x27;CU&#x27;,
+  },
+  {
+    name: &#x27;Cyprus&#x27;,
+    code: &#x27;CY&#x27;,
+  },
+  {
+    name: &#x27;Czech Republic&#x27;,
+    code: &#x27;CZ&#x27;,
+  },
+  {
+    name: &#x27;Denmark&#x27;,
+    code: &#x27;DK&#x27;,
+  },
+  {
+    name: &#x27;Djibouti&#x27;,
+    code: &#x27;DJ&#x27;,
+  },
+  {
+    name: &#x27;Dominica&#x27;,
+    code: &#x27;DM&#x27;,
+  },
+  {
+    name: &#x27;Dominican Republic&#x27;,
+    code: &#x27;DO&#x27;,
+  },
+  {
+    name: &#x27;Ecuador&#x27;,
+    code: &#x27;EC&#x27;,
+  },
+  {
+    name: &#x27;Egypt&#x27;,
+    code: &#x27;EG&#x27;,
+  },
+  {
+    name: &#x27;El Salvador&#x27;,
+    code: &#x27;SV&#x27;,
+  },
+  {
+    name: &#x27;Equatorial Guinea&#x27;,
+    code: &#x27;GQ&#x27;,
+  },
+  {
+    name: &#x27;Eritrea&#x27;,
+    code: &#x27;ER&#x27;,
+  },
+  {
+    name: &#x27;Estonia&#x27;,
+    code: &#x27;EE&#x27;,
+  },
+  {
+    name: &#x27;Ethiopia&#x27;,
+    code: &#x27;ET&#x27;,
+  },
+  {
+    name: &#x27;Falkland Islands (Malvinas)&#x27;,
+    code: &#x27;FK&#x27;,
+  },
+  {
+    name: &#x27;Faroe Islands&#x27;,
+    code: &#x27;FO&#x27;,
+  },
+  {
+    name: &#x27;Fiji&#x27;,
+    code: &#x27;FJ&#x27;,
+  },
+  {
+    name: &#x27;Finland&#x27;,
+    code: &#x27;FI&#x27;,
+  },
+  {
+    name: &#x27;France&#x27;,
+    code: &#x27;FR&#x27;,
+  },
+  {
+    name: &#x27;French Guiana&#x27;,
+    code: &#x27;GF&#x27;,
+  },
+  {
+    name: &#x27;French Polynesia&#x27;,
+    code: &#x27;PF&#x27;,
+  },
+  {
+    name: &#x27;Gabon&#x27;,
+    code: &#x27;GA&#x27;,
+  },
+  {
+    name: &#x27;Gambia&#x27;,
+    code: &#x27;GM&#x27;,
+  },
+  {
+    name: &#x27;Georgia&#x27;,
+    code: &#x27;GE&#x27;,
+  },
+  {
+    name: &#x27;Germany&#x27;,
+    code: &#x27;DE&#x27;,
+  },
+  {
+    name: &#x27;Ghana&#x27;,
+    code: &#x27;GH&#x27;,
+  },
+  {
+    name: &#x27;Gibraltar&#x27;,
+    code: &#x27;GI&#x27;,
+  },
+  {
+    name: &#x27;Greece&#x27;,
+    code: &#x27;GR&#x27;,
+  },
+  {
+    name: &#x27;Greenland&#x27;,
+    code: &#x27;GL&#x27;,
+  },
+  {
+    name: &#x27;Grenada&#x27;,
+    code: &#x27;GD&#x27;,
+  },
+  {
+    name: &#x27;Guadeloupe&#x27;,
+    code: &#x27;GP&#x27;,
+  },
+  {
+    name: &#x27;Guam&#x27;,
+    code: &#x27;GU&#x27;,
+  },
+  {
+    name: &#x27;Guatemala&#x27;,
+    code: &#x27;GT&#x27;,
+  },
+  {
+    name: &#x27;Guinea&#x27;,
+    code: &#x27;GN&#x27;,
+  },
+  {
+    name: &#x27;Guinea-Bissau&#x27;,
+    code: &#x27;GW&#x27;,
+  },
+  {
+    name: &#x27;Guyana&#x27;,
+    code: &#x27;GY&#x27;,
+  },
+  {
+    name: &#x27;Haiti&#x27;,
+    code: &#x27;HT&#x27;,
+  },
+  {
+    name: &#x27;Vatican City&#x27;,
+    code: &#x27;VA&#x27;,
+  },
+  {
+    name: &#x27;Honduras&#x27;,
+    code: &#x27;HN&#x27;,
+  },
+  {
+    name: &#x27;Hong Kong&#x27;,
+    code: &#x27;HK&#x27;,
+  },
+  {
+    name: &#x27;Hungary&#x27;,
+    code: &#x27;HU&#x27;,
+  },
+  {
+    name: &#x27;Iceland&#x27;,
+    code: &#x27;IS&#x27;,
+  },
+  {
+    name: &#x27;India&#x27;,
+    code: &#x27;IN&#x27;,
+  },
+  {
+    name: &#x27;Indonesia&#x27;,
+    code: &#x27;ID&#x27;,
+  },
+  {
+    name: &#x27;Iran, Islamic Republic Of&#x27;,
+    code: &#x27;IR&#x27;,
+  },
+  {
+    name: &#x27;Iraq&#x27;,
+    code: &#x27;IQ&#x27;,
+  },
+  {
+    name: &#x27;Ireland&#x27;,
+    code: &#x27;IE&#x27;,
+  },
+  {
+    name: &#x27;Isle of Man&#x27;,
+    code: &#x27;IM&#x27;,
+  },
+  {
+    name: &#x27;Israel&#x27;,
+    code: &#x27;IL&#x27;,
+  },
+  {
+    name: &#x27;Italy&#x27;,
+    code: &#x27;IT&#x27;,
+  },
+  {
+    name: &#x27;Jamaica&#x27;,
+    code: &#x27;JM&#x27;,
+  },
+  {
+    name: &#x27;Japan&#x27;,
+    code: &#x27;JP&#x27;,
+  },
+  {
+    name: &#x27;Jersey&#x27;,
+    code: &#x27;JE&#x27;,
+  },
+  {
+    name: &#x27;Jordan&#x27;,
+    code: &#x27;JO&#x27;,
+  },
+  {
+    name: &#x27;Kazakhstan&#x27;,
+    code: &#x27;KZ&#x27;,
+  },
+  {
+    name: &#x27;Kenya&#x27;,
+    code: &#x27;KE&#x27;,
+  },
+  {
+    name: &#x27;Kiribati&#x27;,
+    code: &#x27;KI&#x27;,
+  },
+  {
+    name: &quot;Korea, Democratic People&#x27;s Republic of&quot;,
+    code: &#x27;KP&#x27;,
+  },
+  {
+    name: &#x27;Korea, Republic of&#x27;,
+    code: &#x27;KR&#x27;,
+  },
+  {
+    name: &#x27;Kuwait&#x27;,
+    code: &#x27;KW&#x27;,
+  },
+  {
+    name: &#x27;Kyrgyzstan&#x27;,
+    code: &#x27;KG&#x27;,
+  },
+  {
+    name: &quot;Lao People&#x27;s Democratic Republic&quot;,
+    code: &#x27;LA&#x27;,
+  },
+  {
+    name: &#x27;Latvia&#x27;,
+    code: &#x27;LV&#x27;,
+  },
+  {
+    name: &#x27;Lebanon&#x27;,
+    code: &#x27;LB&#x27;,
+  },
+  {
+    name: &#x27;Lesotho&#x27;,
+    code: &#x27;LS&#x27;,
+  },
+  {
+    name: &#x27;Liberia&#x27;,
+    code: &#x27;LR&#x27;,
+  },
+  {
+    name: &#x27;Libyan Arab Jamahiriya&#x27;,
+    code: &#x27;LY&#x27;,
+  },
+  {
+    name: &#x27;Liechtenstein&#x27;,
+    code: &#x27;LI&#x27;,
+  },
+  {
+    name: &#x27;Lithuania&#x27;,
+    code: &#x27;LT&#x27;,
+  },
+  {
+    name: &#x27;Luxembourg&#x27;,
+    code: &#x27;LU&#x27;,
+  },
+  {
+    name: &#x27;Macao&#x27;,
+    code: &#x27;MO&#x27;,
+  },
+  {
+    name: &#x27;North Macedonia&#x27;,
+    code: &#x27;MK&#x27;,
+  },
+  {
+    name: &#x27;Madagascar&#x27;,
+    code: &#x27;MG&#x27;,
+  },
+  {
+    name: &#x27;Malawi&#x27;,
+    code: &#x27;MW&#x27;,
+  },
+  {
+    name: &#x27;Malaysia&#x27;,
+    code: &#x27;MY&#x27;,
+  },
+  {
+    name: &#x27;Maldives&#x27;,
+    code: &#x27;MV&#x27;,
+  },
+  {
+    name: &#x27;Mali&#x27;,
+    code: &#x27;ML&#x27;,
+  },
+  {
+    name: &#x27;Malta&#x27;,
+    code: &#x27;MT&#x27;,
+  },
+  {
+    name: &#x27;Marshall Islands&#x27;,
+    code: &#x27;MH&#x27;,
+  },
+  {
+    name: &#x27;Martinique&#x27;,
+    code: &#x27;MQ&#x27;,
+  },
+  {
+    name: &#x27;Mauritania&#x27;,
+    code: &#x27;MR&#x27;,
+  },
+  {
+    name: &#x27;Mauritius&#x27;,
+    code: &#x27;MU&#x27;,
+  },
+  {
+    name: &#x27;Mayotte&#x27;,
+    code: &#x27;YT&#x27;,
+  },
+  {
+    name: &#x27;Mexico&#x27;,
+    code: &#x27;MX&#x27;,
+  },
+  {
+    name: &#x27;Micronesia, Federated States of&#x27;,
+    code: &#x27;FM&#x27;,
+  },
+  {
+    name: &#x27;Moldova, Republic of&#x27;,
+    code: &#x27;MD&#x27;,
+  },
+  {
+    name: &#x27;Monaco&#x27;,
+    code: &#x27;MC&#x27;,
+  },
+  {
+    name: &#x27;Mongolia&#x27;,
+    code: &#x27;MN&#x27;,
+  },
+  {
+    name: &#x27;Montenegro&#x27;,
+    code: &#x27;ME&#x27;,
+  },
+  {
+    name: &#x27;Montserrat&#x27;,
+    code: &#x27;MS&#x27;,
+  },
+  {
+    name: &#x27;Morocco&#x27;,
+    code: &#x27;MA&#x27;,
+  },
+  {
+    name: &#x27;Mozambique&#x27;,
+    code: &#x27;MZ&#x27;,
+  },
+  {
+    name: &#x27;Myanmar&#x27;,
+    code: &#x27;MM&#x27;,
+  },
+  {
+    name: &#x27;Namibia&#x27;,
+    code: &#x27;NA&#x27;,
+  },
+  {
+    name: &#x27;Nauru&#x27;,
+    code: &#x27;NR&#x27;,
+  },
+  {
+    name: &#x27;Nepal&#x27;,
+    code: &#x27;NP&#x27;,
+  },
+  {
+    name: &#x27;Netherlands&#x27;,
+    code: &#x27;NL&#x27;,
+  },
+  {
+    name: &#x27;New Caledonia&#x27;,
+    code: &#x27;NC&#x27;,
+  },
+  {
+    name: &#x27;New Zealand&#x27;,
+    code: &#x27;NZ&#x27;,
+  },
+  {
+    name: &#x27;Nicaragua&#x27;,
+    code: &#x27;NI&#x27;,
+  },
+  {
+    name: &#x27;Niger&#x27;,
+    code: &#x27;NE&#x27;,
+  },
+  {
+    name: &#x27;Nigeria&#x27;,
+    code: &#x27;NG&#x27;,
+  },
+  {
+    name: &#x27;Niue&#x27;,
+    code: &#x27;NU&#x27;,
+  },
+  {
+    name: &#x27;Norfolk Island&#x27;,
+    code: &#x27;NF&#x27;,
+  },
+  {
+    name: &#x27;Northern Mariana Islands&#x27;,
+    code: &#x27;MP&#x27;,
+  },
+  {
+    name: &#x27;Norway&#x27;,
+    code: &#x27;NO&#x27;,
+  },
+  {
+    name: &#x27;Oman&#x27;,
+    code: &#x27;OM&#x27;,
+  },
+  {
+    name: &#x27;Pakistan&#x27;,
+    code: &#x27;PK&#x27;,
+  },
+  {
+    name: &#x27;Palau&#x27;,
+    code: &#x27;PW&#x27;,
+  },
+  {
+    name: &#x27;Palestina&#x27;,
+    code: &#x27;PS&#x27;,
+  },
+  {
+    name: &#x27;Panama&#x27;,
+    code: &#x27;PA&#x27;,
+  },
+  {
+    name: &#x27;Papua New Guinea&#x27;,
+    code: &#x27;PG&#x27;,
+  },
+  {
+    name: &#x27;Paraguay&#x27;,
+    code: &#x27;PY&#x27;,
+  },
+  {
+    name: &#x27;Peru&#x27;,
+    code: &#x27;PE&#x27;,
+  },
+  {
+    name: &#x27;Philippines&#x27;,
+    code: &#x27;PH&#x27;,
+  },
+  {
+    name: &#x27;Poland&#x27;,
+    code: &#x27;PL&#x27;,
+  },
+  {
+    name: &#x27;Portugal&#x27;,
+    code: &#x27;PT&#x27;,
+  },
+  {
+    name: &#x27;Puerto Rico&#x27;,
+    code: &#x27;PR&#x27;,
+  },
+  {
+    name: &#x27;Qatar&#x27;,
+    code: &#x27;QA&#x27;,
+  },
+  {
+    name: &#x27;Reunion&#x27;,
+    code: &#x27;RE&#x27;,
+  },
+  {
+    name: &#x27;Romania&#x27;,
+    code: &#x27;RO&#x27;,
+  },
+  {
+    name: &#x27;Russian Federation&#x27;,
+    code: &#x27;RU&#x27;,
+  },
+  {
+    name: &#x27;Rwanda&#x27;,
+    code: &#x27;RW&#x27;,
+  },
+  {
+    name: &#x27;Saint Helena&#x27;,
+    code: &#x27;SH&#x27;,
+  },
+  {
+    name: &#x27;Saint Kitts and Nevis&#x27;,
+    code: &#x27;KN&#x27;,
+  },
+  {
+    name: &#x27;Saint Lucia&#x27;,
+    code: &#x27;LC&#x27;,
+  },
+  {
+    name: &#x27;Saint Pierre and Miquelon&#x27;,
+    code: &#x27;PM&#x27;,
+  },
+  {
+    name: &#x27;Saint Vincent and the Grenadines&#x27;,
+    code: &#x27;VC&#x27;,
+  },
+  {
+    name: &#x27;Samoa&#x27;,
+    code: &#x27;WS&#x27;,
+  },
+  {
+    name: &#x27;San Marino&#x27;,
+    code: &#x27;SM&#x27;,
+  },
+  {
+    name: &#x27;Sao Tome and Principe&#x27;,
+    code: &#x27;ST&#x27;,
+  },
+  {
+    name: &#x27;Saudi Arabia&#x27;,
+    code: &#x27;SA&#x27;,
+  },
+  {
+    name: &#x27;Senegal&#x27;,
+    code: &#x27;SN&#x27;,
+  },
+  {
+    name: &#x27;Serbia&#x27;,
+    code: &#x27;RS&#x27;,
+  },
+  {
+    name: &#x27;Seychelles&#x27;,
+    code: &#x27;SC&#x27;,
+  },
+  {
+    name: &#x27;Sierra Leone&#x27;,
+    code: &#x27;SL&#x27;,
+  },
+  {
+    name: &#x27;Singapore&#x27;,
+    code: &#x27;SG&#x27;,
+  },
+  {
+    name: &#x27;Slovakia&#x27;,
+    code: &#x27;SK&#x27;,
+  },
+  {
+    name: &#x27;Slovenia&#x27;,
+    code: &#x27;SI&#x27;,
+  },
+  {
+    name: &#x27;Solomon Islands&#x27;,
+    code: &#x27;SB&#x27;,
+  },
+  {
+    name: &#x27;Somalia&#x27;,
+    code: &#x27;SO&#x27;,
+  },
+  {
+    name: &#x27;South Africa&#x27;,
+    code: &#x27;ZA&#x27;,
+  },
+  {
+    name: &#x27;Spain&#x27;,
+    code: &#x27;ES&#x27;,
+  },
+  {
+    name: &#x27;Sri Lanka&#x27;,
+    code: &#x27;LK&#x27;,
+  },
+  {
+    name: &#x27;Sudan&#x27;,
+    code: &#x27;SD&#x27;,
+  },
+  {
+    name: &#x27;Suriname&#x27;,
+    code: &#x27;SR&#x27;,
+  },
+  {
+    name: &#x27;Swaziland&#x27;,
+    code: &#x27;SZ&#x27;,
+  },
+  {
+    name: &#x27;Sweden&#x27;,
+    code: &#x27;SE&#x27;,
+  },
+  {
+    name: &#x27;Switzerland&#x27;,
+    code: &#x27;CH&#x27;,
+  },
+  {
+    name: &#x27;Syrian Arab Republic&#x27;,
+    code: &#x27;SY&#x27;,
+  },
+  {
+    name: &#x27;Taiwan, Province of China&#x27;,
+    code: &#x27;TW&#x27;,
+  },
+  {
+    name: &#x27;Tajikistan&#x27;,
+    code: &#x27;TJ&#x27;,
+  },
+  {
+    name: &#x27;Tanzania, United Republic of&#x27;,
+    code: &#x27;TZ&#x27;,
+  },
+  {
+    name: &#x27;Thailand&#x27;,
+    code: &#x27;TH&#x27;,
+  },
+  {
+    name: &#x27;Timor-Leste&#x27;,
+    code: &#x27;TL&#x27;,
+  },
+  {
+    name: &#x27;Togo&#x27;,
+    code: &#x27;TG&#x27;,
+  },
+  {
+    name: &#x27;Tokelau&#x27;,
+    code: &#x27;TK&#x27;,
+  },
+  {
+    name: &#x27;Tonga&#x27;,
+    code: &#x27;TO&#x27;,
+  },
+  {
+    name: &#x27;Trinidad and Tobago&#x27;,
+    code: &#x27;TT&#x27;,
+  },
+  {
+    name: &#x27;Tunisia&#x27;,
+    code: &#x27;TN&#x27;,
+  },
+  {
+    name: &#x27;Turkey&#x27;,
+    code: &#x27;TR&#x27;,
+  },
+  {
+    name: &#x27;Turkmenistan&#x27;,
+    code: &#x27;TM&#x27;,
+  },
+  {
+    name: &#x27;Turks and Caicos Islands&#x27;,
+    code: &#x27;TC&#x27;,
+  },
+  {
+    name: &#x27;Tuvalu&#x27;,
+    code: &#x27;TV&#x27;,
+  },
+  {
+    name: &#x27;Uganda&#x27;,
+    code: &#x27;UG&#x27;,
+  },
+  {
+    name: &#x27;Ukraine&#x27;,
+    code: &#x27;UA&#x27;,
+  },
+  {
+    name: &#x27;United Arab Emirates&#x27;,
+    code: &#x27;AE&#x27;,
+  },
+  {
+    name: &#x27;United Kingdom&#x27;,
+    code: &#x27;GB&#x27;,
+  },
+  {
+    name: &#x27;United States&#x27;,
+    code: &#x27;US&#x27;,
+  },
+  {
+    name: &#x27;Uruguay&#x27;,
+    code: &#x27;UY&#x27;,
+  },
+  {
+    name: &#x27;Uzbekistan&#x27;,
+    code: &#x27;UZ&#x27;,
+  },
+  {
+    name: &#x27;Vanuatu&#x27;,
+    code: &#x27;VU&#x27;,
+  },
+  {
+    name: &#x27;Venezuela&#x27;,
+    code: &#x27;VE&#x27;,
+  },
+  {
+    name: &#x27;Viet Nam&#x27;,
+    code: &#x27;VN&#x27;,
+  },
+  {
+    name: &#x27;Virgin Islands, British&#x27;,
+    code: &#x27;VG&#x27;,
+  },
+  {
+    name: &#x27;Virgin Islands, U.S.&#x27;,
+    code: &#x27;VI&#x27;,
+  },
+  {
+    name: &#x27;Wallis and Futuna&#x27;,
+    code: &#x27;WF&#x27;,
+  },
+  {
+    name: &#x27;Western Sahara&#x27;,
+    code: &#x27;EH&#x27;,
+  },
+  {
+    name: &#x27;Yemen&#x27;,
+    code: &#x27;YE&#x27;,
+  },
+  {
+    name: &#x27;Zambia&#x27;,
+    code: &#x27;ZM&#x27;,
+  },
+  {
+    name: &#x27;Zimbabwe&#x27;,
+    code: &#x27;ZW&#x27;,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/profile/profile.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createAddressEffect"></a>
+                    <span class="name">
+                        <span ><b>createAddressEffect</b></span>
+                        <a href="#createAddressEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    userService &#x3D; inject(UserService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService),
+    storage &#x3D; inject(StorageService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(profileActions.createAddress),
+      switchMap(({ request }) &#x3D;&gt; {
+        return userService.createAddress(request).pipe(
+          map((response) &#x3D;&gt; {
+            const authUser &#x3D; storage.get(&#x27;currentUser&#x27;);
+            storage.set(&#x27;currentUser&#x27;, Object.assign({}, authUser, response));
+            toastr.success(&#x60;Address created successfully&#x60;);
+            return profileActions.createAddressSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(profileActions.createAddressFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAddressEffect"></a>
+                    <span class="name">
+                        <span ><b>updateAddressEffect</b></span>
+                        <a href="#updateAddressEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    userService &#x3D; inject(UserService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService),
+    storage &#x3D; inject(StorageService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(profileActions.updateAddress),
+      switchMap(({ request }) &#x3D;&gt; {
+        return userService.updateAddress(request).pipe(
+          map((response) &#x3D;&gt; {
+            const authUser &#x3D; storage.get(&#x27;currentUser&#x27;);
+            storage.set(&#x27;currentUser&#x27;, Object.assign({}, authUser, response));
+
+            toastr.success(&#x60;Address updated successfully&#x60;);
+            return profileActions.updateAddressSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(profileActions.updateAddressFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserEffect"></a>
+                    <span class="name">
+                        <span ><b>updateUserEffect</b></span>
+                        <a href="#updateUserEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    userService &#x3D; inject(UserService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService),
+    storage &#x3D; inject(StorageService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(profileActions.updateUser),
+      switchMap(({ request }) &#x3D;&gt; {
+        return userService.updateUser(request).pipe(
+          map((response) &#x3D;&gt; {
+            const authUser &#x3D; storage.get(&#x27;currentUser&#x27;);
+            storage.set(&#x27;currentUser&#x27;, Object.assign({}, authUser, response));
+            toastr.success(&#x60;User profile updated successfully&#x60;);
+            return profileActions.updateUserSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(profileActions.updateUserFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/enquiry/enquiry.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createEnquiryEffects"></a>
+                    <span class="name">
+                        <span ><b>createEnquiryEffects</b></span>
+                        <a href="#createEnquiryEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    actions$ &#x3D; inject(Actions),
+    enquiryService &#x3D; inject(EnquiryService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(enquiryActions.createEnquiry),
+      mergeMap(({ request }) &#x3D;&gt;
+        enquiryService.createEnquiry(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Your Enquiry has been created&#x60;);
+            return enquiryActions.createEnquirySuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(enquiryActions.createEnquiryFailure({ error }));
+          }),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/products/products.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createReviewEffects"></a>
+                    <span class="name">
+                        <span ><b>createReviewEffects</b></span>
+                        <a href="#createReviewEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.createReview),
+      mergeMap(({ request }) &#x3D;&gt;
+        productService.createReview(request).pipe(
+          map((response) &#x3D;&gt; productActions.createReviewSuccess({ response })),
+          catchError((error) &#x3D;&gt;
+            of(productActions.createReviewFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteReviewEffects"></a>
+                    <span class="name">
+                        <span ><b>deleteReviewEffects</b></span>
+                        <a href="#deleteReviewEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.deleteReview),
+      mergeMap(({ reviewId }) &#x3D;&gt;
+        productService.deleteReview(reviewId).pipe(
+          map((response) &#x3D;&gt; productActions.deleteReviewSuccess({ response })),
+          catchError((error) &#x3D;&gt;
+            of(productActions.deleteReviewFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllProductsEffects"></a>
+                    <span class="name">
+                        <span ><b>getAllProductsEffects</b></span>
+                        <a href="#getAllProductsEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.getAllProducts),
+      mergeMap(({ request }) &#x3D;&gt;
+        productService.getAllProducts({ ...request }).pipe(
+          map((response) &#x3D;&gt; productActions.getAllProductsSuccess({ response })),
+          catchError((error) &#x3D;&gt;
+            of(productActions.getAllProductsFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getColorsEffects"></a>
+                    <span class="name">
+                        <span ><b>getColorsEffects</b></span>
+                        <a href="#getColorsEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.getColors),
+      mergeMap(() &#x3D;&gt;
+        productService.getColors().pipe(
+          map((response) &#x3D;&gt; productActions.getColorsSuccess({ response })),
+          catchError((error) &#x3D;&gt; of(productActions.getColorsFailure({ error }))),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductCategoriesEffects"></a>
+                    <span class="name">
+                        <span ><b>getProductCategoriesEffects</b></span>
+                        <a href="#getProductCategoriesEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.getProductCategories),
+      mergeMap(() &#x3D;&gt;
+        productService.getAllProductCategories().pipe(
+          map((response) &#x3D;&gt;
+            productActions.getProductCategoriesSuccess({ response })
+          ),
+          catchError((error) &#x3D;&gt;
+            of(productActions.getProductCategoriesFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSingleProductEffects"></a>
+                    <span class="name">
+                        <span ><b>getSingleProductEffects</b></span>
+                        <a href="#getSingleProductEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.getSingleProduct),
+      mergeMap(({ productId }) &#x3D;&gt;
+        productService
+          .getSingleProduct(productId)
+          .pipe(
+            map((response) &#x3D;&gt;
+              productActions.getSingleProductSuccess({ response })
+            )
+          )
+      ),
+      catchError((error) &#x3D;&gt;
+        of(productActions.getSingleProductFailure({ error }))
+      ),
+      distinctUntilChanged()
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTagsEffects"></a>
+                    <span class="name">
+                        <span ><b>getTagsEffects</b></span>
+                        <a href="#getTagsEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), productService &#x3D; inject(ProductService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(productActions.getTags),
+      mergeMap(() &#x3D;&gt;
+        productService.getAllTags().pipe(
+          map((response) &#x3D;&gt; productActions.getTagsSuccess({ response })),
+          catchError((error) &#x3D;&gt; of(productActions.getTagsFailure({ error }))),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/customer/customer.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customer_routes"></a>
+                    <span class="name">
+                        <span ><b>customer_routes</b></span>
+                        <a href="#customer_routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  { path: &#x27;wishlist&#x27;, component: WishlistComponent },
+  { path: &#x27;compare&#x27;, component: CompareComponent },
+  { path: &#x27;cart&#x27;, component: CartComponent },
+  { path: &#x27;checkout&#x27;, component: CheckoutComponent },
+  // {
+  //   path: &#x27;profile&#x27;,
+  //   loadComponent: () &#x3D;&gt;
+  //     import(&#x27;./profile/profile.component&#x27;).then((c) &#x3D;&gt; c.ProfileComponent),
+  //   children: [
+  //     { path: &#x27;&#x27;, component: UserHomeComponent },
+  //     { path: &#x27;user-wishlist&#x27;, component: UserWishlistComponent },
+  //     { path: &#x27;user-compares&#x27;, component: UserCompareComponent },
+  //   ],
+  // },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/customer/customer.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customerActions"></a>
+                    <span class="name">
+                        <span ><b>customerActions</b></span>
+                        <a href="#customerActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Customer]&#x27;,
+  events: {
+    // CART
+    &#x27;Get Cart&#x27;: emptyProps(),
+    &#x27;Get Cart Success&#x27;: props&lt;{ response: ICart[] }&gt;(),
+    &#x27;Get Cart Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Add To Cart&#x27;: props&lt;{ request: ICreateCart }&gt;(),
+    &#x27;Add To Cart Success&#x27;: props&lt;{ response: ICart }&gt;(),
+    &#x27;Add To Cart Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Update Cart&#x27;: props&lt;{ request: IUpdateCart }&gt;(),
+    &#x27;Update Cart Success&#x27;: props&lt;{ response: ICart }&gt;(),
+    &#x27;Update Cart Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Remove Product From Cart&#x27;: props&lt;{ request: IDeleteCartProduct }&gt;(),
+    &#x27;Remove Product From Cart Success&#x27;: props&lt;{ response: ICart }&gt;(),
+    &#x27;Remove Product From Cart Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Clear Cart&#x27;: emptyProps(),
+    &#x27;Clear Cart Success&#x27;: props&lt;{ response: IBulkDeleteResponse }&gt;(),
+    &#x27;Clear Cart Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // ORDER
+    &#x27;Create Order&#x27;: props&lt;{ request?: ICreateOrder }&gt;(),
+    &#x27;Create Order Success&#x27;: props&lt;{ response: { url: string } }&gt;(),
+    &#x27;Create Order Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Get Orders&#x27;: emptyProps(),
+    &#x27;Get Orders Success&#x27;: props&lt;{ response: IOrder[] }&gt;(),
+    &#x27;Get Orders Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // WISHLISTS
+    &#x27;Get Wishlist&#x27;: emptyProps(),
+    &#x27;Get Wishlist Success&#x27;: props&lt;{ response: IWishlist[] }&gt;(),
+    &#x27;Get Wishlist Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Add To Wishlist&#x27;: props&lt;{ request: ICreateWishlist }&gt;(),
+    &#x27;Add To Wishlist Success&#x27;: props&lt;{ response: IWishlist }&gt;(),
+    &#x27;Add To Wishlist Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Remove From Wishlist&#x27;: props&lt;{ request: ICreateWishlist }&gt;(),
+    &#x27;Remove From Wishlist Success&#x27;: props&lt;{ response: IWishlist }&gt;(),
+    &#x27;Remove From Wishlist Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Clear Wishlist&#x27;: emptyProps(),
+    &#x27;Clear Wishlist Success&#x27;: props&lt;{ response: IBulkDeleteResponse }&gt;(),
+    &#x27;Clear Wishlist Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // COMPARES
+    &#x27;Get Compares&#x27;: emptyProps(),
+    &#x27;Get Compares Success&#x27;: props&lt;{ response: ICompare[] }&gt;(),
+    &#x27;Get Compares Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Add To Compare&#x27;: props&lt;{ request: ICreateCompare }&gt;(),
+    &#x27;Add To Compare Success&#x27;: props&lt;{ response: ICompare }&gt;(),
+    &#x27;Add To Compare Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Remove From Compare&#x27;: props&lt;{ request: ICreateCompare }&gt;(),
+    &#x27;Remove From Compare Success&#x27;: props&lt;{ response: ICompare }&gt;(),
+    &#x27;Remove From Compare Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Clear Compare&#x27;: emptyProps(),
+    &#x27;Clear Compare Success&#x27;: props&lt;{ response: IBulkDeleteResponse }&gt;(),
+    &#x27;Clear Compare Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/customer/customer.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customerFeature"></a>
+                    <span class="name">
+                        <span ><b>customerFeature</b></span>
+                        <a href="#customerFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Customer&#x27;,
+  reducer: createReducer(
+    initalState,
+
+    // CART
+    on(customerActions.getCart, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.getCartSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        cart: payload.response,
+      };
+    }),
+    on(customerActions.getCartFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.addToCart, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.addToCartSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        cart: [...(state.cart as ICart[]), payload.response],
+      };
+    }),
+    on(customerActions.addToCartFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.updateCart, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.updateCartSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        cart: updateCart(state.cart, payload.response),
+      };
+    }),
+    on(customerActions.updateCartFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.removeProductFromCart, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.removeProductFromCartSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        cart: state.cart?.filter((c) &#x3D;&gt; c.id !&#x3D;&#x3D; payload.response.id),
+      };
+    }),
+    on(customerActions.removeProductFromCartFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.clearCart, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.clearCartSuccess, (state) &#x3D;&gt; {
+      return { ...state, isLoading: false, isSuccess: true, cart: [] };
+    }),
+    on(customerActions.clearCartFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // orders
+    on(customerActions.createOrder, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.createOrderSuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        // orders: [...(state.orders as IOrder[]), payload.response],
+      };
+    }),
+    on(customerActions.createOrderFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.getOrders, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.getOrdersSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        orders: payload.response,
+      };
+    }),
+    on(customerActions.getOrdersFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // WISHLIST
+    on(customerActions.getWishlist, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.getWishlistSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        wishlist: payload.response,
+      };
+    }),
+    on(customerActions.getWishlistFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.addToWishlist, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.addToWishlistSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        wishlist: [...(state.wishlist as IWishlist[]), payload.response],
+      };
+    }),
+    on(customerActions.addToWishlistFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.removeFromWishlist, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.removeFromWishlistSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        wishlist: state.wishlist?.filter((x) &#x3D;&gt; x.id !&#x3D;&#x3D; payload.response.id),
+      };
+    }),
+    on(customerActions.removeFromWishlistFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.clearWishlist, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.clearWishlistSuccess, (state) &#x3D;&gt; {
+      return { ...state, isLoading: false, isSuccess: true, wishlist: [] };
+    }),
+    on(customerActions.clearWishlistFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // COMPARE LIST
+    on(customerActions.getCompares, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.getComparesSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        compares: payload.response,
+      };
+    }),
+    on(customerActions.getComparesFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.addToCompare, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.addToCompareSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        compares: [...(state.compares as ICompare[]), payload.response],
+      };
+    }),
+    on(customerActions.addToCompareFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.removeFromCompare, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.removeFromCompareSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        compares: state.compares?.filter((x) &#x3D;&gt; x.id !&#x3D;&#x3D; payload.response.id),
+      };
+    }),
+    on(customerActions.removeFromCompareFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(customerActions.clearCompare, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(customerActions.clearCompareSuccess, (state) &#x3D;&gt; {
+      return { ...state, isLoading: false, isSuccess: true, compares: [] };
+    }),
+    on(customerActions.clearCompareFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+  extraSelectors: ({ selectCart }) &#x3D;&gt; ({
+    selectCartData: createSelector(selectCart, (cart) &#x3D;&gt; {
+      return {
+        quantity: cart?.map((p) &#x3D;&gt; p.quantity).reduce((a, b) &#x3D;&gt; a + b, 0) || 0,
+        totalPrice:
+          cart?.map((x) &#x3D;&gt; x.price * x.quantity).reduce((a, b) &#x3D;&gt; a + b, 0) ||
+          0,
+
+        cart,
+      };
+    }),
+  }),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initalState"></a>
+                    <span class="name">
+                        <span ><b>initalState</b></span>
+                        <a href="#initalState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ICustomerStoreState.html" target="_self" >ICustomerStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  error: null,
+  isLoading: false,
+  wishlist: [],
+  compares: [],
+  cart: [],
+  orders: [],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>customerFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/enquiry/enquiry.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enquiryActions"></a>
+                    <span class="name">
+                        <span ><b>enquiryActions</b></span>
+                        <a href="#enquiryActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Enquiry]&#x27;,
+  events: {
+    //CREATE ENQUIRY
+    &#x27;Create Enquiry&#x27;: props&lt;{ request: ICreateEnquiry }&gt;(),
+    &#x27;Create Enquiry Success&#x27;: props&lt;{ response: IBackendSuccess }&gt;(),
+    &#x27;Create Enquiry Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/enquiry/enquiry.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enquiryFeature"></a>
+                    <span class="name">
+                        <span ><b>enquiryFeature</b></span>
+                        <a href="#enquiryFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Enquiry&#x27;,
+  reducer: createReducer(
+    initialState,
+    // GET ALL Blogs
+    on(enquiryActions.createEnquiry, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(enquiryActions.createEnquirySuccess, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }),
+    on(enquiryActions.createEnquiryFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IEnquiryStoreState.html" target="_self" >IEnquiryStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  error: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>enquiryFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.development.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: false,
+  server_url: &#x27;http://localhost:3000&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: true,
+  server_url: &#x27;http://localhost:3000&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/interceptors/error.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorInterceptor"></a>
+                    <span class="name">
+                        <span ><b>errorInterceptor</b></span>
+                        <a href="#errorInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req, next) &#x3D;&gt; {
+  return next(req);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/auth/auth.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forgotPasswordEffect"></a>
+                    <span class="name">
+                        <span ><b>forgotPasswordEffect</b></span>
+                        <a href="#forgotPasswordEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.forgotPassword),
+      switchMap(({ request }) &#x3D;&gt;
+        authService.forgotPassword(request).pipe(
+          map((response) &#x3D;&gt; {
+            return authActions.forgotPasswordSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.forgotPasswordFailure({ error }));
+          })
+        )
+      )
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginEffect"></a>
+                    <span class="name">
+                        <span ><b>loginEffect</b></span>
+                        <a href="#loginEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    storage &#x3D; inject(StorageService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.login),
+      switchMap(({ request }) &#x3D;&gt;
+        authService.login(request).pipe(
+          map((response) &#x3D;&gt; {
+            storage.set(&#x27;currentUser&#x27;, response);
+            storage.set(&#x27;token&#x27;, response.token);
+            return authActions.loginSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.loginFailure({ error }));
+          })
+        )
+      )
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logoutEffect"></a>
+                    <span class="name">
+                        <span ><b>logoutEffect</b></span>
+                        <a href="#logoutEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    storage &#x3D; inject(StorageService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.logout),
+      switchMap(() &#x3D;&gt;
+        authService.logout().pipe(
+          map((d) &#x3D;&gt; {
+            storage.remove(&#x27;currentUser&#x27;);
+            storage.remove(&#x27;token&#x27;);
+            toastr.success(&#x27;Logout success&#x27;);
+            return authActions.logoutSuccess({ response: d });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.logoutFailure({ error }));
+          })
+        )
+      )
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectAfterLoginSuccess"></a>
+                    <span class="name">
+                        <span ><b>redirectAfterLoginSuccess</b></span>
+                        <a href="#redirectAfterLoginSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), router &#x3D; inject(Router)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.loginSuccess),
+      tap((data) &#x3D;&gt; router.navigateByUrl(&#x27;/profile&#x27;))
+    );
+  },
+  {
+    functional: true,
+    dispatch: false,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectAfterLogoutSuccess"></a>
+                    <span class="name">
+                        <span ><b>redirectAfterLogoutSuccess</b></span>
+                        <a href="#redirectAfterLogoutSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), router &#x3D; inject(Router)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.logoutSuccess),
+      tap((_) &#x3D;&gt; {
+        router.navigateByUrl(&#x27;/auth/login&#x27;);
+        // window.location.reload();
+      })
+    );
+  },
+  {
+    functional: true,
+    dispatch: false,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectAfterRefreshSuccess"></a>
+                    <span class="name">
+                        <span ><b>redirectAfterRefreshSuccess</b></span>
+                        <a href="#redirectAfterRefreshSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), router &#x3D; inject(Router)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.refreshTokenSuccess),
+      tap((_) &#x3D;&gt; router.navigateByUrl(&#x27;/&#x27;))
+    );
+  },
+  {
+    functional: true,
+    dispatch: false,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectAfterRegisterSuccess"></a>
+                    <span class="name">
+                        <span ><b>redirectAfterRegisterSuccess</b></span>
+                        <a href="#redirectAfterRegisterSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), router &#x3D; inject(Router)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.registerSuccess),
+      tap((data) &#x3D;&gt; router.navigateByUrl(&#x27;/auth/login&#x27;))
+    );
+  },
+  {
+    functional: true,
+    dispatch: false,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectAfterResetSuccess"></a>
+                    <span class="name">
+                        <span ><b>redirectAfterResetSuccess</b></span>
+                        <a href="#redirectAfterResetSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), router &#x3D; inject(Router)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.refreshTokenSuccess),
+      tap((_) &#x3D;&gt; router.navigateByUrl(&#x27;/auth/login&#x27;))
+    );
+  },
+  {
+    functional: true,
+    dispatch: false,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshTokenEffect"></a>
+                    <span class="name">
+                        <span ><b>refreshTokenEffect</b></span>
+                        <a href="#refreshTokenEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    storage &#x3D; inject(StorageService),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.refreshToken),
+      switchMap(() &#x3D;&gt;
+        authService.refresh().pipe(
+          map((response) &#x3D;&gt; {
+            // storage.set(&#x27;currentUser&#x27;, response);
+            // storage.set(&#x27;token&#x27;, response.token);
+            return authActions.refreshTokenSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            console.log(error);
+
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.refreshTokenFailure({ error }));
+          })
+        )
+      )
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerEffect"></a>
+                    <span class="name">
+                        <span ><b>registerEffect</b></span>
+                        <a href="#registerEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.register),
+      switchMap(({ request }) &#x3D;&gt; {
+        return authService.register(request).pipe(
+          map((response) &#x3D;&gt; {
+            toastr.success(&#x60;Account created successfully&#x60;);
+            return authActions.registerSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.registerFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPasswordEffect"></a>
+                    <span class="name">
+                        <span ><b>resetPasswordEffect</b></span>
+                        <a href="#resetPasswordEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (
+    authService &#x3D; inject(AuthService),
+    actions$ &#x3D; inject(Actions),
+    toastr &#x3D; inject(ToastrService)
+  ) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(authActions.resetPassword),
+      switchMap(({ request: { dto, token } }) &#x3D;&gt;
+        authService.resetPassword(dto, token).pipe(
+          map((response) &#x3D;&gt; {
+            return authActions.resetPasswordSuccess({ response });
+          }),
+          catchError((error) &#x3D;&gt; {
+            toastr.error(error.error.message, error.statusText);
+            return of(authActions.resetPasswordFailure({ error }));
+          })
+        )
+      )
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/blogs/blogs.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBlogCategoriesEffects"></a>
+                    <span class="name">
+                        <span ><b>getAllBlogCategoriesEffects</b></span>
+                        <a href="#getAllBlogCategoriesEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), blogService &#x3D; inject(BlogService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(blogActions.getAllBlogCategories),
+      mergeMap(() &#x3D;&gt;
+        blogService.getAllBlogCategories().pipe(
+          map((response) &#x3D;&gt;
+            blogActions.getAllBlogCategoriesSuccess({ response })
+          ),
+          catchError((error) &#x3D;&gt;
+            of(blogActions.getAllBlogCategoriesFailure({ error }))
+          ),
+          distinctUntilChanged()
+        )
+      )
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBlogsEffects"></a>
+                    <span class="name">
+                        <span ><b>getAllBlogsEffects</b></span>
+                        <a href="#getAllBlogsEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), blogService &#x3D; inject(BlogService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(blogActions.getAllBlogs),
+      mergeMap(({ request }) &#x3D;&gt; {
+        return blogService.getAllBlogs(request).pipe(
+          map((response) &#x3D;&gt; blogActions.getAllBlogsSuccess({ response })),
+          catchError((error) &#x3D;&gt; of(blogActions.getAllBlogsFailure({ error }))),
+          distinctUntilChanged()
+        );
+      })
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSingleBlogEffects"></a>
+                    <span class="name">
+                        <span ><b>getSingleBlogEffects</b></span>
+                        <a href="#getSingleBlogEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), blogService &#x3D; inject(BlogService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(blogActions.getSingleBlog),
+      mergeMap(({ blogId }) &#x3D;&gt;
+        blogService
+          .getSingleBlog(blogId)
+          .pipe(
+            map((response) &#x3D;&gt; blogActions.getSingleBlogSuccess({ response }))
+          )
+      ),
+      catchError((error) &#x3D;&gt; of(blogActions.getSingleBlogFailure({ error }))),
+      distinctUntilChanged()
+    );
+  },
+  {
+    functional: true,
+  }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/icons/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Icons"></a>
+                    <span class="name">
+                        <span ><b>Icons</b></span>
+                        <a href="#Icons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  orders: faFileInvoice,
+  comp: faCompass,
+  address: faAddressBook,
+  bars: faBars,
+  tel: faPhoneAlt,
+  home: faHomeAlt,
+  env: faEnvelope,
+  info: faInfo,
+  search: faSearch,
+  del: faTrashAlt,
+  truck: faTruckFast,
+  mat: faEnvelope,
+  dim: faDiamond,
+  heart: faHeart,
+  arrLeft: faLongArrowLeft,
+  trash: faTrashAlt,
+  star: faStar,
+  twt: faTwitter,
+  fb: faFacebook,
+  pint: faPinterest,
+  ig: faInstagram,
+  yt: faYoutube,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/products/products.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IProductStoreState.html" target="_self" >IProductStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  error: null,
+  product: null,
+  products: [],
+  productCategory: [],
+  colors: [],
+  tags: [],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productFeature"></a>
+                    <span class="name">
+                        <span ><b>productFeature</b></span>
+                        <a href="#productFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Products&#x27;,
+  reducer: createReducer(
+    initialState,
+    // GET ALL PRODUCTS
+    on(productActions.getAllProducts, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.getAllProductsSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        products: payload.response,
+      };
+    }),
+    on(productActions.getAllProductsFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // GET SINGLE PRODUCT
+    on(productActions.getSingleProduct, (state) &#x3D;&gt; {
+      return { ...state, isLoading: true, error: null };
+    }),
+    on(productActions.getSingleProductSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        product: payload.response,
+      };
+    }),
+    on(productActions.getSingleProductFailure, (state, payload) &#x3D;&gt; {
+      return { ...state, isLoading: false, error: payload.error };
+    }),
+
+    // GET ALL PRODUCT CATEGORIES
+    on(productActions.getProductCategories, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.getProductCategoriesSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        productCategory: payload.response,
+      };
+    }),
+    on(productActions.getProductCategoriesFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+    // GET ALL Tags
+    on(productActions.getTags, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.getTagsSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        tags: payload.response,
+      };
+    }),
+    on(productActions.getTagsFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // GET ALL Colors
+    on(productActions.getColors, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.getColorsSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        colors: payload.response,
+      };
+    }),
+    on(productActions.getColorsFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+    on(productActions.createReview, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.createReviewSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        products: state.products?.map((prod) &#x3D;&gt; {
+          return {
+            ...prod,
+            Reviews: [...(prod.Reviews as IReview[]), payload.response],
+          };
+        }),
+        product: Object.assign({}, state.product, {
+          ...state.product,
+          Reviews: [...(state.product?.Reviews as IReview[]), payload.response],
+        }),
+      };
+    }),
+    on(productActions.createReviewFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(productActions.deleteReview, (state) &#x3D;&gt; {
+      return { ...state, error: null, isLoading: true };
+    }),
+    on(productActions.deleteReviewSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        products: state.products?.map((prod) &#x3D;&gt; {
+          return {
+            ...prod,
+            Reviews: prod.Reviews?.filter((x) &#x3D;&gt; x.id !&#x3D;&#x3D; payload.response.id),
+          };
+        }),
+        product: Object.assign({}, state.product, {
+          ...state.product,
+          Reviews: state.product?.Reviews?.filter(
+            (x) &#x3D;&gt; x.id !&#x3D;&#x3D; payload.response.id
+          ),
+        }),
+      };
+    }),
+    on(productActions.createReviewFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+  extraSelectors: ({ selectProducts }) &#x3D;&gt; ({
+    selectSpecialProducts: createSelector(selectProducts, (state) &#x3D;&gt;
+      state.filter((p) &#x3D;&gt; p.Tags.some((c) &#x3D;&gt; c.name.includes(&#x27;special&#x27;)))
+    ),
+  }),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>productFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/profile/profile.reducer.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IProfileStoreState.html" target="_self" >IProfileStoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  // currentUser: JSON.parse(sessionStorage.getItem(&#x27;currentUser&#x27;) as string),
+  error: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileFeature"></a>
+                    <span class="name">
+                        <span ><b>profileFeature</b></span>
+                        <a href="#profileFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;Profile&#x27;,
+  reducer: createReducer(
+    initialState,
+    on(profileActions.createAddress, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    }),
+    on(profileActions.createAddressSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        // currentUser:
+        //   state.currentUser?.id &#x3D;&#x3D;&#x3D; payload.response.id
+        //     ? Object.assign({}, state.currentUser, payload.response)
+        //     : state.currentUser,
+      };
+    }),
+    on(profileActions.createAddressFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    // Updates
+    on(profileActions.updateAddress, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    }),
+    on(profileActions.updateAddressSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        // currentUser:
+        //   state.currentUser?.id &#x3D;&#x3D;&#x3D; payload.response.id
+        //     ? Object.assign({}, state.currentUser, payload.response)
+        //     : state.currentUser,
+      };
+    }),
+    on(profileActions.updateAddressFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }),
+
+    on(profileActions.updateUser, (state) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    }),
+    on(profileActions.updateUserSuccess, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        // currentUser:
+        //   state.currentUser?.id &#x3D;&#x3D;&#x3D; payload.response.id
+        //     ? Object.assign({}, state.currentUser, payload.response)
+        //     : state.currentUser,
+      };
+    }),
+    on(profileActions.updateUserFailure, (state, payload) &#x3D;&gt; {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    })
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>profileFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/interceptors/jwt.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="jwtInterceptor"></a>
+                    <span class="name">
+                        <span ><b>jwtInterceptor</b></span>
+                        <a href="#jwtInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req, next) &#x3D;&gt; {
+  const jwt &#x3D; inject(JwtHelperService);
+  const token &#x3D; jwt.tokenGetter();
+  if (token) {
+    req &#x3D; req.clone({
+      setHeaders: {
+        Authorization: &#x27;Bearer &#x27; + token,
+      },
+    });
+  }
+
+  return next(req);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/indicators/loader/loader.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loaderInterceptor"></a>
+                    <span class="name">
+                        <span ><b>loaderInterceptor</b></span>
+                        <a href="#loaderInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req, next) &#x3D;&gt; {
+  const loaderService &#x3D; inject(LoaderService);
+
+  // Check for a custom attribute
+  // to avoid showing loading spinner
+  if (req.context.get(SkipLoading)) {
+    // Pass the request directly to the next handler
+    return next(req);
+  }
+
+  // Turn on the loading spinner
+  loaderService.showLoading();
+
+  return next(req).pipe(
+    finalize(() &#x3D;&gt; {
+      // Turn off the loading spinner
+      loaderService.hideLoading();
+    })
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SkipLoading"></a>
+                    <span class="name">
+                        <span ><b>SkipLoading</b></span>
+                        <a href="#SkipLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new HttpContextToken&lt;boolean&gt;(() &#x3D;&gt; false)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/guards/logged.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loggedGuard"></a>
+                    <span class="name">
+                        <span ><b>loggedGuard</b></span>
+                        <a href="#loggedGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const jwt &#x3D; inject(JwtHelperService);
+  const router &#x3D; inject(Router);
+
+  if (jwt.decodeToken()) {
+    router.navigateByUrl(&#x27;/&#x27;);
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/utils/form.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markFormGroupTouched"></a>
+                    <span class="name">
+                        <span ><b>markFormGroupTouched</b></span>
+                        <a href="#markFormGroupTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(formGroup: FormGroup) &#x3D;&gt; {
+  (Object as any).values(formGroup.controls).forEach((control: any) &#x3D;&gt; {
+    control.markAsTouched();
+
+    // for nested form groups
+    if (control.controls) {
+      markFormGroupTouched(control);
+    }
+  });
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/policies/policy.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="policy_routes"></a>
+                    <span class="name">
+                        <span ><b>policy_routes</b></span>
+                        <a href="#policy_routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    path: &#x27;refund&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./refund/refund.component&#x27;).then((c) &#x3D;&gt; c.RefundComponent),
+  },
+  {
+    path: &#x27;privacy&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./privacy/privacy.component&#x27;).then((c) &#x3D;&gt; c.PrivacyComponent),
+  },
+  {
+    path: &#x27;shipping&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./shipping/shipping.component&#x27;).then((c) &#x3D;&gt; c.ShippingComponent),
+  },
+  {
+    path: &#x27;terms&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./terms-policy/terms-policy.component&#x27;).then(
+        (c) &#x3D;&gt; c.TermsPolicyComponent
+      ),
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/products/products.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productActions"></a>
+                    <span class="name">
+                        <span ><b>productActions</b></span>
+                        <a href="#productActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Products]&#x27;,
+  events: {
+    // GET ALL PRODUCTS
+
+    &#x27;Get All Products&#x27;: props&lt;{ request?: ProductQueryType }&gt;(),
+    &#x27;Get All Products Success&#x27;: props&lt;{ response: IProduct[] }&gt;(),
+    &#x27;Get All Products Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    // GET SINGLE PRODUCT
+    &#x27;Get Single Product&#x27;: props&lt;{ productId: string }&gt;(),
+    &#x27;Get Single Product Success&#x27;: props&lt;{ response: IProduct }&gt;(),
+    &#x27;Get Single Product Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    //PRODUCT CATEGORIES
+    &#x27;Get Product Categories&#x27;: emptyProps(),
+    &#x27;Get Product Categories Success&#x27;: props&lt;{
+      response: IProductCategory[];
+    }&gt;(),
+    &#x27;Get Product Categories Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    //PRODUCT COLORS
+    &#x27;Get Colors&#x27;: emptyProps(),
+    &#x27;Get Colors Success&#x27;: props&lt;{
+      response: IColor[];
+    }&gt;(),
+    &#x27;Get Colors Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    //PRODUCT TAGS
+    &#x27;Get Tags&#x27;: emptyProps(),
+    &#x27;Get Tags Success&#x27;: props&lt;{
+      response: ITag[];
+    }&gt;(),
+    &#x27;Get Tags Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    //PRODUCT reviews
+    &#x27;Delete Review&#x27;: props&lt;{ reviewId: string }&gt;(),
+    &#x27;Delete Review Success&#x27;: props&lt;{
+      response: IReview;
+    }&gt;(),
+    &#x27;Delete Review Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Create Review&#x27;: props&lt;{ request: ICreateReview }&gt;(),
+    &#x27;Create Review Success&#x27;: props&lt;{
+      response: IReview;
+    }&gt;(),
+    &#x27;Create Review Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/products/products/swiper.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductSwiperConfig"></a>
+                    <span class="name">
+                        <span ><b>ProductSwiperConfig</b></span>
+                        <a href="#ProductSwiperConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SwiperOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  modules: [Navigation, Pagination, A11y, Mousewheel],
+  autoHeight: true,
+  spaceBetween: 20,
+  navigation: true,
+  pagination: { clickable: true, dynamicBullets: true },
+  slidesPerView: 1,
+
+  breakpoints: {
+    400: {
+      slidesPerView: &#x27;auto&#x27;,
+    },
+    600: {
+      slidesPerView: 2,
+    },
+    800: {
+      slidesPerView: 3,
+    },
+    1000: {
+      slidesPerView: 4,
+    },
+    1400: {
+      slidesPerView: 5,
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/profile/profile.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profile_routes"></a>
+                    <span class="name">
+                        <span ><b>profile_routes</b></span>
+                        <a href="#profile_routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    path: &#x27;&#x27;,
+    component: ProfileComponent,
+    children: [
+      { path: &#x27;&#x27;, component: UserHomeComponent },
+      { path: &#x27;address&#x27;, component: UserAddressComponent },
+      { path: &#x27;user-wishlist&#x27;, component: UserWishlistComponent },
+      { path: &#x27;user-compares&#x27;, component: UserCompareComponent },
+      { path: &#x27;user-orders&#x27;, component: UserOrdersComponent },
+    ],
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/profile/profile.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileActions"></a>
+                    <span class="name">
+                        <span ><b>profileActions</b></span>
+                        <a href="#profileActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;[Profile]&#x27;,
+  events: {
+    &#x27;Create Address&#x27;: props&lt;{ request: ICreateAddress }&gt;(),
+    &#x27;Create Address Success&#x27;: props&lt;{ response: IUser }&gt;(),
+    &#x27;Create Address Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Update Address&#x27;: props&lt;{ request: Partial&lt;ICreateAddress&gt; }&gt;(),
+    &#x27;Update Address Success&#x27;: props&lt;{ response: IUser }&gt;(),
+    &#x27;Update Address Failure&#x27;: props&lt;{ error: any }&gt;(),
+
+    &#x27;Update User&#x27;: props&lt;{ request: Partial&lt;IUpdateUser&gt; }&gt;(),
+    &#x27;Update User Success&#x27;: props&lt;{ response: IUser }&gt;(),
+    &#x27;Update User Failure&#x27;: props&lt;{ error: any }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/utils/regex.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regex"></a>
+                    <span class="name">
+                        <span ><b>regex</b></span>
+                        <a href="#regex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  email:
+    /^\s*(?:[A-Za-z0-9!#$%&amp;amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+(?:\.[A-Za-z0-9!#$%&amp;amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&quot;)@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])\s*$/,
+  password: /^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*([0-9]|[^\w\s]))/g,
+  phone: /^[0-9-]+$/,
+  numbers: /^\d+$/,
+  // latin: /^[A-Za-z-\s]+$/,
+  // latinAndNumbers: /^[A-Za-z0-9]+$/,
+  // latinAndSpaces: /^[a-zA-Z\s]*$/,
+  // safe: /^([\sA-Za-z0-9!@#$%^&amp;*()_+\-&#x3D;\[\]{};&#x27;:&quot;\\|,.&lt;&gt;\/?])*$/
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regexErrors"></a>
+                    <span class="name">
+                        <span ><b>regexErrors</b></span>
+                        <a href="#regexErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  email: &#x27;Email is incorrect&#x27;,
+  password:
+    &#x27;Password must contain an upper case letter, a lower case letter and a number&#x27;,
+  phone: &#x27;Phone number is incorrect&#x27;,
+  numbers: &#x27;Digits only&#x27;,
+  //   latin: &#x27;Latin letters only&#x27;,
+  //   latinAndNumbers: &#x27;Latin letters and digits only&#x27;,
+  //   latinAndSpaces: &#x27;Latin letters and spaces only&#x27;,
+  //   safe: &#x27;Latin letters, numbers and special characters only&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/guards/role.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleGuard"></a>
+                    <span class="name">
+                        <span ><b>roleGuard</b></span>
+                        <a href="#roleGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const jwt &#x3D; inject(JwtHelperService);
+  const decode &#x3D; jwt.decodeToken();
+  if (decode.role !&#x3D;&#x3D; route.data[&#x27;requiredRole&#x27;]) {
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/home/components/special/swiper.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SpecialSwiperConfig"></a>
+                    <span class="name">
+                        <span ><b>SpecialSwiperConfig</b></span>
+                        <a href="#SpecialSwiperConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SwiperOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  modules: [Pagination, A11y, Mousewheel, Grid],
+  // autoHeight: true,
+  spaceBetween: 20,
+  // navigation: true,
+  pagination: { clickable: true, dynamicBullets: true },
+
+  slidesPerView: 1,
+
+  breakpoints: {
+    400: {
+      slidesPerView: &#x27;auto&#x27;,
+    },
+    600: {
+      slidesPerView: 2,
+    },
+    // 800: {
+    //   slidesPerView: 3,
+    // },
+    1000: {
+      slidesPerView: 3,
+      grid: {
+        rows: 2,
+        fill: &#x27;row&#x27;,
+      },
+    },
+    1400: {
+      slidesPerView: 4,
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/home/components/used-by/swiper.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UsedBySwiperConfig"></a>
+                    <span class="name">
+                        <span ><b>UsedBySwiperConfig</b></span>
+                        <a href="#UsedBySwiperConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SwiperOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  modules: [Pagination, A11y, Mousewheel, Grid],
+  spaceBetween: 20,
+  pagination: { clickable: true, dynamicBullets: true },
+  autoplay: { delay: 1000 },
+  loop: true,
+
+  slidesPerView: 1,
+  breakpoints: {
+    400: {
+      slidesPerView: &#x27;auto&#x27;,
+    },
+    600: {
+      slidesPerView: 3,
+    },
+    800: {
+      slidesPerView: 5,
+    },
+    1000: {
+      slidesPerView: 6,
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

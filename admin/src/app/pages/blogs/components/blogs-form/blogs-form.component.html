@@ -1,0 +1,71 @@
+@if (data$|async; as data) {
+
+<ng-container>
+  @if (formType === 'Add') {
+  <ng-container>
+    <form
+      novalidate
+      autocomplete="off"
+      class="db-form"
+      [formGroup]="addForm"
+      (ngSubmit)="addNewBlog()"
+    >
+      <div class="db-form-content">
+        <app-form-group [control]="addForm.controls.title">
+          <app-input
+            id="title"
+            label="Title"
+            formControlName="title"
+          ></app-input>
+        </app-form-group>
+
+        <app-form-group [control]="addForm.controls.categoryId">
+          <app-select
+            [items]="data.categories"
+            id="categoryId"
+            label="Category"
+            formControlName="categoryId"
+          ></app-select>
+        </app-form-group>
+
+        <div class="form-group">
+          <label for="user-img" class="form-label">Select Image</label>
+          <input
+            (change)="onSelectFile($event)"
+            type="file"
+            id="user-img"
+            name="user-img"
+            class="form-control"
+          />
+        </div>
+
+        <app-form-group [control]="addForm.controls.desc">
+          <app-textarea
+            id="desc"
+            label="Description"
+            formControlName="desc"
+          ></app-textarea>
+        </app-form-group>
+      </div>
+
+      <button mat-button class="add-btn" type="submit">Add</button>
+    </form>
+  </ng-container>
+  } @else if (formType === 'Delete') {
+
+  <ng-container>
+    <div class="confirm">
+      <h4>
+        Are you sure you want to delete?
+        <span class="confirm-subject">{{ deleteBlog.title }}</span>
+      </h4>
+
+      <div class="confirm-actions">
+        <button mat-button class="accept" (click)="onDeleteBlog()">Yes</button>
+        <button mat-button class="deny" mat-dialog-close>Cancel</button>
+      </div>
+    </div>
+  </ng-container>
+  }
+</ng-container>
+}

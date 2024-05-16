@@ -1,0 +1,86 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Create Account</span>
+</nav>
+
+@if (data$ | async; as data) {
+<div class="container d-flex align-items-center justify-content-center">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    autocomplete="off"
+    novalidate
+    class="form-card seperator"
+  >
+    <div class="card shadow p-4">
+      <legend class="text-center">Create Account</legend>
+
+      <app-form-group [control]="form.controls.firstname">
+        <app-input
+          label="First Name"
+          id="regfirstname"
+          formControlName="firstname"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group [control]="form.controls.lastname">
+        <app-input
+          label="Last Name"
+          id="reglastname"
+          formControlName="lastname"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="form.controls.email"
+        [patternError]="regexErrors.email"
+      >
+        <app-input
+          label="Email"
+          id="regemail"
+          formControlName="email"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group [control]="form.controls.mobile">
+        <app-input
+          label="Mobile"
+          id="regmobile"
+          formControlName="mobile"
+        ></app-input>
+      </app-form-group>
+
+      <app-form-group
+        [control]="form.controls.password"
+        [patternError]="regexErrors.password"
+      >
+        <app-password
+          label="Password"
+          id="regpassword"
+          formControlName="password"
+        ></app-password>
+      </app-form-group>
+
+      <app-form-group
+        [control]="form.controls.confirm_password"
+        [patternError]="regexErrors.password"
+      >
+        <app-password
+          label="Confirm Password"
+          id="regconfirm_password"
+          formControlName="confirm_password"
+        ></app-password>
+      </app-form-group>
+      <div
+        class="form-card__actions d-flex align-items-center justify-content-center gap-2 my-3"
+      >
+        <button class="button-primary" [disabled]="data.isLoading">
+          Create
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+}

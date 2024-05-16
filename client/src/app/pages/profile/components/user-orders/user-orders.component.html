@@ -1,0 +1,77 @@
+@if (orders && orders.length) {
+<div class="table-responsive p-4">
+  <table class="table shadow bg-white table-borderless align-middle">
+    <thead class="">
+      <tr>
+        <th>Id</th>
+        <th>Total Price</th>
+        <th>Price After Discount</th>
+        <th>Created At</th>
+        <th>Pait At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (o of orders; track $index) {
+      <tr class="">
+        <td>{{ o.id }}</td>
+        <td>{{ o.totalPrice | currency }}</td>
+        <td>{{ o.totalPriceAfterDiscount | currency }}</td>
+        <td>{{ o.createdAt | date }}</td>
+        <td>{{ o.paidAt | date }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#contentId' + $index"
+            aria-expanded="false"
+            aria-controls="contentId"
+          >
+            Items
+          </button>
+        </td>
+      </tr>
+      <td colspan="6" class="collapse" [id]="'contentId' + $index">
+        <table class="minimal-table">
+          <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Product Id</th>
+          </thead>
+          <tbody>
+            @for (i of o.OrderItems; track $index) {
+
+            <tr>
+              <td>{{ i.id | slice : 0 : 10 }}</td>
+              <td>{{ i.title | slice : 0 : 15 }}</td>
+              <td>{{ i.color }}</td>
+              <td>{{ i.price | currency }}</td>
+              <td>{{ i.quantity }}</td>
+              <td>{{ i.productId | slice : 0 : 10 }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </td>
+
+      }
+    </tbody>
+  </table>
+</div>
+} @else {
+<div
+  class="d-flex align-items-center justify-content-center bg-white shadow py-4 rounded"
+>
+  <div class="back-to">
+    <p class="back-to-header">Your dont have any orders</p>
+    <a routerLink="/store" class="back-to-link">
+      <span class="back-to-entity">&LeftArrow;</span>
+      <span class="back-to-text">Back to shop</span>
+    </a>
+  </div>
+</div>
+}

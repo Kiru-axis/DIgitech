@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center gap-1">
+  @for (item of starArray(); track $index) {
+  <button class="pointer" (click)="showStarRate($index + 1)">
+    <fa-icon [icon]="icons.star" [size]="size() || 'sm'"></fa-icon></button
+  >}
+</div>

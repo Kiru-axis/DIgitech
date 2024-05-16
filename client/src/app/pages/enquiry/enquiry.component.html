@@ -1,0 +1,87 @@
+<nav
+  class="breadcrumb bg-white py-2 py-md-3 d-flex align-items-center justify-content-center"
+>
+  <a class="breadcrumb-item" routerLink="/">Home</a>
+  <span class="breadcrumb-item active" aria-current="page">Contact</span>
+</nav>
+
+<div class="container seperator">
+  <div class="card shadow p-2">
+    <div class="card-body row g-3 g-sm-1">
+      <div class="col-12 col-md-6">
+        <h4>Contact</h4>
+
+        <form
+          [formGroup]="form"
+          (ngSubmit)="submit()"
+          novalidate
+          autocomplete="off"
+        >
+          <app-form-group [control]="form.controls.name">
+            <app-input
+              label="Name"
+              id="contname"
+              formControlName="name"
+            ></app-input>
+          </app-form-group>
+
+          <app-form-group
+            [control]="form.controls.email"
+            [patternError]="regexErrors.email"
+          >
+            <app-input
+              label="Email"
+              id="contemail"
+              formControlName="email"
+            ></app-input>
+          </app-form-group>
+
+          <app-form-group [control]="form.controls.mobile">
+            <app-input
+              label="Phone"
+              id="contmobile"
+              formControlName="mobile"
+            ></app-input>
+          </app-form-group>
+
+          <app-form-group [control]="form.controls.comment">
+            <app-textarea
+              label="Comment"
+              id="contcomment"
+              formControlName="comment"
+            ></app-textarea>
+          </app-form-group>
+
+          <button [disabled]="!form.valid" class="button-primary px-5 mt-2">
+            Post
+          </button>
+        </form>
+      </div>
+      <div class="col-12 col-md-6 px-md-4">
+        <h4 class="text-capitalize">Get in touch with us</h4>
+
+        <div class="d-flex gap-4 flex-column">
+          <p class="d-flex align-items-center gap-2 text-gloom">
+            <span class="icon"><fa-icon [icon]="icons.home"></fa-icon></span>
+            <span class="txt">778 June Olive,Michuan</span>
+          </p>
+
+          <p class="d-flex align-items-center gap-2 text-gloom">
+            <span class="icon"><fa-icon [icon]="icons.tel"></fa-icon></span>
+            <span class="txt">(+456) 8976-98766</span>
+          </p>
+
+          <p class="d-flex align-items-center gap-2 text-gloom">
+            <span class="icon"><fa-icon [icon]="icons.env"></fa-icon></span>
+            <span class="txt">jun&#64;dxd.mail.com</span>
+          </p>
+
+          <p class="d-flex align-items-center gap-2 text-gloom">
+            <span class="icon"><fa-icon [icon]="icons.info"></fa-icon></span>
+            <span class="txt">Moday-Friday, 10 AM-8 PM</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

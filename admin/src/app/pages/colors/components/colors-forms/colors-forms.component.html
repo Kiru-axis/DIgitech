@@ -1,0 +1,33 @@
+@if (formType === 'Add') {
+<ng-container>
+  <form
+    novalidate
+    autocomplete="off"
+    class="db-form"
+    [formGroup]="addForm"
+    (ngSubmit)="addNewColor()"
+  >
+    <div class="db-form-content">
+      <app-form-group [control]="addForm.controls.name">
+        <app-input id="name" label="Name" formControlName="name"></app-input>
+      </app-form-group>
+    </div>
+
+    <button class="add-btn" mat-button type="submit">Add</button>
+  </form>
+</ng-container>
+} @else {
+<ng-container>
+  <div class="confirm">
+    <h4>
+      Are you sure you want to delete?
+      <span class="confirm-subject">{{ deleteColor.name }}</span>
+    </h4>
+
+    <div class="confirm-actions">
+      <button mat-button class="accept" (click)="onDeleteColor()">Yes</button>
+      <button mat-button class="deny" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</ng-container>
+}

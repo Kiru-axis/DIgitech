@@ -1,0 +1,36 @@
+.main-img-container {
+  height: 570px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: max-content;
+    width: max-content;
+  }
+}
+
+.modal-btn {
+  transition: var(--transition);
+
+  &:hover,
+  :focus {
+    color: #7774e7;
+  }
+}
+
+.nav-item {
+  border: none;
+
+  .nav-link {
+    border: none;
+    color: var(--gray);
+
+    &.active {
+      border-bottom: 2px solid #7774e7;
+      color: #515365;
+      background-color: transparent;
+    }
+  }
+}
